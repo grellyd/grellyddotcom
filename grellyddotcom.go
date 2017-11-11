@@ -15,7 +15,7 @@ type Page struct {
 
 // takes a list of templates
 var templates = template.Must(template.ParseFiles("edit.html", "view.html"))
-var validPath = regexp.MustCompile("^/(edit|save|view)/([a-zA-Z0-9]+)$")
+var validPath = regexp.MustCompile("^/(edit|save|view|status)/([a-zA-Z0-9]*)$")
 
 func router_setup() {
 	// http.HandleFunc("/", handler)
@@ -23,6 +23,7 @@ func router_setup() {
 	http.HandleFunc("/edit/", makeHandler(editHandler))
 	http.HandleFunc("/save/", makeHandler(saveHandler))
     http.HandleFunc("/blog/", makeHandler(blogHandler))
+	http.HandleFunc("/status/", makeHandler(statusHandler))
 }
 
 func serve() {
@@ -50,11 +51,7 @@ func loadPage(title string) (*Page, error) {
 
 func makeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		fmt.Printf("========\n")
-		fmt.Printf("%s\n", r.URL.Path)
-		fmt.Printf("========\n")
 		m := validPath.FindStringSubmatch(r.URL.Path)
-		fmt.Printf("%s\n", m)
 		if m == nil {
 			http.NotFound(w, r)
 			return
@@ -69,6 +66,11 @@ func renderTemplate(w http.ResponseWriter, tmplt string, p *Page) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
+
+func statusHandler(w http.ResponseWriter, r *http.Request, title string) {
+	fmt.Fprintf(w, "OK")
+}
+
 
 func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 	body := r.FormValue("body")
