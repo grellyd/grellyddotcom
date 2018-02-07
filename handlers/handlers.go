@@ -10,7 +10,7 @@ import (
 
 var validPath = regexp.MustCompile("^/(index|edit|save|view|status)/([a-zA-Z0-9]*)$")
 
-func makeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
+func MakeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		m := validPath.FindStringSubmatch(r.URL.Path)
 		if m == nil {
@@ -21,11 +21,11 @@ func makeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.Hand
 	}
 }
 
-func statusHandler(w http.ResponseWriter, r *http.Request, title string) {
+func StatusHandler(w http.ResponseWriter, r *http.Request, title string) {
 	fmt.Fprintf(w, "OK")
 }
 
-func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
+func SaveHandler(w http.ResponseWriter, r *http.Request, title string) {
 	body := r.FormValue("body")
 	p := &pages.Page{Title: title, Body: []byte(body)}
 	err := p.Save()
@@ -36,7 +36,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 	http.Redirect(w, r, "/view/"+title, http.StatusFound)
 }
 
-func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
+func ViewHandler(w http.ResponseWriter, r *http.Request, title string) {
 	p, err := pages.LoadPage(title)
 	if err != nil {
 		http.Redirect(w, r, "/edit/"+title, http.StatusFound)
@@ -46,7 +46,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request, title string) {
 }
 
 // will become edit blog post
-func editHandler(w http.ResponseWriter, r *http.Request, title string) {
+func EditHandler(w http.ResponseWriter, r *http.Request, title string) {
 	p, err := pages.LoadPage(title)
     if err != nil {
         p = &pages.Page{Title: title}
@@ -54,10 +54,10 @@ func editHandler(w http.ResponseWriter, r *http.Request, title string) {
 	renderTemplate(w, "edit", p)
 }
 
-func blogHandler(w http.ResponseWriter, r *http.Request, title string) {
+func BlogHandler(w http.ResponseWriter, r *http.Request, title string) {
 }
 
-func indexHandler(w http.ResponseWriter, r *http.Request, title string) {
+func IndexHandler(w http.ResponseWriter, r *http.Request, title string) {
 	p, err := pages.LoadPage(title)
 	if err != nil {
 		http.NotFound(w, r)
