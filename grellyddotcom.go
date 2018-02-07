@@ -14,7 +14,7 @@ type Page struct {
 }
 
 // takes a list of templates
-var templates = template.Must(template.ParseFiles("edit.html", "view.html"))
+var templates = template.Must(template.ParseFiles("edit.html", "view.html", "index.html"))
 var validPath = regexp.MustCompile("^/(edit|save|view|status)/([a-zA-Z0-9]*)$")
 
 func router_setup() {
@@ -24,6 +24,7 @@ func router_setup() {
 	http.HandleFunc("/save/", makeHandler(saveHandler))
     http.HandleFunc("/blog/", makeHandler(blogHandler))
 	http.HandleFunc("/status/", makeHandler(statusHandler))
+	http.HandleFunc("/index/", makeHandler(indexHandler))
 }
 
 func serve() {
@@ -102,6 +103,15 @@ func editHandler(w http.ResponseWriter, r *http.Request, title string) {
 }
 
 func blogHandler(w http.ResponseWriter, r *http.Request, title string) {
+}
+
+func indexHandler(w http.ResponseWriter, r *http.Request, title string) {
+	p, err := loadPage(title)
+	if err != nil {
+		http.NotFound(w, r)
+		return
+	}
+	renderTemplate(w, "index", p)
 }
 
 
