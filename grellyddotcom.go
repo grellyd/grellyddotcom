@@ -27,7 +27,7 @@ func router_setup() {
 }
 
 func serve() {
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":80", nil)
 }
 
 func main() {
