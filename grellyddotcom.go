@@ -27,7 +27,7 @@ func router_setup() {
 }
 
 func serve() {
-	http.ListenAndServe(":80", nil)
+	http.ListenAndServe(":3000", nil)
 }
 
 func main() {
