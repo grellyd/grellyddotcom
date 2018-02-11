@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 	"regexp"
-	"grellyddotcom/pages"
-	"grellyddotcom/templates"
+	"../pages"
+	"../templates"
 )
 
 var rootPath = regexp.MustCompile("^/$")

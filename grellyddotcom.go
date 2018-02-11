@@ -2,18 +2,14 @@ package main
 
 import (
 	"net/http"
-	"grellyddotcom/handlers"
+	"../handlers"
 )
 
 
-// takes a list of templates
 func router_setup() {
 	http.HandleFunc("/", handlers.MakeHandler(handlers.IndexHandler))
     http.HandleFunc("/blog/", handlers.MakeHandler(handlers.BlogHandler))
 	http.HandleFunc("/status/", handlers.MakeHandler(handlers.StatusHandler))
-	http.HandleFunc("/view/", handlers.MakeHandler(handlers.ViewHandler))
-	http.HandleFunc("/edit/", handlers.MakeHandler(handlers.EditHandler))
-	http.HandleFunc("/save/", handlers.MakeHandler(handlers.SaveHandler))
 }
 
 func serve() {
