@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 	"regexp"
-	"../pages"
-	"../templates"
+	"grellyddotcom/pages"
+	"grellyddotcom/templates"
 )
 
 var rootPath = regexp.MustCompile("^/$")
@@ -81,7 +81,8 @@ func BlogHandler(w http.ResponseWriter, r *http.Request, title string) {
 }
 
 func IndexHandler(w http.ResponseWriter, r *http.Request, title string) {
-	renderTemplate(w, "index", nil)
+	http.Redirect(w, r, "https://github.com/grellyd", http.StatusTemporaryRedirect)
+	// /renderTemplate(w, "index", nil)
 }
 
 func renderTemplate(w http.ResponseWriter, tmplt string, p *pages.Page) {
