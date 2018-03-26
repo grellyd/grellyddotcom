@@ -8,5 +8,5 @@ Currently an old version is deployed at [grellyd.com](http://grellyd.com). Since
 ## Future Steps:
 1. Dockerise the site
 2. Redeploy to AWS
-3. Append a blog section (Perhaps [Journey](https://kabukky.github.io/journey/)?)
+3. Append a blog section (Either homemade or perhaps [Journey](https://kabukky.github.io/journey/)?)
 4. S3 Bucket for resumes on site
