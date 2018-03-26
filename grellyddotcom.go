@@ -2,7 +2,7 @@ package main
 
 import (
 	"net/http"
-	"grellyddotcom/handlers"
+	"github.com/grellyd/grellyddotcom/handlers"
 )
 
 
