@@ -81,8 +81,8 @@ func BlogHandler(w http.ResponseWriter, r *http.Request, title string) {
 }
 
 func IndexHandler(w http.ResponseWriter, r *http.Request, title string) {
-	http.Redirect(w, r, "https://github.com/grellyd", http.StatusTemporaryRedirect)
-	// /renderTemplate(w, "index", nil)
+	//http.Redirect(w, r, "https://github.com/grellyd", http.StatusTemporaryRedirect)
+	 renderTemplate(w, "index", nil)
 }
 
 func renderTemplate(w http.ResponseWriter, tmplt string, p *pages.Page) {
