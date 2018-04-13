@@ -1,0 +1,12 @@
+[submodule "themes/hugo-xmin"]
+	path = themes/hugo-xmin
+	url = https://github.com/yihui/hugo-xmin
+[submodule "themes/hugo-paper"]
+	path = themes/hugo-paper
+	url = https://github.com/nanxiaobei/hugo-paper
+[submodule "themes/paperback"]
+	path = themes/paperback
+	url = https://github.com/damiencaselli/paperback
+[submodule "themes/hugo-theme-html5"]
+	path = themes/hugo-theme-html5
+	url = https://github.com/simonmika/hugo-theme-html5/
