@@ -1,0 +1,13 @@
+baseURL: https://grellyd.com/
+title: Graham L. Brown
+languageCode: en-ca
+theme: hugo-paper
+disableKinds: [RSS, sitemap]
+params:
+    highlight: default
+    topmenu: categories
+
+AuthorName: Graham L. Brown
+GithubUsername: grellyd
+TwitterUsername: grellyd
+LinkedInUsername: grellyd
