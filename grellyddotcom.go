@@ -5,11 +5,15 @@ import (
 	"github.com/grellyd/grellyddotcom/handlers"
 )
 
-
-func router_setup() {
-	http.HandleFunc("/", handlers.MakeHandler(handlers.IndexHandler))
-    http.HandleFunc("/blog/", handlers.MakeHandler(handlers.BlogHandler))
-	http.HandleFunc("/status/", handlers.MakeHandler(handlers.StatusHandler))
+func routerSetup() {
+	// Static pages
+	http.HandleFunc("/", handlers.MakeHandler(handlers.StaticHandler))
+	http.HandleFunc("/about", handlers.MakeHandler(handlers.StaticHandler))
+	http.HandleFunc("/status", handlers.MakeHandler(handlers.StaticHandler))
+	http.HandleFunc("/quote", handlers.MakeHandler(handlers.StaticHandler))
+    
+	// Dynamic page routing
+	http.HandleFunc("/blog", handlers.MakeHandler(handlers.BlogHandler))
 }
 
 func serve() {
@@ -17,6 +21,6 @@ func serve() {
 }
 
 func main() {
-	router_setup()
+	routerSetup()
 	serve()
 }

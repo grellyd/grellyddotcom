@@ -12,3 +12,9 @@ It is deployed on AWS via ElasticBeanstalk in a Docker Container, per the local 
     - There will be a few `layout`s which specifiy the page type, similar to my templates.
     - Styling will probably be the largest obstacle.
 2. S3 Bucket for resumes on site with links
+
+## Flow
+- Markdown content lives in content/posts content/statics
+- Generated html lives in public/posts public/statics
+- Hugo moves between the two
+- Go server serves the static files and the blog posts

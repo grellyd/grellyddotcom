@@ -4,90 +4,56 @@ import (
 	"fmt"
 	"net/http"
 	"regexp"
+	"strings"
 	"github.com/grellyd/grellyddotcom/pages"
-	"github.com/grellyd/grellyddotcom/templates"
+	//"github.com/grellyd/grellyddotcom/layouts"
 )
 
 var rootPath = regexp.MustCompile("^/$")
-var validPath = regexp.MustCompile("^/(blog|status|files)/([a-zA-Z0-9]*)$")
+// TODO: handle ending slash
+var staticPath = regexp.MustCompile("^/(status|about|quote)$")
+var blogPath = regexp.MustCompile("^/blog/([a-zA-Z0-9]*)$")
 
+// MakeHandler creates a function to call when handling a route.
 func MakeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		// TODO: Refactor
-		path := r.URL.Path
-		rootSubStrings := rootPath.FindStringSubmatch(path)
-		otherSubStrings := validPath.FindStringSubmatch(path)
-		if rootSubStrings == nil && otherSubStrings == nil {
+		requestPath := r.URL.Path
+		switch {
+		case rootPath.MatchString(requestPath):
+			fn(w, r, "index")
+			return
+		case staticPath.MatchString(requestPath):
+			staticTitle := strings.Split(requestPath, "/")[1]
+			fn(w, r, staticTitle)
+			return
+		case blogPath.MatchString(requestPath):
+			blogTitle := strings.Split(requestPath, "/")[2]
+			fn(w, r, blogTitle)
+		default:
 			fmt.Printf("'%s' is an invalid path\n", r.URL.Path)
 			http.NotFound(w, r)
 			return
 		}
-		if rootSubStrings != nil {
-			fmt.Printf("Root substrings: %v\n", rootSubStrings)
-			fn(w, r, "index")
-			return
-		} else {
-			fmt.Printf("Other substrings: %v\n", otherSubStrings)
-			fn(w, r, otherSubStrings[2])
-			return
-		}
 	}
 }
 
-func StatusHandler(w http.ResponseWriter, r *http.Request, title string) {
-	p, err := pages.LoadPage("status")
-	if err != nil {
-		http.Redirect(w, r, "/status/"+title, http.StatusFound)
-		return
-	}
-	renderTemplate(w, "status", p)
-}
-
-func SaveHandler(w http.ResponseWriter, r *http.Request, title string) {
-	body := r.FormValue("body")
-	p := &pages.Page{Title: title, Body: []byte(body)}
-	err := p.Save()
+// StaticHandler handles any static page
+func StaticHandler(w http.ResponseWriter, r *http.Request, title string) {
+	_, err := pages.Load(pages.STATIC, title)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	http.Redirect(w, r, "/view/"+title, http.StatusFound)
+	http.ServeFile(w, r, fmt.Sprintf("content/static/%s.html", title))
 }
 
-func ViewHandler(w http.ResponseWriter, r *http.Request, title string) {
-	p, err := pages.LoadPage(title)
-	if err != nil {
-		http.Redirect(w, r, "/edit/"+title, http.StatusFound)
-		return
-	}
-	renderTemplate(w, "view", p)
-}
-
-func EditBlogHandler(w http.ResponseWriter, r *http.Request, title string) {
-	p, err := pages.LoadPage(title)
-    if err != nil {
-        p = &pages.Page{Title: title}
-    }
-	renderTemplate(w, "edit", p)
-}
-
+// BlogHandler manages selecting the correct blog page
 func BlogHandler(w http.ResponseWriter, r *http.Request, title string) {
-	p, err := pages.LoadPage(title)
+	// TODO: handle multi
+	_, err := pages.Load(pages.BLOG, title)
 	if err != nil {
 		http.Redirect(w, r, "/blog/" + title, http.StatusFound)
 		return
 	}
-	renderTemplate(w, "blog", p)
-}
-
-func IndexHandler(w http.ResponseWriter, r *http.Request, title string) {
-	//http.Redirect(w, r, "https://github.com/grellyd", http.StatusTemporaryRedirect)
-	 renderTemplate(w, "index", nil)
-}
-
-func renderTemplate(w http.ResponseWriter, tmplt string, p *pages.Page) {
-	err := templates.All.ExecuteTemplate(w, tmplt+".html", p)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
+	http.ServeFile(w, r, fmt.Sprintf("content/blog/%s.html", title))
 }

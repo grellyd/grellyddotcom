@@ -1,0 +1,54 @@
+<div id='div_intro' class="jumbotron">
+  <h1>Hi!</h1>
+  <h2>I'm Graham L. Brown, software engineer, backpacker, and eternal student.</h2>
+  <p>This page is under construction. Please excuse the mess.</p>
+  <p>In the meantime, connect with me:
+  <ul>
+      <li><a href="https://github.com/grellyd">Github</a></li>
+      <li><a href="https://www.linkedin.com/in/grellyd/">LinkedIn</a></li>
+      <li><a href="https://twitter.com/grellyd/">Twitter</a></li>
+  <a href=''></a>
+</div>
+
+
+<!--
+
+<div id='div_prof_levels'>
+  <img href=''>
+</div>
+
+<div id='div_help' class='jumbotron'>
+  <p>I don't claim to be perfect. Indead, as a backend-dev it is a miracle this is readable! I've made many mistakes along my way. However with each mistake I keep learning and becoming better. I've been very fortunate to be surrounded by so many smart and inspiring people, and had the opportunity to learn from them.<p>
+  <div id='div_help_logos'>
+    <img id='img_help_ubc' href=''>
+    <img id='img_help_lendesk' href=''>
+    <img id='img_help_friends' href=''>
+</div>
+</div>
+
+<div id='div_accomplishemnts' class="jumbotron">
+  <p class="lead">Some of my accomplishments:</p>
+  <ul>
+    <li>
+      <p>VSW && Poolr</p>
+    </li>
+    <li>
+      <p>EIA</p>
+    </li>
+    <li>
+      <p>CtC</p>
+    </li>
+    <li>
+      <p>Avid Traveller</p>
+    </li>
+  </ul>
+</div>
+
+<div id='div_want_more' class='jumbotron'>
+  <h2>Want more Grellyd?</h3>
+  <h3><a id='link_se_resume' href='/files/se_resume.pdf'a>My Software Engineering Resume:</a></h3>
+  <h3><a id='link_outdoor_resume' href='/files/od_resume.pdf'>My Outdoorsy Resume:</a></h3>
+  <h3><a id='link_travel_resume' href='/files/tvl_resume.pdf'>My Travelling Resume: </a></h3>
+</div>
+
+-->
