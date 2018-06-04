@@ -44,7 +44,7 @@ func StaticHandler(w http.ResponseWriter, r *http.Request, title string) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	http.ServeFile(w, r, fmt.Sprintf("content/static/%s.html", title))
+	http.ServeFile(w, r, fmt.Sprintf("public/static/%s.html", title))
 }
 
 // BlogHandler manages selecting the correct blog page
@@ -55,5 +55,5 @@ func BlogHandler(w http.ResponseWriter, r *http.Request, title string) {
 		http.Redirect(w, r, "/blog/" + title, http.StatusFound)
 		return
 	}
-	http.ServeFile(w, r, fmt.Sprintf("content/blog/%s.html", title))
+	http.ServeFile(w, r, fmt.Sprintf("public/blog/%s.html", title))
 }
