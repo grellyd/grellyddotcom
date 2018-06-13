@@ -1,0 +1,14 @@
+<div class="single">
+    <h1><span class="single-title">{{ .Title }}</span></h1>
+    {{ with .Params.author }}
+        <h2 class="single-author">{{ . }}</h2>
+    {{ end }}
+    
+    {{ if (gt .Params.date 0) }}
+        <h2 class="single-date">{{ .Date.Format "2006/01/02" }}</h2>
+    {{ end }}
+</div>
+
+<main>
+{{ .Content}}
+</main>

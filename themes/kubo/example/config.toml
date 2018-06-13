@@ -1,0 +1,10 @@
+baseurl = "/"
+languageCode = "en-ca"
+title = "A light Hugo Site"
+theme = "kubo"
+googleAnalytics = ""
+disableKinds = [RSS, sitemap]
+AuthorName = ""
+GithubUsername = ""
+TwiterUsername = ""
+LinkedInUsername = ""

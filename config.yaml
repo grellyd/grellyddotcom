@@ -1,7 +1,7 @@
 baseURL: https://grellyd.com/
 title: Graham L. Brown
 languageCode: en-ca
-theme: hugo-xmin
+theme: kubo
 disableKinds: [RSS, sitemap]
 params:
     highlight: default
