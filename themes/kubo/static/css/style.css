@@ -1,0 +1,49 @@
+/* top link header */
+#header {
+    margin-top: 20px;
+    margin-bottom: 80px;
+    display: block;
+    overflow: visible;
+}
+
+#footer {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    display: block;
+    overflow: visible;
+}
+
+.links {
+    margin-top: 0px;
+    text-align: center;
+    float: none;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(136, 136, 136, 0.2);
+}
+
+ul {
+    padding: 0px;
+    display: block;
+    text-align: center;
+    float: none;
+    margin-top: 10px;
+}
+
+.links li {
+    display: inline;
+    text-transform: none;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.links li:first-child {
+    margin-left: 0px;
+}
+
+body {
+    font-family: 'Poly', serif;
+    font-weight: normal;
+    font-size: 16px;
+    color: #333333;
+}

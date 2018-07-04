@@ -1,3 +1,4 @@
+{{ define "main" }}
 <div class="single">
     <h1><span class="single-title">{{ .Title }}</span></h1>
     {{ printf "%#v" .Params }}
@@ -18,3 +19,4 @@
 <h2>Params</h2>
 
 {{ printf "%#v" .Params }}
+{{ end }}
