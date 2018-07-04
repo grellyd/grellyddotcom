@@ -1,4 +1,4 @@
-baseURL: https://grellyd.com/
+baseURL: /
 title: Graham L. Brown
 languageCode: en-ca
 theme: kubo
@@ -6,8 +6,8 @@ disableKinds: [RSS, sitemap]
 params:
     highlight: default
     topmenu: categories
+    authorName: Graham L. Brown
 
-AuthorName: Graham L. Brown
 GithubUsername: grellyd
 TwitterUsername: grellyd
 LinkedInUsername: grellyd

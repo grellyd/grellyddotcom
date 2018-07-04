@@ -1,0 +1,48 @@
+{{ .Content }}
+
+<h2>New Posts</h2>
+
+<ul>
+  {{ range (where .Data.Pages "Section" "==" "post") }}
+  <li>
+    <span class="date">{{ .Date.Format "2006/01/02" }}</span>
+    <a href="{{ .URL }}">{{ .Title }}</a>
+  </li>
+  {{ end }}
+</ul>
+
+
+<h2>Statics</h2>
+
+<ul>
+  {{ range (where .Data.Pages "Section" "==" "static") }}
+  <li>
+    <a href="{{ .URL }}">{{ .Title }}</a>
+  </li>
+  {{ end }}
+</ul>
+
+<h2>Printouts</h2>
+<h3>.</h3>
+{{ printf "%#v" . }}
+<h3>$.Site</h3>
+{{ printf "%#v" $.Site }}
+
+<h3>.Data.Pages</h3>
+{{ range .Data.Pages }}
+    {{ printf "%#v" .Title }}
+    <br>
+    {{ printf "%#v" . }}
+    <br>
+{{ end }}
+
+<h3>.Site.RegularPages</h3>
+{{ range .Site.RegularPages }}
+    {{ printf "%#v" .Title }}
+    <br>
+    {{ printf "%#v" . }}
+    <br>
+{{ end }}
+
+<h3>.Params</h3>
+{{ printf "%#v" $.Site.Params }}
