@@ -20,12 +20,11 @@
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: rgba(136, 136, 136, 0.2);
+    padding: 0px;
 }
 
 ul {
-    padding: 0px;
     display: block;
-    text-align: center;
     float: none;
     margin-top: 10px;
 }
