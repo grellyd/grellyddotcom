@@ -1,0 +1,10 @@
+<div id="sidebar" class="sidenav">
+            <a href="/" id="link-title">Grellyd</a>
+            {{ range (where $.Site.Sections "Section" "==" "post") }}
+            <a href="{{ .URL }}">{{ .Title }}</a>
+            {{ end }}
+            {{ range (where $.Site.RegularPages "Section" "==" "static") }}
+            <a href="{{ .URL }}">{{ .Title }}</a>
+            {{ end }}
+            {{ partial "newPosts.html" . }}
+</div>

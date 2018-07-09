@@ -13,7 +13,10 @@
         <title>{{ .Site.Title }}</title>
     </head>
     <body>
+        {{/*  
         {{ partial "header.html" . }}
+        */}}
+        {{ partial "sidebar.html" . }}
         {{ block "main" . }}
         {{ end }}
         {{ partial "footer.html" . }}

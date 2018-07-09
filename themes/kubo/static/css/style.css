@@ -4,6 +4,9 @@
     margin-bottom: 80px;
     display: block;
     overflow: visible;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(136, 136, 136, 0.2);
 }
 
 #footer {
@@ -11,15 +14,18 @@
     margin-bottom: 20px;
     display: block;
     overflow: visible;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgba(136, 136, 136, 0.2);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(136, 136, 136, 0.2);
 }
 
 .links {
     margin-top: 0px;
     text-align: center;
     float: none;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: rgba(136, 136, 136, 0.2);
     padding: 0px;
 }
 
@@ -40,9 +46,65 @@ ul {
     margin-left: 0px;
 }
 
+#link-title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
 body {
     font-family: 'Poly', serif;
     font-weight: normal;
     font-size: 16px;
     color: #333333;
+    margin-left: 200px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+}
+
+/* The sidebar menu */
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 200px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #f5f5f5; /* #fff3e6; #ffb7c5; */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #492600;
+    display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #D2B48C;
+}
+
+.sidenav span.date {
+    font-size: 12px;
+}
+.sidenav a.sidenav-link {
+    font-size: 12px;
+}
+
+.sidenav div.footer {
+    font-size: 12px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+#newPosts a {
+    width: 200px;
+    font-size: 10px;
 }
