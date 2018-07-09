@@ -10,3 +10,6 @@
 [submodule "themes/hugo-theme-html5"]
 	path = themes/hugo-theme-html5
 	url = https://github.com/simonmika/hugo-theme-html5/
+[submodule "themes/kubo_hugo"]
+	path = themes/kubo_hugo
+	url = https://github.com/grellyd/kubo_hugo

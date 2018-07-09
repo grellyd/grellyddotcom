@@ -1,7 +1,7 @@
 baseURL: /
 title: Grellyd - Graham L. Brown
 languageCode: en-ca
-theme: kubo
+theme: kubo_hugo
 disableKinds: [RSS, sitemap]
 params:
     AuthorName: Graham L. Brown
