@@ -1,3 +1,0 @@
-# Grellyd.com
-
-Testing index
