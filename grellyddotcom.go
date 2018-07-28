@@ -6,14 +6,14 @@ import (
 )
 
 func routerSetup() {
-	// Static pages
-	http.HandleFunc("/", handlers.MakeHandler(handlers.StaticHandler))
 	http.HandleFunc("/about", handlers.MakeHandler(handlers.StaticHandler))
 	http.HandleFunc("/status", handlers.MakeHandler(handlers.StaticHandler))
 	http.HandleFunc("/quote", handlers.MakeHandler(handlers.StaticHandler))
     
 	// Dynamic page routing
 	http.HandleFunc("/blog", handlers.MakeHandler(handlers.BlogHandler))
+	// Resource routing ala css
+	http.HandleFunc("/css/", handlers.MakeHandler(handlers.ResourceHandler))
 }
 
 func serve() {

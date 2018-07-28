@@ -8,4 +8,6 @@ const (
 	STATIC PageType = "static"
 	// BLOG PageType
 	BLOG PageType = "blog"
+	// RESOURCE PageType
+	RESOURCE PageType = "css"
 )

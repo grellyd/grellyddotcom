@@ -13,6 +13,7 @@ var rootPath = regexp.MustCompile("^/$")
 // TODO: handle ending slash
 var staticPath = regexp.MustCompile("^/(status|about|quote)$")
 var blogPath = regexp.MustCompile("^/blog/([a-zA-Z0-9]*)$")
+var resourcePath = regexp.MustCompile("^/css/([a-zA-Z0-9]*).css$")
 
 // MakeHandler creates a function to call when handling a route.
 func MakeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
@@ -29,6 +30,10 @@ func MakeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.Hand
 		case blogPath.MatchString(requestPath):
 			blogTitle := strings.Split(requestPath, "/")[2]
 			fn(w, r, blogTitle)
+		case resourcePath.MatchString(requestPath):
+			resourceTitle := strings.Split(requestPath, "/")[2]
+			resourceTitle = strings.Split(resourceTitle, ".")[0]
+			fn(w, r, resourceTitle)
 		default:
 			fmt.Printf("'%s' is an invalid path\n", r.URL.Path)
 			http.NotFound(w, r)
@@ -39,21 +44,34 @@ func MakeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.Hand
 
 // StaticHandler handles any static page
 func StaticHandler(w http.ResponseWriter, r *http.Request, title string) {
-	_, err := pages.Load(pages.STATIC, title)
+	fmt.Println("in static")
+	_, err := pages.Load(pages.STATIC, title, pages.HTML)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	http.ServeFile(w, r, fmt.Sprintf("public/static/%s.html", title))
+	http.ServeFile(w, r, fmt.Sprintf("public/static/%s.%s", title, pages.HTML))
 }
 
 // BlogHandler manages selecting the correct blog page
 func BlogHandler(w http.ResponseWriter, r *http.Request, title string) {
 	// TODO: handle multi
-	_, err := pages.Load(pages.BLOG, title)
+	_, err := pages.Load(pages.BLOG, title, pages.HTML)
 	if err != nil {
 		http.Redirect(w, r, "/blog/" + title, http.StatusFound)
 		return
 	}
-	http.ServeFile(w, r, fmt.Sprintf("public/blog/%s.html", title))
+	http.ServeFile(w, r, fmt.Sprintf("public/blog/%s.%s", title, pages.HTML))
+}
+
+// ResourceHandler manages serving the correct resource (CSS only currently) file
+func ResourceHandler(w http.ResponseWriter, r *http.Request, title string) {
+	fmt.Println(title)
+	_, err := pages.Load(pages.RESOURCE, title, pages.CSS)
+	if err != nil {
+		fmt.Println(err.Error())
+		// TODO: change from do nothing on resource not found. 
+		return
+	}
+	http.ServeFile(w, r, fmt.Sprintf("public/css/%s.%s", title, pages.CSS))
 }

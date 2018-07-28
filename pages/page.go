@@ -11,17 +11,19 @@ type Page struct {
 	Title string
 	Body  []byte
 	File  *os.File
+	PageType PageType
+	Ending PageEnding
 }
 
 // Save a page
 func (p *Page) Save() error {
-	filename := "pages/" + p.Title + ".html"
+	filename := fmt.Sprintf("pages/%s.%s", p.Title, p.Ending) 
 	return ioutil.WriteFile(filename, p.Body, 0600)
 }
 
 // Load a page
-func Load(ptype PageType, title string) (*Page, error) {
-	filename := fmt.Sprintf("public/%s/%s.html", ptype, title)
+func Load(ptype PageType, title string, pending PageEnding) (*Page, error) {
+	filename := fmt.Sprintf("public/%s/%s.%s", ptype, title, pending)
 	// TODO: Combine the two accesses
 	file, err := os.OpenFile(filename, os.O_RDONLY, 444)
 	body, err := ioutil.ReadFile(filename)
