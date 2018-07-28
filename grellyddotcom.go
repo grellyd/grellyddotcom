@@ -6,6 +6,8 @@ import (
 )
 
 func routerSetup() {
+	// Static pages
+	http.HandleFunc("/", handlers.MakeHandler(handlers.StaticHandler))
 	http.HandleFunc("/about", handlers.MakeHandler(handlers.StaticHandler))
 	http.HandleFunc("/status", handlers.MakeHandler(handlers.StaticHandler))
 	http.HandleFunc("/quote", handlers.MakeHandler(handlers.StaticHandler))
