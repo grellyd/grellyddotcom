@@ -9,5 +9,5 @@ const (
 	// BLOG PageType
 	BLOG PageType = "blog"
 	// RESOURCE PageType
-	RESOURCE PageType = "css"
+	RESOURCE PageType = "resource"
 )

@@ -8,4 +8,6 @@ const (
 	HTML PageEnding = "html"
 	// CSS PageEnding
 	CSS PageEnding = "css"
+	// JPG PageEnding
+	JPG PageEnding = "jpg"
 )

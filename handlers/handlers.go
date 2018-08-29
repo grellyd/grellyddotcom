@@ -13,10 +13,22 @@ var rootPath = regexp.MustCompile("^/$")
 // TODO: handle ending slash
 var staticPath = regexp.MustCompile("^/(status|about|quote)$")
 var blogPath = regexp.MustCompile("^/blog/([a-zA-Z0-9]*)$")
-var resourcePath = regexp.MustCompile("^/css/([a-zA-Z0-9]*).css$")
+var resourcePath = regexp.MustCompile("^/(css|images)/([a-zA-Z0-9]*).(css|jpg)$")
 
-// MakeHandler creates a function to call when handling a route.
-func MakeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
+// RouterSetup sets up the http routes available to the webapp
+func RouterSetup() {
+	// Static pages
+	http.HandleFunc("/", makeHandler(staticHandler))
+	// Dynamic page routing
+	http.HandleFunc("/blog", makeHandler(blogHandler))
+	// Resource routing
+	http.HandleFunc("/css/", makeHandler(cssHandler))
+	http.HandleFunc("/images/", makeHandler(imagesHandler))
+}
+
+// makeHandler creates a function to call when handling a route, and passes the correct arguments
+// TODO: Refactor, as currently this is little more than a glorified argument passer
+func makeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		requestPath := r.URL.Path
 		switch {
@@ -32,7 +44,6 @@ func MakeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.Hand
 			fn(w, r, blogTitle)
 		case resourcePath.MatchString(requestPath):
 			resourceTitle := strings.Split(requestPath, "/")[2]
-			resourceTitle = strings.Split(resourceTitle, ".")[0]
 			fn(w, r, resourceTitle)
 		default:
 			fmt.Printf("'%s' is an invalid path\n", r.URL.Path)
@@ -43,18 +54,18 @@ func MakeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.Hand
 }
 
 // StaticHandler handles any static page
-func StaticHandler(w http.ResponseWriter, r *http.Request, title string) {
+func staticHandler(w http.ResponseWriter, r *http.Request, title string) {
 	fmt.Println("in static")
 	_, err := pages.Load(pages.STATIC, title, pages.HTML)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	http.ServeFile(w, r, fmt.Sprintf("public/static/%s.%s", title, pages.HTML))
+	http.ServeFile(w, r, fmt.Sprintf("public/%s.%s", title, pages.HTML))
 }
 
 // BlogHandler manages selecting the correct blog page
-func BlogHandler(w http.ResponseWriter, r *http.Request, title string) {
+func blogHandler(w http.ResponseWriter, r *http.Request, title string) {
 	// TODO: handle multi
 	_, err := pages.Load(pages.BLOG, title, pages.HTML)
 	if err != nil {
@@ -64,10 +75,26 @@ func BlogHandler(w http.ResponseWriter, r *http.Request, title string) {
 	http.ServeFile(w, r, fmt.Sprintf("public/blog/%s.%s", title, pages.HTML))
 }
 
-// ResourceHandler manages serving the correct resource (CSS only currently) file
-func ResourceHandler(w http.ResponseWriter, r *http.Request, title string) {
-	fmt.Println(title)
-	_, err := pages.Load(pages.RESOURCE, title, pages.CSS)
+// ImageHandler manages serving the correct resource file
+func imagesHandler(w http.ResponseWriter, r *http.Request, title string) {
+	resourceName := strings.Split(title, ".")[0]
+	// TODO: The next line could error if PageEnding differs from the regex. Make single point of truth
+	resourceType := pages.PageEnding(strings.Split(title, ".")[1])
+	_, err := pages.Load(pages.RESOURCE, resourceName, resourceType)
+	if err != nil {
+		fmt.Println(err.Error())
+		// TODO: change from do nothing on resource not found. 
+		return
+	}
+	http.ServeFile(w, r, fmt.Sprintf("public/images/%s.%s", title, pages.JPG))
+}
+
+// CSSHandler manages serving the correct resource file
+func cssHandler(w http.ResponseWriter, r *http.Request, title string) {
+	resourceName := strings.Split(title, ".")[0]
+	// TODO: The next line could error if PageEnding differs from the regex. Make single point of truth
+	resourceType := pages.PageEnding(strings.Split(title, ".")[1])
+	_, err := pages.Load(pages.RESOURCE, resourceName, resourceType)
 	if err != nil {
 		fmt.Println(err.Error())
 		// TODO: change from do nothing on resource not found. 
