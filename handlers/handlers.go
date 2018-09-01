@@ -9,11 +9,13 @@ import (
 	//"github.com/grellyd/grellyddotcom/layouts"
 )
 
+// TODO: Overall refactoring needed. Currently every resource is loaded twice per request.
+
 var rootPath = regexp.MustCompile("^/$")
 // TODO: handle ending slash
 var staticPath = regexp.MustCompile("^/(status|about|quote)$")
 var blogPath = regexp.MustCompile("^/blog/([a-zA-Z0-9]*)$")
-var resourcePath = regexp.MustCompile("^/(css|images)/([a-zA-Z0-9]*).(css|jpg)$")
+var resourcePath = regexp.MustCompile("^/(css|images)/([a-zA-Z0-9_]*).(css|jpg)$")
 
 // RouterSetup sets up the http routes available to the webapp
 func RouterSetup() {
@@ -55,7 +57,6 @@ func makeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.Hand
 
 // StaticHandler handles any static page
 func staticHandler(w http.ResponseWriter, r *http.Request, title string) {
-	fmt.Println("in static")
 	_, err := pages.Load(pages.STATIC, title, pages.HTML)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -78,27 +79,23 @@ func blogHandler(w http.ResponseWriter, r *http.Request, title string) {
 // ImageHandler manages serving the correct resource file
 func imagesHandler(w http.ResponseWriter, r *http.Request, title string) {
 	resourceName := strings.Split(title, ".")[0]
-	// TODO: The next line could error if PageEnding differs from the regex. Make single point of truth
-	resourceType := pages.PageEnding(strings.Split(title, ".")[1])
-	_, err := pages.Load(pages.RESOURCE, resourceName, resourceType)
+	_, err := pages.Load(pages.IMAGESRESOURCE, resourceName, pages.JPG)
 	if err != nil {
 		fmt.Println(err.Error())
 		// TODO: change from do nothing on resource not found. 
 		return
 	}
-	http.ServeFile(w, r, fmt.Sprintf("public/images/%s.%s", title, pages.JPG))
+	http.ServeFile(w, r, fmt.Sprintf("public/images/%s.%s", resourceName, pages.JPG))
 }
 
 // CSSHandler manages serving the correct resource file
 func cssHandler(w http.ResponseWriter, r *http.Request, title string) {
 	resourceName := strings.Split(title, ".")[0]
-	// TODO: The next line could error if PageEnding differs from the regex. Make single point of truth
-	resourceType := pages.PageEnding(strings.Split(title, ".")[1])
-	_, err := pages.Load(pages.RESOURCE, resourceName, resourceType)
+	_, err := pages.Load(pages.CSSRESOURCE, resourceName, pages.CSS)
 	if err != nil {
 		fmt.Println(err.Error())
 		// TODO: change from do nothing on resource not found. 
 		return
 	}
-	http.ServeFile(w, r, fmt.Sprintf("public/css/%s.%s", title, pages.CSS))
+	http.ServeFile(w, r, fmt.Sprintf("public/css/%s.%s", resourceName, pages.CSS))
 }
