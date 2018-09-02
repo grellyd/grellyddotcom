@@ -1,0 +1,55 @@
+/* This file is for your main application css. */
+
+.profile_image {
+    border-radius: 10px;
+}
+
+/* Font Awesome Social Links */
+/* Style all font awesome icons */
+.fa-icon {
+    padding: 20px;
+    font-size: 30px;
+    width: auto;
+    height: auto;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    position: relative;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+    opacity: 0.4;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+/* Github */
+.fa-github {
+    background: #767676;
+    color: white;
+}
+
+/* LinkedIn */
+.fa-linkedin {
+    background: #0077B5;
+    color: white;
+}
+
+/* Instagram */
+.fa-instagram {
+    background: #0077B5;
+    color: white;
+}

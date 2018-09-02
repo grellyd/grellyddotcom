@@ -24,6 +24,3 @@ grellyddotcom.zip
 !.elasticbeanstalk/*.global.yml
 .ebextensions/*
 .ebextensions/environmentvariables.config
-
-# Hugo Generated Files
-public/
