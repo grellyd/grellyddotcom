@@ -57,12 +57,12 @@ func makeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.Hand
 
 // StaticHandler handles any static page
 func staticHandler(w http.ResponseWriter, r *http.Request, title string) {
-	err := pages.Exist(pages.STATIC, title, pages.HTML)
+	err := pages.CheckExistence(pages.STATIC, title, pages.HTML)
 	if err != nil {
+		http.ServeFile(w, r, fmt.Sprintf("public/%s.%s", title, pages.HTML))
+	} else {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
 	}
-	http.ServeFile(w, r, fmt.Sprintf("public/%s.%s", title, pages.HTML))
 }
 
 // BlogHandler manages selecting the correct blog page

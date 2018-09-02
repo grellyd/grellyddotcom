@@ -33,22 +33,19 @@ func Load(ptype PageType, title string, pending PageEnding) (*Page, error) {
 	return &Page{Title: title, Body: body, File: file}, nil
 }
 
-// Exist a page
-func Exist(ptype PageType, title string, pending PageEnding) (exists bool, err error) {
-	exists = false
-	filename := fmt.Sprintf("%s.%s", title, pending)
-	// does the file exist in the root
-	fileInfo, err := os.Stat(filename)
-	exists = os.IsExist(err)
-	if !exists {
-		fullFilename := fmt.Sprintf("%s/%s", ptype, filename)
-		// does the file exist in the type directory
-		fileInfo, err = os.Stat(fullFilename)
-		exists = os.IsExist(err)
-
-	}
-
+// CheckExistence of a page. Error on failure, nil otherwise
+func CheckExistence(ptype PageType, title string, pending PageEnding)  error {
+	filename := fmt.Sprintf("public/%s.%s", title, pending)
+	typeFilename := fmt.Sprintf("public/%s/%s.%s", ptype, title, pending)
+	// does the file exist in the root or the type subdir
+	if fileExists(filename) || fileExists(typeFilename) {
+		return nil
+	} 
+	return fmt.Errorf("%s.%s of type %s does not exist", title, pending, ptype)
 }
 
-	return exists, err
+func fileExists(filename string) (exists bool) {
+	exists = false
+	_, err := os.Stat(filename)
+	return os.IsExist(err)
 }
