@@ -57,6 +57,11 @@ func makeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.Hand
 
 // StaticHandler handles any static page
 func staticHandler(w http.ResponseWriter, r *http.Request, title string) {
+	err := pages.Exist(pages.STATIC, title, pages.HTML)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 	http.ServeFile(w, r, fmt.Sprintf("public/%s.%s", title, pages.HTML))
 }
 
