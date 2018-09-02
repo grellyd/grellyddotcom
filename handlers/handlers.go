@@ -6,7 +6,6 @@ import (
 	"regexp"
 	"strings"
 	"github.com/grellyd/grellyddotcom/pages"
-	//"github.com/grellyd/grellyddotcom/layouts"
 )
 
 // TODO: Overall refactoring needed. Currently every resource is loaded twice per request.
