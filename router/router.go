@@ -16,3 +16,7 @@ func buildRegex(validPaths string) (r *regexp.Regexp, err error) {
 	return r, err
 }
 
+
+func decomposeURL(url string) (section *string, title *string, err error) {
+	return nil, nil, nil
+}

@@ -2,6 +2,7 @@ package pages
 
 // PageType is the type of a page indicating how the page should be treated
 // TODO: Refactor. Messy with page ending, and no struct/combined statics. 
+// TODO: Rename to 'section' or 'sectionType' or something similar
 type PageType string 
 
 const (
