@@ -35,11 +35,12 @@ func Load(section string, title string, pending PageEnding) (*Page, error) {
 // CheckExistence of a page. Error on failure, nil otherwise
 func CheckExistence(section string, title string, pending PageEnding) error {
 	filename := ""
-	if section == "" {
+	if len(section) == 0 {
 		filename = fmt.Sprintf("public/%s.%s", title, pending)
 	} else {
 		filename = fmt.Sprintf("public/%s/%s.%s", section, title, pending)
 	}
+	fmt.Printf("looking for '%s'\n", filename)
 	// Is the file missing?
 	if !fileExists(filename) {
 		return fmt.Errorf("'%s.%s' of '%s' does not exist", title, pending, section)

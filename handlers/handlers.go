@@ -7,6 +7,8 @@ import (
 	"github.com/grellyd/grellyddotcom/pages"
 )
 
+// TODO: Remove duplication
+
 // Static handles any static page
 func Static(w http.ResponseWriter, r *http.Request) {
 	section, title, err := decomposeURL(r.URL.Path)
@@ -67,15 +69,15 @@ func CSS(w http.ResponseWriter, r *http.Request) {
 func decomposeURL(url string) (section string, title string, err error) {
 	components := strings.Split(url, "/")
 	switch len(components) {
-		case 0: 
+	case 1: 
 		// root url
 		section = ""
 		title = "index"
-	case 1:
+	case 2:
 		// section header
 		section = components[1]
 		title = "index"
-	case 2:
+	case 3:
 		// section page
 		section = components[1]
 		title = components[2]
