@@ -8,6 +8,10 @@ import (
 	"github.com/grellyd/grellyddotcom/pages"
 )
 
+// declare allowed paths
+// register each with a setup call
+// 
+
 // TODO: Overall refactoring needed. Currently every resource is loaded twice per request.
 
 var rootPath = regexp.MustCompile("^/$")

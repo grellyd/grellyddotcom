@@ -10,6 +10,10 @@ func serve() {
 }
 
 func main() {
-	handlers.RouterSetup()
+	registerRoutes()
 	serve()
+}
+
+func registerRoutes() {
+	handlers.RouterSetup()
 }

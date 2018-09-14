@@ -34,7 +34,7 @@ func Load(ptype PageType, title string, pending PageEnding) (*Page, error) {
 }
 
 // CheckExistence of a page. Error on failure, nil otherwise
-func CheckExistence(ptype PageType, title string, pending PageEnding)  error {
+func CheckExistence(ptype PageType, title string, pending PageEnding) error {
 	filename := fmt.Sprintf("public/%s.%s", title, pending)
 	typeFilename := fmt.Sprintf("public/%s/%s.%s", ptype, title, pending)
 	// does the file exist in the root or the type subdir
