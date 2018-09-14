@@ -3,102 +3,84 @@ package handlers
 import (
 	"fmt"
 	"net/http"
-	"regexp"
 	"strings"
 	"github.com/grellyd/grellyddotcom/pages"
 )
 
-// declare allowed paths
-// register each with a setup call
-// 
-
-// TODO: Overall refactoring needed. Currently every resource is loaded twice per request.
-
-var rootPath = regexp.MustCompile("^/$")
-// TODO: handle ending slash
-var staticPath = regexp.MustCompile("^/(status|about|quote)$")
-var blogPath = regexp.MustCompile("^/blog/([a-zA-Z0-9]*)$")
-var resourcePath = regexp.MustCompile("^/(css|images)/([a-zA-Z0-9_]*).(css|jpg)$")
-
-// RouterSetup sets up the http routes available to the webapp
-func RouterSetup() {
-	// Static pages
-	http.HandleFunc("/", makeHandler(staticHandler))
-	// Dynamic page routing
-	http.HandleFunc("/blog", makeHandler(blogHandler))
-	// Resource routing
-	http.HandleFunc("/css/", makeHandler(cssHandler))
-	http.HandleFunc("/images/", makeHandler(imagesHandler))
-}
-
-// makeHandler creates a function to call when handling a route, and passes the correct arguments
-// TODO: Refactor, as currently this is little more than a glorified argument passer
-func makeHandler(fn func (http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		requestPath := r.URL.Path
-		switch {
-		case rootPath.MatchString(requestPath):
-			fn(w, r, "index")
-			return
-		case staticPath.MatchString(requestPath):
-			staticTitle := strings.Split(requestPath, "/")[1]
-			fn(w, r, staticTitle)
-			return
-		case blogPath.MatchString(requestPath):
-			blogTitle := strings.Split(requestPath, "/")[2]
-			fn(w, r, blogTitle)
-		case resourcePath.MatchString(requestPath):
-			resourceTitle := strings.Split(requestPath, "/")[2]
-			fn(w, r, resourceTitle)
-		default:
-			fmt.Printf("'%s' is an invalid path\n", r.URL.Path)
-			http.NotFound(w, r)
-			return
-		}
-	}
-}
-
-// StaticHandler handles any static page
-func staticHandler(w http.ResponseWriter, r *http.Request, title string) {
-	err := pages.CheckExistence(pages.STATIC, title, pages.HTML)
+// Static handles any static page
+func Static(w http.ResponseWriter, r *http.Request) {
+	section, title, err := decomposeURL(r.URL.Path)
 	if err != nil {
-		http.ServeFile(w, r, fmt.Sprintf("public/%s.%s", title, pages.HTML))
+		http.Error(w, fmt.Sprintf("unable to handle static page: %s", err.Error()), http.StatusInternalServerError)
+	}
+	err = pages.CheckExistence(section, title, pages.HTML)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("unable to handle static page: %s", err.Error()), http.StatusInternalServerError)
 	} else {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.ServeFile(w, r, fmt.Sprintf("public/%s.%s", title, pages.HTML))
 	}
 }
 
-// BlogHandler manages selecting the correct blog page
-func blogHandler(w http.ResponseWriter, r *http.Request, title string) {
-	// TODO: handle multi
-	_, err := pages.Load(pages.BLOG, title, pages.HTML)
+// Blog manages selecting the correct blog page
+func Blog(w http.ResponseWriter, r *http.Request) {
+	section, title, err := decomposeURL(r.URL.Path)
 	if err != nil {
-		http.Redirect(w, r, "/blog/" + title, http.StatusFound)
-		return
+		http.Error(w, fmt.Sprintf("unable to handle blog page: %s", err.Error()), http.StatusInternalServerError)
 	}
-	http.ServeFile(w, r, fmt.Sprintf("public/blog/%s.%s", title, pages.HTML))
+	err = pages.CheckExistence(section, title, pages.HTML)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("unable to handle blog page: %s", err.Error()), http.StatusInternalServerError)
+	} else {
+		http.ServeFile(w, r, fmt.Sprintf("public/blog/%s.%s", title, pages.HTML))
+	}
 }
 
-// ImageHandler manages serving the correct resource file
-func imagesHandler(w http.ResponseWriter, r *http.Request, title string) {
-	resourceName := strings.Split(title, ".")[0]
-	_, err := pages.Load(pages.IMAGESRESOURCE, resourceName, pages.JPG)
+// Images manages serving the correct resource file
+func Images(w http.ResponseWriter, r *http.Request) {
+	section, title, err := decomposeURL(r.URL.Path)
 	if err != nil {
-		fmt.Println(err.Error())
-		// TODO: change from do nothing on resource not found. 
-		return
+		http.Error(w, fmt.Sprintf("unable to handle image: %s", err.Error()), http.StatusInternalServerError)
 	}
-	http.ServeFile(w, r, fmt.Sprintf("public/images/%s.%s", resourceName, pages.JPG))
+	err = pages.CheckExistence(section, title, pages.HTML)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("unable to handle image: %s", err.Error()), http.StatusInternalServerError)
+	} else {
+		http.ServeFile(w, r, fmt.Sprintf("public/images/%s.%s", title, pages.JPG))
+	}
 }
 
-// CSSHandler manages serving the correct resource file
-func cssHandler(w http.ResponseWriter, r *http.Request, title string) {
-	resourceName := strings.Split(title, ".")[0]
-	_, err := pages.Load(pages.CSSRESOURCE, resourceName, pages.CSS)
+// CSS manages serving the correct resource file
+func CSS(w http.ResponseWriter, r *http.Request) {
+	section, title, err := decomposeURL(r.URL.Path)
 	if err != nil {
-		fmt.Println(err.Error())
-		// TODO: change from do nothing on resource not found. 
-		return
+		http.Error(w, fmt.Sprintf("unable to handle image: %s", err.Error()), http.StatusInternalServerError)
 	}
-	http.ServeFile(w, r, fmt.Sprintf("public/css/%s.%s", resourceName, pages.CSS))
+	err = pages.CheckExistence(section, title, pages.HTML)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("unable to handle image: %s", err.Error()), http.StatusInternalServerError)
+	} else {
+		http.ServeFile(w, r, fmt.Sprintf("public/images/%s.%s", title, pages.CSS))
+	}
+}
+
+// decomponseURL breaks a URL down into its section and title for hugo's routing.
+func decomposeURL(url string) (section string, title string, err error) {
+	components := strings.Split(url, "/")
+	switch len(components) {
+		case 0: 
+		// root url
+		section = ""
+		title = "index"
+	case 1:
+		// section header
+		section = components[1]
+		title = "index"
+	case 2:
+		// section page
+		section = components[1]
+		title = components[2]
+	default:
+		err = fmt.Errorf("unhandled url structure")
+	}
+	return section, title, err
 }
