@@ -7,7 +7,7 @@ draft: false
 
 ## Graham L. Brown
 ### Vancouver, BC V6R 2G1
-[graham@grellyd.com](graham@grellyd.com)
+Email: <u>graham at grellyd.com</u>
 
 
 ## Objective
