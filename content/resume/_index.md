@@ -4,48 +4,41 @@ date: 2018-09-12T16:11:18-07:00
 draft: false
 ---
 
-<table><tr><td>
-Graham L. Brown
-3536 West 10th Ave
-Vancouver, BC V6R 2G1
-+1(604)603-7510
-graham@grellyd.com
-</td><td>
-https://grellyd.com
-https://github.com/grellyd
-https://linkedin.com/in/grellyd
-https://twitter.com/grellyd
-</td></tr></table>
+
+## Graham L. Brown
+### Vancouver, BC V6R 2G1
+[graham@grellyd.com](graham@grellyd.com)
+
 
 ## Objective
-----
-**Backend** software developer for a small to medium scrappy **startup** in a **network** and **pipeline** engineering role using a **compiled** language.
-----
+<b>Backend</b> software developer for a small to medium scrappy <b>startup</b> in a <b>network</b> and <b>pipeline</b> engineering role using a <b>compiled</b> language.
 
 ## Employment
 
 <table> 
-<tr>
-<td>2017 Vancouver, BC</td>
-<td>
-Lendesk: Software Developer Co-op
- *  Led an effort to create a **naive bayes** based automatic document
-classification system in **Python** using **SciKit Learn** trained on
-Lendesk’s dataset.
- * Created a **real-time** identity verification system of Licensed Mortgage
-Brokers in Canada for the Level by Lendesk mobile app in **Ruby** using
-Nokogiri** and the core Lendesk **Rails** monolith.
+<tr><td colspan=2><h3>Lendesk: Software Developer Co-op</h3></td></tr>
+<tr><td>2017<br>Vancouver, BC</td>
+<td><ul>
+<li>Led an effort to create a <b>naive bayes</b> based automatic document
+classification system in <b>Python</b> using <b>SciKit Learn</b> trained on
+Lendesk’s dataset. </li>
+<li>Created a <b>real-time</b> identity verification system of Licensed Mortgage
+Brokers in Canada for the Level by Lendesk mobile app in <b>Ruby</b> using
+Nokogiri<b> and the core Lendesk <b>Rails</b> monolith.</li>
+</ul>
 </td></tr>
-<tr><td>
-2015 Surrey, BC </td><td>
-FINCAD: Software Developer Co-op
- * Authored a **Technical Design Document** (TDD) for a power user
-usability enhancement project after **gathering requirements** from
-multiple stakeholders.
- * Battled **WinForms** and **VBA** to add functionality and enhancements to
-the main FINCAD product.
- * Developed a **Django** web interface to **Twisted** asynchronous workers
-for dispatching calculation jobs.
+
+<tr><td colspan=2><h3>FINCAD: Software Developer Co-op</h3></td></tr>
+<tr><td>2015<br>Surrey, BC</td>
+<td><ul>
+<li>Authored a <b>Technical Design Document</b> (TDD) for a power user
+usability enhancement project after <b>gathering requirements</b> from
+multiple stakeholders. </li>
+<li>Battled <b>WinForms</b> and <b>VBA</b> to add functionality and enhancements to
+the main FINCAD product.</li>
+<li>Developed a <b>Django</b> web interface to <b>Twisted</b> asynchronous workers
+for dispatching calculation jobs.</li>
+</ul>
 </td></tr>
 </table>
 
@@ -56,32 +49,32 @@ for dispatching calculation jobs.
 <td>2018-Present</td>
 <td>Kubo & grellyd.com
  * Authored and updated my static page w
- ebsite generated with **Hugo**
-using my **Kubo** template and a custom **Go** server.
- * Attended the **GoNorthwest conference **due to involvement in and
-admiration of the Go **community**.</td>
+ ebsite generated with <b>Hugo</b>
+using my <b>Kubo</b> template and a custom <b>Go</b> server.
+ * Attended the <b>GoNorthwest conference </b>due to involvement in and
+admiration of the Go <b>community</b>.</td>
 </tr><tr>
 <td>2017</td>
 <td>SAM: Ericsson Innovation Awards 2017 Semi-Finalist
- * Developed and validated the concept of providing **low-cost** data-based
+ * Developed and validated the concept of providing <b>low-cost</b> data-based
 farming via satellite imagery analysis for developing communities.
 </td>
 </tr><tr>
 <td>2016-2017</td>
 <td> Poolr: Vancouver Startup Weekend Hackathon Winner 2016
  * Pitched our B2B intra-company relationship building app successfully
- * Built **mobile** **MVP** alongside Two Tall Totems development studio
+ * Built <b>mobile</b> <b>MVP</b> alongside Two Tall Totems development studio
 </td>
 </tr><tr>
 <td>2016-2017</td>
 <td>Code the Change: Cofounder of UBC Club building software for Nonprofits
- * Built software solutions for needs in the local **nonprofit** community
+ * Built software solutions for needs in the local <b>nonprofit</b> community
 </td></tr></table>
 
 
 ## Education
 
-**BSc**. in **Computer Science** from the University of British Columbia (UBC).
+<b>BSc</b>. in <b>Computer Science</b> from the University of British Columbia (UBC).
 Expected Graduation Fall 2018
 
 ## Personal
