@@ -88,7 +88,7 @@ farming via satellite imagery analysis for developing communities.</li>
 ## Education
 
 <b>BSc</b>. in <b>Computer Science</b> from the University of British Columbia (UBC).
-Expected Graduation Fall 2018
+Expected Graduation Nov 2018
 
 ## Personal
 
