@@ -20,7 +20,14 @@ func Static(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		http.Error(w, fmt.Sprintf("unable to handle static page: %s", err.Error()), http.StatusInternalServerError)
 	} else {
-		http.ServeFile(w, r, fmt.Sprintf("public/%s.%s", title, pages.HTML))
+		filepath := ""
+		if len(section) == 0 {
+			filepath = fmt.Sprintf("public/%s.%s", title, pages.HTML)
+		} else {
+			filepath = fmt.Sprintf("public/%s/%s.%s", section, title, pages.HTML)
+		}
+		globallogger.Debug(fmt.Sprintf("Serving '%s'", filepath))
+		http.ServeFile(w, r, filepath)
 	}
 }
 

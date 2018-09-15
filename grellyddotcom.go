@@ -10,6 +10,17 @@ import (
 	"github.com/grellyd/filelogging/state"
 )
 
+func main() {
+	err := setup()
+	if err != nil {
+		// Top Level Err Handle
+		globallogger.Fatal(err.Error())
+		os.Exit(1)
+	}
+	globallogger.Debug("Setup Complete")
+	http.ListenAndServe(":3000", nil)
+}
+
 func setup() (err error) {
 	err = registerRoutes()
 	if err != nil {
@@ -22,16 +33,6 @@ func setup() (err error) {
 	return nil
 }
 
-func main() {
-	err := setup()
-	if err != nil {
-		// Top Level Err Handle
-		globallogger.Fatal(err.Error())
-		os.Exit(1)
-	}
-	globallogger.Debug("Setup Complete")
-	http.ListenAndServe(":3000", nil)
-}
 
 func registerRoutes() (err error) {
 	err = router.Register("/", "(^/$)|(^/(status|about|quote)$)", handlers.Static)
