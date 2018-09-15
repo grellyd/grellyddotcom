@@ -6,7 +6,7 @@
 
 This page is under construction. Please excuse the mess. 
 
-In the meantime, connect with me!
+In the meantime, take a look at my [resume](/resume) and connect with me!
 
  * [Github](https://github.com/grellyd)
  * [LinkedIn](https://www.linkedin.com/in/grellyd/)

@@ -22,6 +22,8 @@ After starting at the [University of British Columbia](https://ubc.ca) in 2012 i
 That winter I made my very first project: a game titled "The Adventures of Twerpicus", a Christmas gift for my girlfriend at the time. She was a huge Zelda fan, and so I made a clone of our CPSC 110 final project, Pacman. I reused some of the display and movement logic from our project and added more features such as levels, power ups, enemies with combat mechanics, and complete custom pixel art. Written in Racket it required special software to run, and was far from groundbreaking. However the pleasure I got building the game and the sense of accomplishment at the end hooked me. My girlfriend's amazement at the gift helped seal the deal.
 
 Since then I've gone from class to class, project to project, job to job, with the same sense of wonder, freedom, and power. I am very happy to be in this field, and aim to use this fabulous toolset to create a good impact.
+
+
  - notable Achievements and short description
 
 ### Backpacking/Outdoors
