@@ -9,8 +9,8 @@ import (
 // Route is a route routed by the router
 type Route struct{
 	path string;
-	validRegexp *regexp.Regexp;
-	handler func(http.ResponseWriter, *http.Request);
+	reg *regexp.Regexp;
+	handler http.Handler
 }
 
 // Routes are all the registered routes
@@ -25,8 +25,8 @@ func Register(path string, validRegexp string, handler func (http.ResponseWriter
 	http.HandleFunc(path, handler)
 	route := Route{
 		path: path,
-		validRegexp: r,
-		handler: handler,
+		reg: r,
+		handler: http.HandlerFunc(handler),
 	}
 	Routes = append(Routes, route)
 	return nil

@@ -12,27 +12,23 @@ import (
 
 func main() {
 	err := setup()
-	if err != nil {
-		// Top Level Err Handle
-		globallogger.Fatal(err.Error())
-		os.Exit(1)
-	}
-	globallogger.Debug("Setup Complete")
+	checkError(err)
+	globallogger.Info("Setup Complete")
+	// http.ListenAndServe(":3000", http.FileServer(http.Dir("public/")))
 	http.ListenAndServe(":3000", nil)
 }
 
 func setup() (err error) {
-	err = registerRoutes()
+	err = globallogger.NewGlobalLogger("grellyd.com Server", state.DEBUGGING)
 	if err != nil {
 		return fmt.Errorf("setup failed: %s", err.Error())
 	}
-	err = globallogger.NewGlobalLogger("grellyd.com Server", state.DEBUGGING)
+	err = registerRoutes()
 	if err != nil {
 		return fmt.Errorf("setup failed: %s", err.Error())
 	}
 	return nil
 }
-
 
 func registerRoutes() (err error) {
 	err = router.Register("/", "(^/$)|(^/(status|about|quote)$)", handlers.Static)
@@ -52,4 +48,12 @@ func registerRoutes() (err error) {
 		return fmt.Errorf("unable to register images: %s", err.Error())
 	}
 	return nil
+}
+
+func checkError(err error) {
+	if err != nil {
+		// Top Level Err Handle
+		globallogger.Fatal(err.Error())
+		os.Exit(1)
+	}
 }
