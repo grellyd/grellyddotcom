@@ -16,6 +16,7 @@
 application
 grellyddotcom
 grellyddotcom.zip
+/logs
 /tmp
 
 # Elastic Beanstalk Files

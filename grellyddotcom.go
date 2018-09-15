@@ -6,16 +6,30 @@ import (
 	"net/http"
 	"github.com/grellyd/grellyddotcom/handlers"
 	"github.com/grellyd/grellyddotcom/router"
+	"github.com/grellyd/filelogging/globallogger"
+	"github.com/grellyd/filelogging/state"
 )
 
+func setup() (err error) {
+	err = registerRoutes()
+	if err != nil {
+		return fmt.Errorf("setup failed: %s", err.Error())
+	}
+	err = globallogger.NewGlobalLogger("grellyd.com Server", state.DEBUGGING)
+	if err != nil {
+		return fmt.Errorf("setup failed: %s", err.Error())
+	}
+	return nil
+}
 
 func main() {
-	err := registerRoutes()
+	err := setup()
 	if err != nil {
 		// Top Level Err Handle
-		fmt.Printf(err.Error())
+		globallogger.Fatal(err.Error())
 		os.Exit(1)
 	}
+	globallogger.Debug("Setup Complete")
 	http.ListenAndServe(":3000", nil)
 }
 

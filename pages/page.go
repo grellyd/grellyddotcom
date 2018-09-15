@@ -1,6 +1,7 @@
 package pages
 
 import (
+	"github.com/grellyd/filelogging/globallogger"
 	"io/ioutil"
 	"fmt"
 	"os"
@@ -40,16 +41,18 @@ func CheckExistence(section string, title string, pending PageEnding) error {
 	} else {
 		filename = fmt.Sprintf("public/%s/%s.%s", section, title, pending)
 	}
-	fmt.Printf("looking for '%s'\n", filename)
+	globallogger.Debug(fmt.Sprintf("looking for '%s'\n", filename))
 	// Is the file missing?
-	if !fileExists(filename) {
+	if fileNotExists(filename) {
 		return fmt.Errorf("'%s.%s' of '%s' does not exist", title, pending, section)
 	} 
 	return nil
 }
 
-func fileExists(filename string) (exists bool) {
+func fileNotExists(filename string) (exists bool) {
 	exists = false
-	_, err := os.Stat(filename)
-	return os.IsExist(err)
+	f, err := os.Stat(filename)
+	globallogger.Debug(fmt.Sprintf("File status: '%v'", f))
+	globallogger.Debug(fmt.Sprintf("File IsNotExist: '%v'", os.IsNotExist(err)))
+	return os.IsNotExist(err)
 }

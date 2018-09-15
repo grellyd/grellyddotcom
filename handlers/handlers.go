@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"strings"
 	"github.com/grellyd/grellyddotcom/pages"
+	"github.com/grellyd/filelogging/globallogger"
 )
 
 // TODO: Remove duplication
@@ -43,7 +44,7 @@ func Images(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		http.Error(w, fmt.Sprintf("unable to handle image: %s", err.Error()), http.StatusInternalServerError)
 	}
-	err = pages.CheckExistence(section, title, pages.HTML)
+	err = pages.CheckExistence(section, title, pages.JPG)
 	if err != nil {
 		http.Error(w, fmt.Sprintf("unable to handle image: %s", err.Error()), http.StatusInternalServerError)
 	} else {
@@ -57,16 +58,17 @@ func CSS(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		http.Error(w, fmt.Sprintf("unable to handle image: %s", err.Error()), http.StatusInternalServerError)
 	}
-	err = pages.CheckExistence(section, title, pages.HTML)
+	err = pages.CheckExistence(section, title, pages.CSS)
 	if err != nil {
 		http.Error(w, fmt.Sprintf("unable to handle image: %s", err.Error()), http.StatusInternalServerError)
 	} else {
-		http.ServeFile(w, r, fmt.Sprintf("public/images/%s.%s", title, pages.CSS))
+		http.ServeFile(w, r, fmt.Sprintf("public/css/%s.%s", title, pages.CSS))
 	}
 }
 
 // decomponseURL breaks a URL down into its section and title for hugo's routing.
 func decomposeURL(url string) (section string, title string, err error) {
+	globallogger.Debug(fmt.Sprintf("decomposing '%s'", url))
 	components := strings.Split(url, "/")
 	switch len(components) {
 	case 1: 
@@ -80,7 +82,7 @@ func decomposeURL(url string) (section string, title string, err error) {
 	case 3:
 		// section page
 		section = components[1]
-		title = components[2]
+		title = strings.Split(components[2], ".")[0]
 	default:
 		err = fmt.Errorf("unhandled url structure")
 	}
