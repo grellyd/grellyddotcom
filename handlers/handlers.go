@@ -74,9 +74,16 @@ func CSS(w http.ResponseWriter, r *http.Request) {
 }
 
 // decomponseURL breaks a URL down into its section and title for hugo's routing.
+// / ->              ['','']
+// /resume ->        ['', 'resume']
+// /resume/ ->       ['', 'resume', '']
+// /resume/index ->  ['', 'resume', 'index']
+// /resume/index/ -> ['', 'resume', 'index', '']
 func decomposeURL(url string) (section string, title string, err error) {
 	globallogger.Debug(fmt.Sprintf("decomposing '%s'", url))
-	components := strings.Split(url, "/")
+	trimmedURL := strings.TrimRight(url, "/")
+	components := strings.Split(trimmedURL, "/")
+	globallogger.Debug(fmt.Sprintf("decomposed to '%v' of len '%d'", components, len(components)))
 	switch len(components) {
 	case 1: 
 		// root url
