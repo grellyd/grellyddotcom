@@ -2,7 +2,7 @@
 ## You've hit the personal website of Graham L. Brown
 ### Backend Developer, Backpacker, and Student
 
-{{< figure src="/images/ski_profile.jpg" alt="Grellyd Backcountry Skiing in Whistler" class="profile_image" height="25%" width="25%" >}}
+{{< figure src="/images/ski_profile.jpg" alt="Grellyd Backcountry Skiing in Whistler" class="profile_image" >}}
 
 This page is under construction. Please excuse the mess. 
 
