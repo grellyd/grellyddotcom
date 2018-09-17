@@ -12,6 +12,7 @@
 #footer {
     margin-top: 50px;
     margin-bottom: 20px;
+    margin-left: 200px; /* Same as the width of the sidebar */
     display: block;
     overflow: visible;
     border-top-width: 1px;
@@ -20,6 +21,15 @@
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: rgba(136, 136, 136, 0.2);
+}
+
+#footer ul {
+    -webkit-padding-start: 0px;
+}
+
+#main {
+    margin-left: 200px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
 }
 
 .links {
@@ -56,9 +66,8 @@ body {
     font-weight: normal;
     font-size: 16px;
     color: #333333;
-    margin-left: 200px; /* Same as the width of the sidebar */
-    padding: 0px 10px;
 }
+
 
 /* The sidebar menu */
 .sidenav {
@@ -96,6 +105,24 @@ body {
 
 .sidenav div.footer {
     font-size: 12px;
+}
+
+@media screen and (max-width: 425px) {
+    .sidenav {
+        position: static;
+        width: 100%;
+    }
+    #main {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+    #footer {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+    body {
+        margin: 0px;
+    }
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
