@@ -138,3 +138,26 @@ body {
     width: 200px;
     font-size: 10px;
 }
+
+i {
+    background: #492600;
+    color: white; /* White text */
+    border: none; /* Remove borders */
+    
+    font-size: 25px; /* Set a font size */
+    padding: 10px;
+    border-radius: 50%;
+
+    display: inline-block;
+    position: relative;
+    width: auto;
+    height: auto;
+    text-align: center;
+    text-decoration: none;
+}
+
+i:hover {
+    background: #D2B48C;
+    cursor: pointer; /* Mouse pointer on hover */
+}
+
