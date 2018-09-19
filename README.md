@@ -1,5 +1,5 @@
 # Grellyd_Site
-## Golang Website
+## Go Website
 
 This my website at [grellyd.com](https://grellyd.com) using a Go server to server content generated using [Hugo](https://gohugo.io) with my custom theme [Kubo](https://github.com/grellyd/kubo_hugo).
 
