@@ -100,4 +100,4 @@ in a hammock on the beach as camping next to a mountain stream.
 Available upon request
 
 
-[PDF](https://s3-us-west-2.amazonaws.com/grellyddotcom-public/resume.pdf)
+[PDF](/files/resume_graham_l_brown.pdf)
