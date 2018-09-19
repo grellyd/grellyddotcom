@@ -12,12 +12,8 @@ img {
     border-radius: 100px;
 }
 
-#main {
-}
-
 @media screen and (max-width: 425px) {
     .profile_image {
         float: none;
     }
 }
-
