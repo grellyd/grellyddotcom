@@ -10,4 +10,6 @@ const (
 	CSS PageEnding = "css"
 	// JPG PageEnding
 	JPG PageEnding = "jpg"
+	// PDF PageEnding
+	PDF PageEnding = "pdf"
 )

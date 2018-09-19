@@ -59,15 +59,29 @@ func Images(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// Files manages serving the correct resource file
+func Files(w http.ResponseWriter, r *http.Request) {
+	section, title, err := decomposeURL(r.URL.Path)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("unable to handle file: %s", err.Error()), http.StatusInternalServerError)
+	}
+	err = pages.CheckExistence(section, title, pages.PDF)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("unable to handle file: %s", err.Error()), http.StatusInternalServerError)
+	} else {
+		http.ServeFile(w, r, fmt.Sprintf("public/files/%s.%s", title, pages.PDF))
+	}
+}
+
 // CSS manages serving the correct resource file
 func CSS(w http.ResponseWriter, r *http.Request) {
 	section, title, err := decomposeURL(r.URL.Path)
 	if err != nil {
-		http.Error(w, fmt.Sprintf("unable to handle image: %s", err.Error()), http.StatusInternalServerError)
+		http.Error(w, fmt.Sprintf("unable to handle css: %s", err.Error()), http.StatusInternalServerError)
 	}
 	err = pages.CheckExistence(section, title, pages.CSS)
 	if err != nil {
-		http.Error(w, fmt.Sprintf("unable to handle image: %s", err.Error()), http.StatusInternalServerError)
+		http.Error(w, fmt.Sprintf("unable to handle css: %s", err.Error()), http.StatusInternalServerError)
 	} else {
 		http.ServeFile(w, r, fmt.Sprintf("public/css/%s.%s", title, pages.CSS))
 	}
