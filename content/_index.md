@@ -1,13 +1,10 @@
-# Welcome!
-## You've hit the personal website of Graham L. Brown
-### Backend Developer, Backpacker, and Student
-
+# Hi I'm Graham...
 {{< figure src="/images/ski_profile.jpg" alt="Grellyd Backcountry Skiing in Whistler" class="profile_image" >}}
 
-This page is under construction. Please excuse the mess. 
+...a backend developer, backpacker, and wannabe outdoorsman from Vancovuer, Canada.
 
-In the meantime, take a look at my [resume](/resume) and connect with me!
+You can find me as **@grellyd** most places online.
 
- * [Github](https://github.com/grellyd)
- * [LinkedIn](https://www.linkedin.com/in/grellyd/)
- * [Twitter](https://twitter.com/grellyd/)
+This site is a perpetual work in progress. For now, take a look at my [resume](/resume).
+
+The best way to contact me is to reach out via email [graham@grellyd.com](mailto:graham@grellyd.com)
