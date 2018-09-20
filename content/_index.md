@@ -1,7 +1,7 @@
 # Hi I'm Graham...
 {{< figure src="/images/ski_profile.jpg" alt="Grellyd Backcountry Skiing in Whistler" class="profile_image" >}}
 
-...a backend developer, backpacker, and wannabe outdoorsman from Vancovuer, Canada.
+...a backend developer, backpacker, and wannabe outdoorsman from Vancouver, Canada.
 
 You can find me as **@grellyd** most places online.
 
