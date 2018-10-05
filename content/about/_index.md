@@ -17,7 +17,7 @@ This site functions as a portfolio of my work beyond [Github](https://github.com
 
 ### Why Grellyd?
 
-Grellyd stems from my first attempt at a screen name combined with a portion of my middle name: **gre**yham **ll**o**yd**. I can happily say that I am the only thing one finds when they Google 'grellyd'.
+Grellyd stems from my first attempt at a screen name combined with a portion of my middle name: **gre**yham **ll**o**yd**. I can happily say that I am the only result one finds when they Google 'grellyd'.
 
 ### Why Computer Science?
 
