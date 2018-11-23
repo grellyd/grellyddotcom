@@ -7,11 +7,19 @@ draft: false
 
 ## Graham L. Brown
 ### Vancouver, BC V6R 2G1
-Email: <a href="mailto:graham@grellyd.com">graham@grellyd.com</a>
+
+<table>
+<tr><td>Email</td><td><a href="mailto:graham@grellyd.com">graham@grellyd.com</a><br></td></tr>
+<tr><td>Website</td><td><a href="https://grellyd.com">https://grellyd.com</a><br></td></tr>
+<tr><td>Github</td><td><a href="https://github.com/grellyd">https://github.com/grellyd</a><br></td></tr>
+<tr><td>LinkedIn</td><td><a href="https://linkedin.com/in/grellyd">https://linkedin.com/in/grellyd</a><br></td></tr>
+<tr><td>Twitter</td><td><a href="https://twitter.com/grellyd">https://twitter.com/grellyd</a><br></td></tr>
+</table>
 
 
 ## Objective
-<b>Backend</b> software developer for a small to medium scrappy <b>startup</b> in a <b>network</b> and <b>pipeline</b> engineering role using a <b>compiled</b> language.
+<b>Backend</b> software developer for a small to medium innovative company in a <b>network/APi</b> engineering role using a <b>compiled</b> language.
+
 
 ## Employment
 
@@ -52,7 +60,21 @@ for dispatching calculation jobs.</li>
 <li>Authored and updated my static page website generated with <b>Hugo</b>
 using my <b>Kubo</b> template and a custom <b>Go</b> server.</li>
 <li>Attended the <b>GoNorthwest conference </b>due to involvement in and
-admiration of the Go <b>community</b>.</td></li>
+admiration of the Go <b>community</b>.</li>
+<li><a href="https://github.com/grellyd/grellyddotcom">https://github.com/grellyd/grellyddotcom</a></li>
+<li><a href="https://github.com/grellyd/kubo_hugo">https://github.com/grellyd/kubo_hugo</a></li>
+</ul>
+</td>
+</tr>
+<tr><td colspan=2><h3>CPSC416: BlockArt and DistributedDiary</h3></td></tr>
+<tr><td>2018</td>
+<td>
+<ul>
+<li>Constructed two <b>Go distributed systems</b> in a <b>team</b> of five students.</li>
+<li>Authored a custom <b>Go</b> logging package to track distributed behaviour.</li>
+<li><a href="https://github.com/grellyd/cpsc_416_p1_blockchain_art">https://github.com/grellyd/cpsc_416_p1_blockchain_art</a></li>
+<li><a href="https://github.com/grellyd/cpsc_416_p2_distributed_diary">https://github.com/grellyd/cpsc_416_p2_distributed_diary</a></li>
+</td></li>
 </ul>
 </tr>
 <tr><td colspan=2><h3>SAM: Ericsson Innovation Awards 2017 Semi-Finalist</h3></td></tr>
@@ -62,6 +84,7 @@ admiration of the Go <b>community</b>.</td></li>
 <ul>
 <li>Developed and validated the concept of providing <b>low-cost</b> data-based
 farming via satellite imagery analysis for developing communities.</li> 
+<li><a href="https://www.ericsson.com/careers/blog/career-topics/gunjana/2017-ericsson-innovation-awards-semi-finalists/">https://www.ericsson.com/careers/blog/career-topics/gunjana/2017-ericsson-innovation-awards-semi-finalists/</a></li>
 </ul>
 </td>
 </tr>
@@ -72,6 +95,7 @@ farming via satellite imagery analysis for developing communities.</li>
 <ul>
 <li>Pitched our B2B intra-company relationship building app to first place</li>
 <li>Built <b>mobile</b> <b>MVP</b> alongside Two Tall Totems development studio</li>
+<li><a href="https://www.twotalltotems.com/blog/index.php/2016/09/27/vancouver-startup-week-hackathon-and-a-secret-visit/">https://www.twotalltotems.com/blog/index.php/2016/09/27/vancouver-startup-week-hackathon-and-a-secret-visit/</a></li>
 </ul>
 </td>
 </tr>
@@ -81,6 +105,7 @@ farming via satellite imagery analysis for developing communities.</li>
 <td>
 <ul>
 <li>Built software solutions for needs in the local <b>nonprofit</b> community</li>
+<li><a href="http://codethechange.ca/">http://codethechange.ca/</a></li>
 </ul>
 </td></tr></table>
 
@@ -88,7 +113,7 @@ farming via satellite imagery analysis for developing communities.</li>
 ## Education
 
 <b>BSc</b>. in <b>Computer Science</b> from the University of British Columbia (UBC).
-Expected Graduation Nov 2018
+Graduation November 2018.
 
 ## Personal
 
