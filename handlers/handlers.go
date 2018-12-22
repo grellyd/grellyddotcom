@@ -8,7 +8,7 @@ import (
 	"github.com/grellyd/filelogging/globallogger"
 )
 
-// TODO: Remove duplication
+// TODO: Remove duplication -> Page and File
 
 // Static handles any static page
 func Static(w http.ResponseWriter, r *http.Request) {
@@ -76,7 +76,13 @@ func Images(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		http.Error(w, fmt.Sprintf("unable to handle image: %s", err.Error()), http.StatusInternalServerError)
 	} else {
-		http.ServeFile(w, r, fmt.Sprintf("public/images/%s.%s", title, pages.JPG))
+		filepath := "public"
+		for _, section := range(sections) {
+			filepath = fmt.Sprintf("%s/%s", filepath, section)
+		}
+		filepath = fmt.Sprintf("%s/%s.%s", filepath, title, pages.JPG)
+		globallogger.Debug(fmt.Sprintf("Serving '%s'", filepath))
+		http.ServeFile(w, r, filepath)
 	}
 }
 
@@ -109,16 +115,33 @@ func CSS(w http.ResponseWriter, r *http.Request) {
 }
 
 // decomponseURL breaks a URL down into its sections and title for hugo's routing.
-// / ->              ['','']
-// /resume ->        ['', 'resume']
-// /resume/ ->       ['', 'resume', '']
-// /resume/index ->  ['', 'resume', 'index']
-// /resume/index/ -> ['', 'resume', 'index', '']
+// / ->                         ['','']
+// /resume ->                   ['', 'resume']
+// /resume/ ->                  ['', 'resume', '']
+// /resume/index ->             ['', 'resume', 'index']
+// /resume/index/ ->            ['', 'resume', 'index', '']
+// /css/grellyd.com ->          ['', 'css'   , 'grellyd.com']
+// /images/xmas/2018/wct.jpg -> ['', 'images', 'xmas', '2018', 'wct.jpg']
 func decomposeURL(url string) (sections []string, title string, err error) {
 	globallogger.Debug(fmt.Sprintf("decomposing '%s'", url))
 	trimmedURL := strings.TrimRight(url, "/")
 	components := strings.Split(trimmedURL, "/")
 	globallogger.Debug(fmt.Sprintf("decomposed to '%v' of len '%d'", components, len(components)))
+
+	if strings.Contains(components[len(components) - 1], ".") {
+		// is a direct file with title and type
+		sections = components[1:len(components) - 1]
+		fileDetails := strings.Split(components[len(components) - 1], ".")
+		title = fileDetails[0]
+		//pending := fileDetails[1]
+	} else {
+		// is a page browser
+		sections = components[1:]
+		title = "index"
+	}
+
+
+/*
 	switch len(components) {
 	case 1: 
 		// root url
@@ -142,5 +165,6 @@ func decomposeURL(url string) (sections []string, title string, err error) {
 	default:
 		err = fmt.Errorf("unhandled url structure")
 	}
+	*/
 	return sections, title, err
 }
