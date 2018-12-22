@@ -8,53 +8,16 @@ import (
 	"github.com/grellyd/filelogging/globallogger"
 )
 
-// TODO: Remove duplication -> Page and File
-
-// Static handles any static page
-func Static(w http.ResponseWriter, r *http.Request) {
-	sections, title, err := decomposeURL(r.URL.Path)
+// Page handler for any browsable page
+func Page(w http.ResponseWriter, r *http.Request) {
+	globallogger.Debug(fmt.Sprintf("Handling Page\n"))
+	sections, title, _, err := decomposeURL(r.URL.Path)
 	if err != nil {
-		http.Error(w, fmt.Sprintf("unable to handle static page: %s", err.Error()), http.StatusInternalServerError)
+		http.Error(w, fmt.Sprintf("unable to handle page: %s", err.Error()), http.StatusInternalServerError)
 	}
 	err = pages.CheckExistence(sections, title, pages.HTML)
 	if err != nil {
-		http.Error(w, fmt.Sprintf("unable to handle static page: %s", err.Error()), http.StatusInternalServerError)
-	} else {
-		filepath := ""
-		if len(sections) == 0 {
-			filepath = fmt.Sprintf("public/%s.%s", title, pages.HTML)
-		} else {
-			filepath = fmt.Sprintf("public/%s/%s.%s", sections, title, pages.HTML)
-		}
-		globallogger.Debug(fmt.Sprintf("Serving '%s'", filepath))
-		http.ServeFile(w, r, filepath)
-	}
-}
-
-// Blog manages selecting the correct blog page
-func Blog(w http.ResponseWriter, r *http.Request) {
-	sections, title, err := decomposeURL(r.URL.Path)
-	if err != nil {
-		http.Error(w, fmt.Sprintf("unable to handle blog page: %s", err.Error()), http.StatusInternalServerError)
-	}
-	err = pages.CheckExistence(sections, title, pages.HTML)
-	if err != nil {
-		http.Error(w, fmt.Sprintf("unable to handle blog page: %s", err.Error()), http.StatusInternalServerError)
-	} else {
-		http.ServeFile(w, r, fmt.Sprintf("public/blog/%s.%s", title, pages.HTML))
-	}
-}
-
-// Xmas manages selecting the correct xmas page
-func Xmas(w http.ResponseWriter, r *http.Request) {
-	globallogger.Debug(fmt.Sprintf("Handling Xmas Page\n"))
-	sections, title, err := decomposeURL(r.URL.Path)
-	if err != nil {
-		http.Error(w, fmt.Sprintf("unable to handle xmas page: %s", err.Error()), http.StatusInternalServerError)
-	}
-	err = pages.CheckExistence(sections, title, pages.HTML)
-	if err != nil {
-		http.Error(w, fmt.Sprintf("unable to handle xmas page: %s", err.Error()), http.StatusInternalServerError)
+		http.Error(w, fmt.Sprintf("unable to handle page: %s", err.Error()), http.StatusInternalServerError)
 	} else {
 		filepath := "public"
 		for _, section := range(sections) {
@@ -66,51 +29,24 @@ func Xmas(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// Images manages serving the correct resource file
-func Images(w http.ResponseWriter, r *http.Request) {
-	sections, title, err := decomposeURL(r.URL.Path)
+// File handler for any file (CSS, Image, etc.)
+func File(w http.ResponseWriter, r *http.Request) {
+	globallogger.Debug(fmt.Sprintf("Handling File\n"))
+	sections, title, pending, err := decomposeURL(r.URL.Path)
 	if err != nil {
-		http.Error(w, fmt.Sprintf("unable to handle image: %s", err.Error()), http.StatusInternalServerError)
+		http.Error(w, fmt.Sprintf("unable to handle file: %s", err.Error()), http.StatusInternalServerError)
 	}
-	err = pages.CheckExistence(sections, title, pages.JPG)
+	err = pages.CheckExistence(sections, title, pending)
 	if err != nil {
-		http.Error(w, fmt.Sprintf("unable to handle image: %s", err.Error()), http.StatusInternalServerError)
+		http.Error(w, fmt.Sprintf("unable to handle file: %s", err.Error()), http.StatusInternalServerError)
 	} else {
 		filepath := "public"
 		for _, section := range(sections) {
 			filepath = fmt.Sprintf("%s/%s", filepath, section)
 		}
-		filepath = fmt.Sprintf("%s/%s.%s", filepath, title, pages.JPG)
+		filepath = fmt.Sprintf("%s/%s.%s", filepath, title, pending)
 		globallogger.Debug(fmt.Sprintf("Serving '%s'", filepath))
 		http.ServeFile(w, r, filepath)
-	}
-}
-
-// Files manages serving the correct resource file
-func Files(w http.ResponseWriter, r *http.Request) {
-	sections, title, err := decomposeURL(r.URL.Path)
-	if err != nil {
-		http.Error(w, fmt.Sprintf("unable to handle file: %s", err.Error()), http.StatusInternalServerError)
-	}
-	err = pages.CheckExistence(sections, title, pages.PDF)
-	if err != nil {
-		http.Error(w, fmt.Sprintf("unable to handle file: %s", err.Error()), http.StatusInternalServerError)
-	} else {
-		http.ServeFile(w, r, fmt.Sprintf("public/files/%s.%s", title, pages.PDF))
-	}
-}
-
-// CSS manages serving the correct resource file
-func CSS(w http.ResponseWriter, r *http.Request) {
-	sections, title, err := decomposeURL(r.URL.Path)
-	if err != nil {
-		http.Error(w, fmt.Sprintf("unable to handle css: %s", err.Error()), http.StatusInternalServerError)
-	}
-	err = pages.CheckExistence(sections, title, pages.CSS)
-	if err != nil {
-		http.Error(w, fmt.Sprintf("unable to handle css: %s", err.Error()), http.StatusInternalServerError)
-	} else {
-		http.ServeFile(w, r, fmt.Sprintf("public/css/%s.%s", title, pages.CSS))
 	}
 }
 
@@ -118,53 +54,27 @@ func CSS(w http.ResponseWriter, r *http.Request) {
 // / ->                         ['','']
 // /resume ->                   ['', 'resume']
 // /resume/ ->                  ['', 'resume', '']
-// /resume/index ->             ['', 'resume', 'index']
-// /resume/index/ ->            ['', 'resume', 'index', '']
+// /blog/post ->                ['', 'blog', 'post']
+// /blog/post/ ->               ['', 'blog', 'post', '']
 // /css/grellyd.com ->          ['', 'css'   , 'grellyd.com']
 // /images/xmas/2018/wct.jpg -> ['', 'images', 'xmas', '2018', 'wct.jpg']
-func decomposeURL(url string) (sections []string, title string, err error) {
+func decomposeURL(url string) (sections []string, title string, pending pages.PageEnding, err error) {
 	globallogger.Debug(fmt.Sprintf("decomposing '%s'", url))
 	trimmedURL := strings.TrimRight(url, "/")
 	components := strings.Split(trimmedURL, "/")
 	globallogger.Debug(fmt.Sprintf("decomposed to '%v' of len '%d'", components, len(components)))
-
+	
 	if strings.Contains(components[len(components) - 1], ".") {
 		// is a direct file with title and type
 		sections = components[1:len(components) - 1]
 		fileDetails := strings.Split(components[len(components) - 1], ".")
 		title = fileDetails[0]
-		//pending := fileDetails[1]
-	} else {
-		// is a page browser
-		sections = components[1:]
-		title = "index"
-	}
-
-
-/*
-	switch len(components) {
-	case 1: 
-		// root url
-		sections = []string{}
-		title = "index"
-	case 2:
-		// sections header
-		sections = []string{components[1]}
-		title = "index"
-	case 3:
-		if strings.Contains(components[2], "."){
-			// sections page
-			sections = []string{components[1]}
-			title = strings.Split(components[2], ".")[0]
-		} else {
-			// TODO: bandaid for three levels, not n
-			// multiple setion page
-			sections = components[1:]
-			title = "index"
+		pending, err := pages.MatchPageEnding(fileDetails[1])
+		if err != nil {
+			err = fmt.Errorf("unable to decomposeURL: %s", err.Error())
 		}
-	default:
-		err = fmt.Errorf("unhandled url structure")
-	}
-	*/
-	return sections, title, err
+		return sections, title, pending, err
+	} 
+	// is a page browser
+	return components[1:], "index", pages.HTML, err
 }

@@ -31,27 +31,27 @@ func setup() (err error) {
 }
 
 func registerRoutes() (err error) {
-	err = router.Register("/", "(^/$)|(^/(status|about|quote|xmas)$)", handlers.Static)
+	err = router.Register("/", "(^/$)|(^/(status|about|quote|xmas)$)", handlers.Page)
 	if err != nil {
 		return fmt.Errorf("unable to register static: %s", err.Error())
 	}
-	err = router.Register("/blog/", "^/blog/([a-zA-Z0-9]*)$", handlers.Blog)
+	err = router.Register("/blog/", "^/blog/([a-zA-Z0-9]*)$", handlers.Page)
 	if err != nil {
 		return fmt.Errorf("unable to register blog: %s", err.Error())
 	}
-	err = router.Register("/css/", "^/css/([a-zA-Z0-9_]*).css$", handlers.CSS)
+	err = router.Register("/css/", "^/css/([a-zA-Z0-9_]*).css$", handlers.File)
 	if err != nil {
 		return fmt.Errorf("unable to register css: %s", err.Error())
 	}
-	err = router.Register("/images/", "^/images/(([a-zA-Z0-9_]*)/)*.jpg$", handlers.Images)
+	err = router.Register("/images/", "^/images/(([a-zA-Z0-9_]*)/)*.jpg$", handlers.File)
 	if err != nil {
 		return fmt.Errorf("unable to register images: %s", err.Error())
 	}
-	err = router.Register("/files/", "^/files/([a-zA-Z0-9_]*).jpg$", handlers.Files)
+	err = router.Register("/files/", "^/files/([a-zA-Z0-9_]*).jpg$", handlers.File)
 	if err != nil {
 		return fmt.Errorf("unable to register files: %s", err.Error())
 	}
-	err = router.Register("/xmas/", "^/xmas/([a-zA-Z0-9_]*).html$", handlers.Xmas)
+	err = router.Register("/xmas/", "^/xmas/([a-zA-Z0-9_]*).html$", handlers.Page)
 	if err != nil {
 		return fmt.Errorf("unable to register xmas: %s", err.Error())
 	}
