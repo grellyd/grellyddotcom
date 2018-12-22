@@ -12,19 +12,19 @@ import (
 
 // Static handles any static page
 func Static(w http.ResponseWriter, r *http.Request) {
-	section, title, err := decomposeURL(r.URL.Path)
+	sections, title, err := decomposeURL(r.URL.Path)
 	if err != nil {
 		http.Error(w, fmt.Sprintf("unable to handle static page: %s", err.Error()), http.StatusInternalServerError)
 	}
-	err = pages.CheckExistence(section, title, pages.HTML)
+	err = pages.CheckExistence(sections, title, pages.HTML)
 	if err != nil {
 		http.Error(w, fmt.Sprintf("unable to handle static page: %s", err.Error()), http.StatusInternalServerError)
 	} else {
 		filepath := ""
-		if len(section) == 0 {
+		if len(sections) == 0 {
 			filepath = fmt.Sprintf("public/%s.%s", title, pages.HTML)
 		} else {
-			filepath = fmt.Sprintf("public/%s/%s.%s", section, title, pages.HTML)
+			filepath = fmt.Sprintf("public/%s/%s.%s", sections, title, pages.HTML)
 		}
 		globallogger.Debug(fmt.Sprintf("Serving '%s'", filepath))
 		http.ServeFile(w, r, filepath)
@@ -33,11 +33,11 @@ func Static(w http.ResponseWriter, r *http.Request) {
 
 // Blog manages selecting the correct blog page
 func Blog(w http.ResponseWriter, r *http.Request) {
-	section, title, err := decomposeURL(r.URL.Path)
+	sections, title, err := decomposeURL(r.URL.Path)
 	if err != nil {
 		http.Error(w, fmt.Sprintf("unable to handle blog page: %s", err.Error()), http.StatusInternalServerError)
 	}
-	err = pages.CheckExistence(section, title, pages.HTML)
+	err = pages.CheckExistence(sections, title, pages.HTML)
 	if err != nil {
 		http.Error(w, fmt.Sprintf("unable to handle blog page: %s", err.Error()), http.StatusInternalServerError)
 	} else {
@@ -45,13 +45,34 @@ func Blog(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// Xmas manages selecting the correct xmas page
+func Xmas(w http.ResponseWriter, r *http.Request) {
+	globallogger.Debug(fmt.Sprintf("Handling Xmas Page\n"))
+	sections, title, err := decomposeURL(r.URL.Path)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("unable to handle xmas page: %s", err.Error()), http.StatusInternalServerError)
+	}
+	err = pages.CheckExistence(sections, title, pages.HTML)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("unable to handle xmas page: %s", err.Error()), http.StatusInternalServerError)
+	} else {
+		filepath := "public"
+		for _, section := range(sections) {
+			filepath = fmt.Sprintf("%s/%s", filepath, section)
+		}
+		filepath = fmt.Sprintf("%s/%s.%s", filepath, title, pages.HTML)
+		globallogger.Debug(fmt.Sprintf("Serving '%s'", filepath))
+		http.ServeFile(w, r, filepath)
+	}
+}
+
 // Images manages serving the correct resource file
 func Images(w http.ResponseWriter, r *http.Request) {
-	section, title, err := decomposeURL(r.URL.Path)
+	sections, title, err := decomposeURL(r.URL.Path)
 	if err != nil {
 		http.Error(w, fmt.Sprintf("unable to handle image: %s", err.Error()), http.StatusInternalServerError)
 	}
-	err = pages.CheckExistence(section, title, pages.JPG)
+	err = pages.CheckExistence(sections, title, pages.JPG)
 	if err != nil {
 		http.Error(w, fmt.Sprintf("unable to handle image: %s", err.Error()), http.StatusInternalServerError)
 	} else {
@@ -61,11 +82,11 @@ func Images(w http.ResponseWriter, r *http.Request) {
 
 // Files manages serving the correct resource file
 func Files(w http.ResponseWriter, r *http.Request) {
-	section, title, err := decomposeURL(r.URL.Path)
+	sections, title, err := decomposeURL(r.URL.Path)
 	if err != nil {
 		http.Error(w, fmt.Sprintf("unable to handle file: %s", err.Error()), http.StatusInternalServerError)
 	}
-	err = pages.CheckExistence(section, title, pages.PDF)
+	err = pages.CheckExistence(sections, title, pages.PDF)
 	if err != nil {
 		http.Error(w, fmt.Sprintf("unable to handle file: %s", err.Error()), http.StatusInternalServerError)
 	} else {
@@ -75,11 +96,11 @@ func Files(w http.ResponseWriter, r *http.Request) {
 
 // CSS manages serving the correct resource file
 func CSS(w http.ResponseWriter, r *http.Request) {
-	section, title, err := decomposeURL(r.URL.Path)
+	sections, title, err := decomposeURL(r.URL.Path)
 	if err != nil {
 		http.Error(w, fmt.Sprintf("unable to handle css: %s", err.Error()), http.StatusInternalServerError)
 	}
-	err = pages.CheckExistence(section, title, pages.CSS)
+	err = pages.CheckExistence(sections, title, pages.CSS)
 	if err != nil {
 		http.Error(w, fmt.Sprintf("unable to handle css: %s", err.Error()), http.StatusInternalServerError)
 	} else {
@@ -87,13 +108,13 @@ func CSS(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// decomponseURL breaks a URL down into its section and title for hugo's routing.
+// decomponseURL breaks a URL down into its sections and title for hugo's routing.
 // / ->              ['','']
 // /resume ->        ['', 'resume']
 // /resume/ ->       ['', 'resume', '']
 // /resume/index ->  ['', 'resume', 'index']
 // /resume/index/ -> ['', 'resume', 'index', '']
-func decomposeURL(url string) (section string, title string, err error) {
+func decomposeURL(url string) (sections []string, title string, err error) {
 	globallogger.Debug(fmt.Sprintf("decomposing '%s'", url))
 	trimmedURL := strings.TrimRight(url, "/")
 	components := strings.Split(trimmedURL, "/")
@@ -101,18 +122,25 @@ func decomposeURL(url string) (section string, title string, err error) {
 	switch len(components) {
 	case 1: 
 		// root url
-		section = ""
+		sections = []string{}
 		title = "index"
 	case 2:
-		// section header
-		section = components[1]
+		// sections header
+		sections = []string{components[1]}
 		title = "index"
 	case 3:
-		// section page
-		section = components[1]
-		title = strings.Split(components[2], ".")[0]
+		if strings.Contains(components[2], "."){
+			// sections page
+			sections = []string{components[1]}
+			title = strings.Split(components[2], ".")[0]
+		} else {
+			// TODO: bandaid for three levels, not n
+			// multiple setion page
+			sections = components[1:]
+			title = "index"
+		}
 	default:
 		err = fmt.Errorf("unhandled url structure")
 	}
-	return section, title, err
+	return sections, title, err
 }

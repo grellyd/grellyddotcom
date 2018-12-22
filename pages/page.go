@@ -34,24 +34,23 @@ func Load(section string, title string, pending PageEnding) (*Page, error) {
 }
 
 // CheckExistence of a page. Error on failure, nil otherwise
-func CheckExistence(section string, title string, pending PageEnding) error {
-	filename := ""
-	if len(section) == 0 {
-		filename = fmt.Sprintf("public/%s.%s", title, pending)
-	} else {
-		filename = fmt.Sprintf("public/%s/%s.%s", section, title, pending)
+func CheckExistence(sections []string, title string, pending PageEnding) error {
+	filepath := "public"
+	for _, section := range(sections) {
+		filepath = fmt.Sprintf("%s/%s", filepath, section)
 	}
-	globallogger.Debug(fmt.Sprintf("looking for '%s'\n", filename))
+	filepath = fmt.Sprintf("%s/%s.%s", filepath, title, pending)
+	globallogger.Debug(fmt.Sprintf("looking for '%s'\n", filepath))
 	// Is the file missing?
-	if fileNotExists(filename) {
-		return fmt.Errorf("'%s.%s' of '%s' does not exist", title, pending, section)
+	if fileNotExists(filepath) {
+		return fmt.Errorf("'%s.%s' of '%s' does not exist", title, pending, sections)
 	} 
 	return nil
 }
 
-func fileNotExists(filename string) (exists bool) {
+func fileNotExists(filepath string) (exists bool) {
 	exists = false
-	f, err := os.Stat(filename)
+	f, err := os.Stat(filepath)
 	globallogger.Debug(fmt.Sprintf("File status: '%v'", f))
 	globallogger.Debug(fmt.Sprintf("File IsNotExist: '%v'", os.IsNotExist(err)))
 	return os.IsNotExist(err)
