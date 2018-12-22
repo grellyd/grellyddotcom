@@ -9,4 +9,5 @@ params:
     TwitterUsername: grellyd
     LinkedInUsername: grellyd
     SiteName: Grellyd
+    HiddenSections: [xmas, post]
 googleAnalytics: UA-127080315-1
