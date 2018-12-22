@@ -8,28 +8,7 @@ import (
 	"github.com/grellyd/filelogging/globallogger"
 )
 
-// Page handler for any browsable page
-func Page(w http.ResponseWriter, r *http.Request) {
-	globallogger.Debug(fmt.Sprintf("Handling Page\n"))
-	sections, title, _, err := decomposeURL(r.URL.Path)
-	if err != nil {
-		http.Error(w, fmt.Sprintf("unable to handle page: %s", err.Error()), http.StatusInternalServerError)
-	}
-	err = pages.CheckExistence(sections, title, pages.HTML)
-	if err != nil {
-		http.Error(w, fmt.Sprintf("unable to handle page: %s", err.Error()), http.StatusInternalServerError)
-	} else {
-		filepath := "public"
-		for _, section := range(sections) {
-			filepath = fmt.Sprintf("%s/%s", filepath, section)
-		}
-		filepath = fmt.Sprintf("%s/%s.%s", filepath, title, pages.HTML)
-		globallogger.Debug(fmt.Sprintf("Serving '%s'", filepath))
-		http.ServeFile(w, r, filepath)
-	}
-}
-
-// File handler for any file (CSS, Image, etc.)
+// File handler for any file 
 func File(w http.ResponseWriter, r *http.Request) {
 	globallogger.Debug(fmt.Sprintf("Handling File\n"))
 	sections, title, pending, err := decomposeURL(r.URL.Path)
