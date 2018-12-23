@@ -47,6 +47,10 @@ func registerRoutes() (err error) {
 	if err != nil {
 		return fmt.Errorf("unable to register images: %s", err.Error())
 	}
+	err = router.Register("/videos/", "^/videos/(([a-zA-Z0-9_]*)/)*.mp4$", handlers.File)
+	if err != nil {
+		return fmt.Errorf("unable to register videos: %s", err.Error())
+	}
 	err = router.Register("/files/", "^/files/(([a-zA-Z0-9_]*)/)*.jpg$", handlers.File)
 	if err != nil {
 		return fmt.Errorf("unable to register files: %s", err.Error())

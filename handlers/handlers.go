@@ -52,6 +52,7 @@ func decomposeURL(url string) (sections []string, title string, pending pages.Pa
 		if err != nil {
 			err = fmt.Errorf("unable to decomposeURL: %s", err.Error())
 		}
+		globallogger.Debug(fmt.Sprintf("sections: %v; title: %s; pending: %s; err: %v", sections, title, pending, err))
 		return sections, title, pending, err
 	} 
 	// is a page browser
