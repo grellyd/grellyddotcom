@@ -18,7 +18,7 @@ draft: false
 
 
 ## Objective
-<b>Backend</b> software developer for a small to medium innovative company in a <b>network/APi</b> engineering role using a <b>compiled</b> language.
+<b>Backend</b> software developer for a small to medium innovative company in a <b>network/APi</b> engineering role using a modern language.
 
 
 ## Employment
@@ -27,12 +27,12 @@ draft: false
 <tr><td colspan=2><h3>Lendesk: Software Developer Co-op</h3></td></tr>
 <tr><td>2017<br>Vancouver, BC</td>
 <td><ul>
-<li>Led an effort to create a <b>naive bayes</b> based automatic document
-classification system in <b>Python</b> using <b>SciKit Learn</b> trained on
-Lendesk’s dataset. </li>
 <li>Created a <b>real-time</b> identity verification system of Licensed Mortgage
 Brokers in Canada for the Level by Lendesk mobile app in <b>Ruby</b> using
 Nokogiri<b> and the core Lendesk <b>Rails</b> monolith.</li>
+<li>Led an effort to create a <b>naive bayes</b> based automatic document
+classification system in <b>Python</b> using <b>SciKit Learn</b> trained on
+Lendesk’s dataset. </li>
 </ul>
 </td></tr>
 
@@ -93,7 +93,7 @@ farming via satellite imagery analysis for developing communities.</li>
 <td>2016-2017</td>
 <td> 
 <ul>
-<li>Pitched our B2B intra-company relationship building app to first place</li>
+<li>Pitched our B2B intra-company relationship building app to first place with a ReactJS frontend and a <b>Ruby on Rails</b> backend.</li>
 <li>Built <b>mobile</b> <b>MVP</b> alongside Two Tall Totems development studio</li>
 <li><a href="https://www.twotalltotems.com/blog/index.php/2016/09/27/vancouver-startup-week-hackathon-and-a-secret-visit/">https://www.twotalltotems.com/blog/index.php/2016/09/27/vancouver-startup-week-hackathon-and-a-secret-visit/</a></li>
 </ul>
@@ -105,6 +105,7 @@ farming via satellite imagery analysis for developing communities.</li>
 <td>
 <ul>
 <li>Built software solutions for needs in the local <b>nonprofit</b> community</li>
+<li>Created the club's website in <b>Ruby on Rails</b></li>
 <li><a href="http://codethechange.ca/">http://codethechange.ca/</a></li>
 </ul>
 </td></tr></table>
