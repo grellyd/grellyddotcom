@@ -125,4 +125,4 @@ in a hammock on the beach as camping next to a mountain stream.
 Available upon request
 
 
-[PDF](/files/resume_graham_l_brown.pdf)
+[PDF](/files/graham_l_brown_resume.pdf)
