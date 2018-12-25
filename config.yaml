@@ -8,6 +8,7 @@ params:
     GithubUsername: grellyd
     TwitterUsername: grellyd
     LinkedInUsername: grellyd
+    ContactEmail: graham@grellyd.com
     SiteName: Grellyd
     HiddenSections: [xmas, post]
 googleAnalytics: UA-127080315-1
