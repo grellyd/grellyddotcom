@@ -108,7 +108,7 @@ body {
     font-size: 12px;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 800px) {
     .sidenav {
         position: static;
         width: 100%;
