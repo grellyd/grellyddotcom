@@ -43,7 +43,7 @@ func registerRoutes() (err error) {
 	if err != nil {
 		return fmt.Errorf("unable to register css: %s", err.Error())
 	}
-	err = router.Register("/images/", "^/images/(([a-zA-Z0-9_]*)/)*.jpg$", handlers.File)
+	err = router.Register("/images/", "^/images/(([a-zA-Z0-9_]*)/)*.(jpg|png)$", handlers.File)
 	if err != nil {
 		return fmt.Errorf("unable to register images: %s", err.Error())
 	}
@@ -58,6 +58,10 @@ func registerRoutes() (err error) {
 	err = router.Register("/xmas/", "^/xmas/([a-zA-Z0-9_]*).html$", handlers.File)
 	if err != nil {
 		return fmt.Errorf("unable to register xmas: %s", err.Error())
+	}
+	err = router.Register("/email/", "^/email/([a-zA-Z0-9_]*).html$", handlers.File)
+	if err != nil {
+		return fmt.Errorf("unable to register email: %s", err.Error())
 	}
 	return nil
 }

@@ -12,6 +12,8 @@ const (
 	CSS PageEnding = "css"
 	// JPG PageEnding
 	JPG PageEnding = "jpg"
+	// PNG PageEnding
+	PNG PageEnding = "png"
 	// PDF PageEnding
 	PDF PageEnding = "pdf"
 	// MP4 PageEnding
@@ -27,6 +29,8 @@ func MatchPageEnding(ending string) (PageEnding, error) {
 		return CSS, nil
 	case string(JPG):
 		return JPG, nil
+	case string(PNG):
+		return PNG, nil
 	case string(PDF):
 		return PDF, nil
 	case string(MP4):

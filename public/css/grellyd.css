@@ -27,6 +27,17 @@ video {
     padding: 10px;
 }
 
+.email_image {
+    max-height: 480px;
+    max-width: 480px;
+    height: 100%;
+    width: auto;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
 .autoplay_mobile {
     overflow: hidden;
     border-radius: 10px;
