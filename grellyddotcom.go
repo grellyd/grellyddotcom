@@ -19,7 +19,7 @@ func main() {
 }
 
 func setup() (err error) {
-	err = globallogger.NewGlobalLogger("grellyd.com Server", state.DEBUGGING)
+	err = globallogger.NewGlobalLogger("grellyd.com Server", state.QUIET)
 	if err != nil {
 		return fmt.Errorf("setup failed: %s", err.Error())
 	}
