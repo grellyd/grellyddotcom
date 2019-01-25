@@ -2,13 +2,13 @@ package handlers
 
 import (
 	"fmt"
+	"github.com/grellyd/filelogging/globallogger"
+	"github.com/grellyd/grellyddotcom/pages"
 	"net/http"
 	"strings"
-	"github.com/grellyd/grellyddotcom/pages"
-	"github.com/grellyd/filelogging/globallogger"
 )
 
-// File handler for any file 
+// File handler for any file
 func File(w http.ResponseWriter, r *http.Request) {
 	globallogger.Debug(fmt.Sprintf("Handling File\n"))
 	sections, title, pending, err := decomposeURL(r.URL.Path)
@@ -20,7 +20,7 @@ func File(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, fmt.Sprintf("unable to handle file: %s", err.Error()), http.StatusInternalServerError)
 	} else {
 		filepath := "public"
-		for _, section := range(sections) {
+		for _, section := range sections {
 			filepath = fmt.Sprintf("%s/%s", filepath, section)
 		}
 		filepath = fmt.Sprintf("%s/%s.%s", filepath, title, pending)
@@ -43,11 +43,11 @@ func decomposeURL(url string) (sections []string, title string, pending pages.Pa
 	trimmedURL := strings.TrimRight(downcasedURL, "/")
 	components := strings.Split(trimmedURL, "/")
 	globallogger.Debug(fmt.Sprintf("decomposed to '%v' of len '%d'", components, len(components)))
-	
-	if strings.Contains(components[len(components) - 1], ".") {
+
+	if strings.Contains(components[len(components)-1], ".") {
 		// is a direct file with title and type
-		sections = components[1:len(components) - 1]
-		fileDetails := strings.Split(components[len(components) - 1], ".")
+		sections = components[1 : len(components)-1]
+		fileDetails := strings.Split(components[len(components)-1], ".")
 		title = fileDetails[0]
 		pending, err := pages.MatchPageEnding(fileDetails[1])
 		if err != nil {
@@ -55,7 +55,7 @@ func decomposeURL(url string) (sections []string, title string, pending pages.Pa
 		}
 		globallogger.Debug(fmt.Sprintf("sections: %v; title: %s; pending: %s; err: %v", sections, title, pending, err))
 		return sections, title, pending, err
-	} 
+	}
 	// is a page browser
 	return components[1:], "index", pages.HTML, err
 }

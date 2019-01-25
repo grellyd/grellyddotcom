@@ -1,13 +1,13 @@
 package main
 
 import (
-	"os"
 	"fmt"
-	"net/http"
-	"github.com/grellyd/grellyddotcom/handlers"
-	"github.com/grellyd/grellyddotcom/router"
 	"github.com/grellyd/filelogging/globallogger"
 	"github.com/grellyd/filelogging/state"
+	"github.com/grellyd/grellyddotcom/handlers"
+	"github.com/grellyd/grellyddotcom/router"
+	"net/http"
+	"os"
 )
 
 func main() {

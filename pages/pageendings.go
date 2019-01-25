@@ -3,7 +3,7 @@ package pages
 import "fmt"
 
 // PageEnding is the type of a page indicating how the page should be treated
-type PageEnding string 
+type PageEnding string
 
 const (
 	// HTML PageEnding
