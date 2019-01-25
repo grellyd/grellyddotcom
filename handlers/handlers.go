@@ -39,7 +39,8 @@ func File(w http.ResponseWriter, r *http.Request) {
 // /images/xmas/2018/wct.jpg -> ['', 'images', 'xmas', '2018', 'wct.jpg']
 func decomposeURL(url string) (sections []string, title string, pending pages.PageEnding, err error) {
 	globallogger.Debug(fmt.Sprintf("decomposing '%s'", url))
-	trimmedURL := strings.TrimRight(url, "/")
+	downcasedURL := strings.ToLower(url)
+	trimmedURL := strings.TrimRight(downcasedURL, "/")
 	components := strings.Split(trimmedURL, "/")
 	globallogger.Debug(fmt.Sprintf("decomposed to '%v' of len '%d'", components, len(components)))
 	
