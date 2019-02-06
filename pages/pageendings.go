@@ -18,6 +18,8 @@ const (
 	PDF PageEnding = "pdf"
 	// MP4 PageEnding
 	MP4 PageEnding = "mp4"
+	// JS PageEnding
+	JS PageEnding = "js"
 )
 
 // MatchPageEnding from a string to a PageEnding
@@ -35,6 +37,8 @@ func MatchPageEnding(ending string) (PageEnding, error) {
 		return PDF, nil
 	case string(MP4):
 		return MP4, nil
+	case string(JS):
+		return JS, nil
 	default:
 		return HTML, fmt.Errorf("unable to match PageEnding")
 	}

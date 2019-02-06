@@ -43,6 +43,10 @@ func registerRoutes() (err error) {
 	if err != nil {
 		return fmt.Errorf("unable to register css: %s", err.Error())
 	}
+	err = router.Register("/js/", "^/js/([a-zA-Z0-9_]*).js$", handlers.File)
+	if err != nil {
+		return fmt.Errorf("unable to register js: %s", err.Error())
+	}
 	err = router.Register("/images/", "^/images/(([a-zA-Z0-9_]*)/)*.(jpg|png)$", handlers.File)
 	if err != nil {
 		return fmt.Errorf("unable to register images: %s", err.Error())
