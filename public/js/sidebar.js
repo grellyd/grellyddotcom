@@ -1,11 +1,11 @@
 function toggleNav() {
+    var sidebarContent = document.getElementById("sidebarContent");
     var navToggle = document.getElementById("navToggle");
-    var newPosts = document.getElementById("newposts");
-    if (newPosts.style.display != "block") {
-        newPosts.style.display = "block"
+    if (sidebarContent.style.display != "block") {
+        sidebarContent.style.display = "block"
         navToggle.innerHTML = "&and;"
     } else {
-        newPosts.style.display = "none"
+        sidebarContent.style.display = ""
         navToggle.innerHTML = "&or;"
     }
 }

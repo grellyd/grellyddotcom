@@ -38,26 +38,33 @@
 
 .sidenav #navToggle {
     display: none;
-    margin: auto;
     width: 100%;
     text-align: center;
 }
 
-.sidenav #newposts {
+.sidenav #sidebarContent {
     display: block;
 }
 
 /* Simple Responsiveness */
 @media screen and (max-width: 800px) {
-    .sidenav #navToggle {
-        display: block;
-    }
-    .sidenav #newposts {
-        display: none;
-    }
     .sidenav {
         position: static;
         width: 100%;
+    }
+    .sidenav #link-title {
+        display: inline-block;
+        width: auto;
+        max-width: 100%;
+    }
+    .sidenav #navToggle {
+        display: inline-block;
+        position: absolute;
+        right: 10px;
+        width: auto;
+    }
+    .sidenav #sidebarContent {
+        display: none;
     }
     #main {
         margin-left: 8px;
