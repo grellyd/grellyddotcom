@@ -38,10 +38,9 @@ func IsUnique(s string) bool {
 	}
 	return true
 }
-
 {{< / highlight >}}
 
-Range over the string, one character at a time. Then compare that character against every remaining character. O(n^2) time and O(1) space. Not pretty but it should work.
+Range over the string, one character at a time. Then compare that character against every remaining character. O(n<sup>2</sup>) time and O(1) space. Not pretty but it should work.
 
 However line 5 throws an error: **`'Invalid operation: char == s[j] (mismatched types rune and byte)'`**
 
@@ -63,13 +62,13 @@ In short,
 
 * ASCII is dead as it doesn't consistently handle characters beyond the first 128.
 * Multiple bytes are needed to handle the globally connected internet's multitude of languages.
-* There are many standards, of which [UTF-8](https://en.wikipedia.org/wiki/UTF-8) is the most universally used and recognised format. [1]
+* There are many standards, of which [UTF-8](https://en.wikipedia.org/wiki/UTF-8) is the most universally used and recognised format.<sup>[1]</sup>
 * All Go source code is UTF-8 encoded.
 
 where UTF-8 is:
 
 * Unicode Transformation Format (UTF) of the Universal Character Set ([UCS](https://www.iso.org/standard/69119.html)) using 8 bit (one byte/octet) sequence components..
-* There are between one and four bytes per character. [2]
+* There are between one and four bytes per character.<sup>[2]</sup>
 * Each character sequence refers to a "code point", the Unicode Consortium's way of referring to a 'complete' UTF-8 value.
 
 Three quick examples:
@@ -82,7 +81,7 @@ Three quick examples:
 <tr><td><b>Unicode Code Point</b></td><td>U+0066</td></tr>
 </table>
 
-Length: 1 Byte
+**Length:** 1 Byte
 
 ### The English word 'Forest'
 
@@ -93,7 +92,7 @@ Length: 1 Byte
 <tr><td><b>Unicode Code Point</b></td><td>U+0046</td><td>U+006F</td><td>U+0072</td><td>U+0065</td><td>U+0073</td><td>U+0074</td></tr>
 </table>
 
-Length: 6 Bytes
+**Length:** 6 Bytes
 
 ### The French word 'For&#234;t'
 
@@ -103,7 +102,7 @@ Length: 6 Bytes
 <tr><td><b>Unicode Code Point</b></td><td>U+0046</td><td>U+006F</td><td>U+0072</td><td>U+0065 U+005E</td><td>U+0074</td></tr>
 </table>
 
-Length: 7 Bytes
+**Length:** 7 Bytes
 
 <table>
 <tr><td><b>Latin Character</b></td><td>F</td><td>o</td><td>r</td><td>&#234;</td><td>t</td></tr>
@@ -111,19 +110,17 @@ Length: 7 Bytes
 <tr><td><b>Unicode Code Point</b></td><td>U+0046</td><td>U+006F</td><td>U+0072</td><td>U+00EA</td><td>U+0074</td></tr>
 </table>
 
-Length: 6 Bytes
+**Length:** 6 Bytes
 
 These two are equivalent. 
 
 Note the second byte in the first example on the &#234; character. UTF-8 considers both a 'e' followed by a '^', and their hex sum to be valid. 
 
-Hence UTF-8 encoded strings are variably lengthed, and often have multiple valid encodings.
-
-Clearly UTF-8 is very important. But what are these rune things?
-
 ---
 
 ## Runes
+
+But how do 'runes' fit into this? 
 
 Simply put, the designers of Go found 'code point' to be an unwieldly phrase. Therefore they added the word 'rune' to the Go lexicon as a synonyum for 'code point'; it means the same but is one syllable less. Whenever you see 'rune', read 'code point'.
 
