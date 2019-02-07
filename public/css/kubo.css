@@ -41,6 +41,60 @@ i:hover {
     cursor: pointer; /* Mouse pointer on hover */
 }
 
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+th {
+    background-color: #492600;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+tr {
+}
+
+tr:hover {
+    background-color: #E6E6E6;
+}
+
+td {
+    text-align: left;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+code {
+    white-space: normal;
+}
+
+.links {
+    margin-top: 0px;
+    text-align: center;
+    float: none;
+    padding: 0px;
+}
+
+.links li {
+    display: inline;
+    text-transform: none;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.links li:first-child {
+    margin-left: 0px;
+}
+
+.highlight tr:hover {
+    background-color: #272822;
+}
+
+.highlight code {
+    white-space: pre;
+}
+
 #main {
     margin-left: 200px; /* Same as the width of the sidebar */
     padding: 0px 10px;
@@ -74,25 +128,6 @@ i:hover {
 
 #footer ul {
     padding-left: 0px;
-}
-
-
-.links {
-    margin-top: 0px;
-    text-align: center;
-    float: none;
-    padding: 0px;
-}
-
-.links li {
-    display: inline;
-    text-transform: none;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-.links li:first-child {
-    margin-left: 0px;
 }
 
 #link-title {
