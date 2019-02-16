@@ -6,13 +6,13 @@ draft: true
 
 ---
 
-**TL;DR Runes are a renameing of Unicode's 'code points', and are a potentially multibyte representation of a UTF-8 character. String indexing produces bytes, not characters.**
+**TL;DR Runes are a renameing of Unicode's 'code points', and are a potentially multibyte representation of a UTF-8 character. String indexing produces bytes, not characters. Either use a `range` statement or [unicode/utf8](https://golang.org/pkg/unicode/utf8/) to access full runes.**
 
 I've found Go intuitive. 
 
-While looking up how to do something, after reading the documentation I usually think "oh, of course" rather than "oh. I suppose that works." Therefore I was surprised when trying to manipulate strings; it wasn't clear and simple. Plus, I found Rob Pike's blogpost ['Strings, bytes, runes and characters in Go'](https://blog.golang.org/strings) strangly obtuse on a first read.
+While looking up how to do something, after reading the documentation I usually think "oh, of course" rather than "oh. I suppose that works." Therefore I was surprised when trying to manipulate strings, it wasn't clear and simple. Plus, I found Rob Pike's blogpost ['Strings, bytes, runes and characters in Go'](https://blog.golang.org/strings) strangly obtuse on a first read.
 
-Up to this point in my dabbling, I have avoided the need to do low level string manuipulations. However while doing programming practice problems, that changed. To check character uniquiness in a string, or to check palindromes etc, I just wanted to have the string as an array of characters. Since I didn't know immediately what to do, evidently I misunderstood something.
+Up to this point in my dabbling, I have avoided the need to do low level string manuipulations. However while doing programming practice problems, that changed. Generally, I just wanted to have the string as an array of characters. Since I didn't know immediately what to do, evidently I misunderstood something.
 
 ---
 
@@ -132,60 +132,38 @@ Source?
 
 Armed with this new understanding, lets solve the original problem:
 
-From [Effective Go](https://golang.org/doc/effective_go.html#for), the range statement "does more work for you, breaking out individual Unicode code points by parsing the UTF-8", hence how we got the runes above. Alright lets try dual `range` statements.
+From [Effective Go](https://golang.org/doc/effective_go.html#for), the range statement "does more work for you, breaking out individual Unicode code points by parsing the UTF-8", hence how we got the runes above. Alright lets try nested `range` statements.
 
-TODO: remove indicies
+Also time to change `char` to `r`, as `char` is misleading.
+
+<b>TODO: change '!' to '_'</b>
 
 {{< highlight go "linenos=table" >}}
 // IsUnique checks if a string has all unique characters
 func IsUnique(s string) bool {
-	for i, char := range s {
-        for j, comparison := range s {
-            if char == comparison {
+	for i, r1 := range s {
+		for !, r2 := range s[i+1:] {
+            if r1 == r2 {
                 return false
             }
         }
 	}
 	return true
 }
-
 {{< / highlight >}}
 
-That works, but that wastes some work on long strings.
-
-Lets try with an early exit:
-
-{{< highlight go "linenos=table" >}}
-// IsUnique checks if a string has all unique characters
-func IsUnique(s string) bool {
-	for i, char := range s {
-        for j, comparison := range s {
-            if j < i {
-                continue
-            }
-            if char == comparison {
-                return false
-            }
-        }
-	}
-	return true
-}
-
-{{< / highlight >}}
-
-What if we wanted to compare against array indicies, per our original idea? We have to use the [unicode/utf8](https://golang.org/pkg/unicode/utf8/) standard package. Specifically we are going to use [#DecodeRune](https://golang.org/pkg/unicode/utf8/#DecodeRune).
-
+Alright. That works. What if we don't want to use the range statement for the second loop? In that case, we have to use the [unicode/utf8](https://golang.org/pkg/unicode/utf8/) standard package. Specifically we are going to use [#DecodeRune](https://golang.org/pkg/unicode/utf8/#DecodeRune).
 
 {{< highlight go "linenos=table" >}}
 import "unicode/utf8"
 
 // IsUnique checks if a string has all unique characters
 func IsUnique(s string) bool {
-	for i, char := range s {
-        b := []byte(s)
+	for i, r1 := range s {
+		b := []byte(s[i+1:])
         for len(b) > 0 {
-            r, size := utf8.DecodeRune(b)
-            if char == r {
+            r2, size := utf8.DecodeRune(b)
+            if r1 == r2 {
                 return false
             }
             b = b[size:]
@@ -193,21 +171,22 @@ func IsUnique(s string) bool {
 	}
 	return true
 }
-
 {{< / highlight >}}
 
-And lets clean that up with a helper:
+What if we wanted to compare against array indicies, per our original idea? Lets also clean up that byte array with a helper:
 
 {{< highlight go "linenos=table" >}}
 import "unicode/utf8"
 
-// IsUnique checks if a string has all unique characters
-func IsUnique(s string) bool {
+// IsUniqueDecoded checks if a string has all unique characters
+func IsUniqueDecoded(s string) bool {
     runes := runeArray(s)
-	for i, char := range s {
-        if char == runes[i] {
-            return false
-        }
+	for i, r := range s {
+		for j := i+1; j < len(runes); j++ {
+			if r == runes[j] {
+				return false
+			}
+		}
 	}
 	return true
 }
@@ -226,8 +205,18 @@ func runeArray(s string) (runes []rune) {
 
 ---
 
+
 ## Conclusion
 
+Armed with our newfound knowledge, the Go blog ['Strings, bytes, runes and characters in Go'](https://blog.golang.org/strings) has a nice summary:
+
+<blockquote>
+Go source code is always UTF-8.
+A string holds arbitrary bytes.
+A string literal, absent byte-level escapes, always holds valid UTF-8 sequences.
+Those sequences represent Unicode code points, called runes.
+No guarantee is made in Go that characters in strings are normalized.
+</blockquote>
 
 
 
@@ -262,3 +251,11 @@ Without delving into the encoding history since 2003, I would suggest that large
 2.
 
 The RFC document refers to "In UTF-8, characters from the U+0000..U+10FFFF range (the UTF-16 accessible range) are encoded using sequences of 1 to 4 octets." An octet is defined as a set of 8 bits. The RFC document uses 'octet' instead of 'byte' as it is more exact, for historically a 'byte' could be something other than eight bits. In this post, I use the two interchangably.
+
+
+<b>
+TODO:
+
+- Fix references
+- CSS on blockquote for shading
+- int32 of every rune
