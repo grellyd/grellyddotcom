@@ -1,6 +1,0 @@
-TODO:
-
-- markdown content lives in content/posts content/statics
-- generated html lives in public/posts public/statics
-- hugo moves between the two
-- the go server serves the static files and the blog posts
