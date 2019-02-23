@@ -10,6 +10,6 @@ params:
     LinkedInUsername: grellyd
     ContactEmail: graham@grellyd.com
     SiteName: Grellyd
-    HiddenSections: [xmas, post, email]
+    HiddenSections: [xmas, blog, email]
 googleAnalytics: UA-127080315-1
 buildFuture: true
