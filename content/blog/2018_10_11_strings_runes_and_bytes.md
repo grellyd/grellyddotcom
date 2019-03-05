@@ -1,12 +1,10 @@
 ---
 title: "Demystifying Go's Strings, Runes, and Bytes"
-date: 2018-10-11T11:40:19-07:00
+date: 2019-03-04T11:40:19-07:00
 draft: true
 ---
 
 ---
-
-**TL;DR Runes are a renameing of Unicode's 'code points', and are a potentially multibyte representation of a UTF-8 character. String indexing produces bytes, not characters. Either use a `range` statement or [unicode/utf8](https://golang.org/pkg/unicode/utf8/) to access full runes.**
 
 I've found Go intuitive. 
 
@@ -122,9 +120,7 @@ Note the second byte in the first example on the &#234; character. UTF-8 conside
 
 But how do 'runes' fit into this? 
 
-Simply put, the designers of Go found 'code point' to be an unwieldly phrase. Therefore they added the word 'rune' to the Go lexicon as a synonyum for 'code point'; it means the same but is one syllable less. Whenever you see 'rune', read 'code point'.
-
-Source?
+Runes are a design choice. The designers of Go found 'code point' to be an unwieldly phrase. Therefore they added the word 'rune' to the Go lexicon as a synonyum for 'code point'; it means the same but is one syllable less. Whenever you see 'rune', read 'code point'.
 
 ---
 
@@ -208,7 +204,7 @@ func runeArray(s string) (runes []rune) {
 
 ## Conclusion
 
-Armed with our newfound knowledge, the Go blog ['Strings, bytes, runes and characters in Go'](https://blog.golang.org/strings) has a nice summary:
+Armed with our newfound knowledge, we can return to the original Go Blog post ['Strings, bytes, runes and characters in Go'](https://blog.golang.org/strings), which has a nice summary:
 
 <blockquote>
 Go source code is always UTF-8.
@@ -218,25 +214,28 @@ Those sequences represent Unicode code points, called runes.
 No guarantee is made in Go that characters in strings are normalized.
 </blockquote>
 
+In other words, runes are a renameing of Unicode's 'code points', and are a potentially multibyte representation of a UTF-8 character. String indexing produces bytes, not characters. Either use a `range` statement or [unicode/utf8](https://golang.org/pkg/unicode/utf8/) to access full runes.
 
 
 ## Sources & Further Reading
 
-['Strings, bytes, runes and characters in Go'](https://blog.golang.org/strings)
-[Unicode and Character Sets](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
+Strings, bytes, runes and characters in Go: [https://blog.golang.org/strings](https://blog.golang.org/strings)
 
-http://standards.iso.org/ittf/PubliclyAvailableStandards/c069119_ISO_IEC_10646_2017.zip
+The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!): [https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
 
-https://tools.ietf.org/html/rfc3629
+ISO/IEC 10646:2017 Information technology -- Universal Coded Character Set (UCS): [http://standards.iso.org/ittf/PubliclyAvailableStandards/c069119_ISO_IEC_10646_2017.zip](http://standards.iso.org/ittf/PubliclyAvailableStandards/c069119_ISO_IEC_10646_2017.zip)
 
+UTF-8, a transformation format of ISO 10646: [https://tools.ietf.org/html/rfc3629](https://tools.ietf.org/html/rfc3629)
 
-Go Language Specification: Rune Literals [https://golang.org/ref/spec#Rune_literals](https://golang.org/ref/spec#Rune_literals)
+Wikipedia UTF-8: [https://en.wikipedia.org/wiki/UTF-8](https://en.wikipedia.org/wiki/UTF-8)
+
+Go Language Specification: Rune Literals: [https://golang.org/ref/spec#Rune_literals](https://golang.org/ref/spec#Rune_literals)
 
 ---
 
 ## Footnotes:
 
-1.
+### 1.
 
 One cautionary note: 
 
@@ -246,16 +245,9 @@ However looking at the adoption chart off wikipedia, it is clear he wrote that a
 
 {{< figure src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Utf8webgrowth.svg" alt="Webpage Encoding Adoption Chart" >}}
 
-Without delving into the encoding history since 2003, I would suggest that larger multibyte encodings such as UTF-16 have since fallen out of favour due to UTF-8's smaller size for the English speaking world, and lack of backwards-compatability with ASCII. 
+Without delving into the encoding history since 2003, I would suggest that larger multibyte encodings such as UTF-16 have since fallen out of favour due to UTF-8's smaller size for the English speaking world, and its lack of backwards-compatability with ASCII. 
 
-2.
+### 2.
 
 The RFC document refers to "In UTF-8, characters from the U+0000..U+10FFFF range (the UTF-16 accessible range) are encoded using sequences of 1 to 4 octets." An octet is defined as a set of 8 bits. The RFC document uses 'octet' instead of 'byte' as it is more exact, for historically a 'byte' could be something other than eight bits. In this post, I use the two interchangably.
 
-
-<b>
-TODO:
-
-- Fix references
-- CSS on blockquote for shading
-- int32 of every rune

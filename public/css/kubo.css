@@ -69,6 +69,11 @@ code {
     white-space: normal;
 }
 
+blockquote {
+    border-left: 4px solid #CCC;
+    padding-left: 8px;
+}
+
 .links {
     margin-top: 0px;
     text-align: center;
