@@ -1,7 +1,8 @@
 ---
-title: "2019 03 07 Google Contact Birthdays"
-date: 2019-03-06T08:57:58-08:00
+title: "Google Contact Birthdays"
+date: 2019-03-07T08:57:58-08:00
 draft: true
+author: "Graham L. Brown"
 ---
 
 Date Full Month Year

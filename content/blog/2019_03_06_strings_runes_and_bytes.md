@@ -2,8 +2,7 @@
 title: "Demystifying Go's Strings, Runes, and Bytes"
 date: 2019-03-06T08:30:00-07:00
 draft: false
----
-
+author: "Graham L. Brown"
 ---
 
 I've found Go intuitive. 
