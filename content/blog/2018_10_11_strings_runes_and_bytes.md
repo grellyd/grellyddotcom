@@ -132,13 +132,11 @@ From [Effective Go](https://golang.org/doc/effective_go.html#for), the range sta
 
 Also time to change `char` to `r`, as `char` is misleading.
 
-<b>TODO: change '!' to '_'</b>
-
 {{< highlight go "linenos=table" >}}
 // IsUnique checks if a string has all unique characters
 func IsUnique(s string) bool {
 	for i, r1 := range s {
-		for !, r2 := range s[i+1:] {
+		for _, r2 := range s[i+1:] {
             if r1 == r2 {
                 return false
             }
