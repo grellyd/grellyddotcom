@@ -13,6 +13,8 @@ I'm a twenty-something who likes working on his laptop and adventuring outside. 
 
 If you are looking for my C.V. jump to my [resume](/resume). 
 
+I work for [1Password](https://1password.com/) as a backend software developer, specifically as a "SCIM Bridge Gatekeeper". That translates to a backend software engineer on the team responsible for technical tools for business clients. These include the [1Password SCIM Bridge](https://support.1password.com/scim/) and the [Command Line Interface](https://support.1password.com/command-line-getting-started/). I started working for 1Password in March 2019.
+
 This site functions as a portfolio of my work beyond [Github](https://github.com/grellyd). It is a continual work in progress.
 
 ### Why Grellyd?
