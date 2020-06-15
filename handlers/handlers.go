@@ -2,10 +2,11 @@ package handlers
 
 import (
 	"fmt"
-	"github.com/grellyd/filelogging/globallogger"
-	"github.com/grellyd/grellyddotcom/pages"
 	"net/http"
 	"strings"
+
+	"github.com/grellyd/filelogging/globallogger"
+	"github.com/grellyd/grellyddotcom/pages"
 )
 
 // File handler for any file
@@ -14,19 +15,22 @@ func File(w http.ResponseWriter, r *http.Request) {
 	sections, title, pending, err := decomposeURL(r.URL.Path)
 	if err != nil {
 		http.Error(w, fmt.Sprintf("unable to handle file: %s", err.Error()), http.StatusInternalServerError)
+		return
 	}
-	err = pages.CheckExistence(sections, title, pending)
-	if err != nil {
+
+	if err = pages.CheckExistence(sections, title, pending); err != nil {
 		http.Error(w, fmt.Sprintf("unable to handle file: %s", err.Error()), http.StatusInternalServerError)
-	} else {
-		filepath := "public"
-		for _, section := range sections {
-			filepath = fmt.Sprintf("%s/%s", filepath, section)
-		}
-		filepath = fmt.Sprintf("%s/%s.%s", filepath, title, pending)
-		globallogger.Debug(fmt.Sprintf("Serving '%s'", filepath))
-		http.ServeFile(w, r, filepath)
+		return
 	}
+
+	filepath := "public"
+	for _, section := range sections {
+		filepath = fmt.Sprintf("%s/%s", filepath, section)
+	}
+
+	filepath = fmt.Sprintf("%s/%s.%s", filepath, title, pending)
+	globallogger.Debug(fmt.Sprintf("Serving '%s'", filepath))
+	http.ServeFile(w, r, filepath)
 }
 
 // decomponseURL breaks a URL down into its sections and title for hugo's routing.
