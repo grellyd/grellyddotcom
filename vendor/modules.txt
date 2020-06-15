@@ -1,0 +1,6 @@
+# github.com/grellyd/filelogging v0.0.0-20180915010018-b2a208a9a587
+## explicit
+github.com/grellyd/filelogging/globallogger
+github.com/grellyd/filelogging/level
+github.com/grellyd/filelogging/logger
+github.com/grellyd/filelogging/state
