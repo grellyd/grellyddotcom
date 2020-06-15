@@ -1,0 +1,9 @@
+version: '3.3'
+
+services:
+    grellyddotcom:
+        image: grellyddotcom
+        ports: 
+            - "80:8080"
+            - "443:8443"
+        entrypoint: /go/src/github.com/grellyd/grellyddotcom/grellyddotcom

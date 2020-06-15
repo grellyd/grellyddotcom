@@ -2,24 +2,24 @@ package main
 
 import (
 	"fmt"
+	"net/http"
+	"os"
+
 	"github.com/grellyd/filelogging/globallogger"
 	"github.com/grellyd/filelogging/state"
 	"github.com/grellyd/grellyddotcom/handlers"
 	"github.com/grellyd/grellyddotcom/router"
-	"net/http"
-	"os"
 )
 
 func main() {
 	err := setup()
 	checkError(err)
 	globallogger.Info("Setup Complete")
-	// http.ListenAndServe(":3000", http.FileServer(http.Dir("public/")))
-	http.ListenAndServe(":3000", nil)
+	http.ListenAndServe(":8080", nil)
 }
 
 func setup() (err error) {
-	err = globallogger.NewGlobalLogger("grellyd.com Server", state.QUIET)
+	err = globallogger.NewGlobalLogger("grellyd.com Server", state.NORMAL)
 	if err != nil {
 		return fmt.Errorf("setup failed: %s", err.Error())
 	}
