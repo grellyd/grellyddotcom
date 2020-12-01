@@ -41,6 +41,7 @@ func File(w http.ResponseWriter, r *http.Request) {
 // /blog/post/ ->               ['', 'blog', 'post', '']
 // /css/grellyd.com ->          ['', 'css'   , 'grellyd.com']
 // /images/xmas/2018/wct.jpg -> ['', 'images', 'xmas', '2018', 'wct.jpg']
+// /favicon.ico ->              ['', 'favicon.ico']
 func decomposeURL(url string) (sections []string, title string, pending pages.PageEnding, err error) {
 	globallogger.Debug(fmt.Sprintf("decomposing '%s'", url))
 	downcasedURL := strings.ToLower(url)

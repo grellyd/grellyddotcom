@@ -20,6 +20,8 @@ const (
 	MP4 PageEnding = "mp4"
 	// JS PageEnding
 	JS PageEnding = "js"
+	// ICO PageEnding
+	ICO PageEnding = "ico"
 )
 
 // MatchPageEnding from a string to a PageEnding
@@ -39,6 +41,8 @@ func MatchPageEnding(ending string) (PageEnding, error) {
 		return MP4, nil
 	case string(JS):
 		return JS, nil
+	case string(ICO):
+		return ICO, nil
 	default:
 		return HTML, fmt.Errorf("unable to match PageEnding")
 	}
