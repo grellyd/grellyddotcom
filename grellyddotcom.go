@@ -60,7 +60,7 @@ func setup() (*router.Router, *autocert.Manager, error) {
 
 	certManager := autocert.Manager{
 		Prompt:      autocert.AcceptTOS,
-		HostPolicy:  autocert.HostWhitelist("grellyd.com"),
+		HostPolicy:  autocert.HostWhitelist("grellyd.com", "www.grellyd.com", "dev.grellyd.com"),
 		Cache:       autocert.DirCache("certs"),
 		RenewBefore: 24 * time.Hour,
 	}
