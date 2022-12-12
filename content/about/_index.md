@@ -9,7 +9,7 @@ Hi I'm Graham.
 
 @grellyd most places online.
 
-I'm a twenty-something who likes working on his laptop and adventuring outside. Overall I'm always looking for my next adventure.
+I'm a late twenty-something who likes working on his laptop and adventuring outside. Overall I'm always looking for my next adventure.
 
 If you are looking for my C.V. jump to my [resume](/resume). 
 
