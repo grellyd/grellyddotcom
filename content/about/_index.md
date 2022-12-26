@@ -9,11 +9,30 @@ Hi I'm Graham.
 
 @grellyd most places online.
 
-I'm a late twenty-something who likes working on his laptop and adventuring outside. Overall I'm always looking for my next adventure.
+I'm a late twenty-something who likes working on his laptop and adventuring outside. I'm always looking for my next adventure.
 
 If you are looking for my C.V. jump to my [resume](/resume). 
 
-I work for [1Password](https://1password.com/) as a backend software developer, specifically as a "SCIM Bridge Gatekeeper". That translates to a backend software engineer on the team responsible for technical tools for business clients. These include the [1Password SCIM Bridge](https://support.1password.com/scim/) and the [Command Line Interface](https://support.1password.com/command-line-getting-started/). I started working for 1Password in March 2019.
+I currently work for [1Password](https://1password.com/) as a Tech Lead on the User Lifecycle & Growth (ULG) team. This means I:
+ - Solve hard technical problems
+ - Deliver large multi-domain projects on time
+ - Translate business requirements into technical requirements
+ - Grease the development wheels under my team enabling them to move quickly 
+ - Iterate on our Software Development Lifecycle (SDLC)
+ - Look ahead to remove blockers and conflicts before they manifest 
+ - Manage and get buy in to pay down our tech debt
+
+My goals in this role are to:
+ - Push my technical abilities 
+ - Empower and enable my team
+ - Build understanding and clarity for the team and leadership on what we are doing and why 
+ - Find the “right” solution to problems allowing us to spend time on what matters.
+
+I started working for 1Password in March 2019.
+
+Outside of work my partner and I are avid outdoor people. Hiking and skiing were our bread and butter while in the lower mainland, then scuba diving, hiking, and sea kayaking on Vancouver Island, and now canoeing and cross country skiing in Saskatoon. Our gear room is one of my favourite places to be.
+
+We also have a phenomenal adventure cat that accompanies us on most outings. Peek at [his instagram](https://instagram.com/nicholascbrownie) for a taste of his outdoor preferences!
 
 This site functions as a portfolio of my work beyond [Github](https://github.com/grellyd). It is a continual work in progress.
 
