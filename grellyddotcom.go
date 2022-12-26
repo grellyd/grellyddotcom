@@ -74,7 +74,7 @@ func registerRoutes() (*router.Router, error) {
 	if err != nil {
 		return nil, fmt.Errorf("unable to register static: %w", err)
 	}
-	err = r.Register("/blog/", "^/blog/([a-zA-Z0-9]*)$", handlers.File)
+	err = r.Register("/writing/", "^/writing/([a-zA-Z0-9]*)$", handlers.File)
 	if err != nil {
 		return nil, fmt.Errorf("unable to register blog: %w", err)
 	}
