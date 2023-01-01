@@ -4,6 +4,9 @@ github.com/grellyd/filelogging/globallogger
 github.com/grellyd/filelogging/level
 github.com/grellyd/filelogging/logger
 github.com/grellyd/filelogging/state
+# github.com/pkg/errors v0.9.1
+## explicit
+github.com/pkg/errors
 # golang.org/x/crypto v0.0.0-20201124201722-c8d3bf9c5392
 ## explicit
 golang.org/x/crypto/acme

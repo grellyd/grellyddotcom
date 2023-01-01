@@ -34,8 +34,6 @@ Outside of work my partner and I are avid outdoor people. Hiking and skiing were
 
 We also have a phenomenal adventure cat that accompanies us on most outings. Peek at [his instagram](https://instagram.com/nicholascbrownie) for a taste of his outdoor preferences!
 
-This site functions as a portfolio of my work beyond [Github](https://github.com/grellyd). It is a continual work in progress.
-
 ### Why Grellyd?
 
 Grellyd stems from my first attempt at a screen name combined with a portion of my middle name: **gre**yham **ll**o**yd**. I can happily say that I am the only result one finds when they Google 'grellyd'.

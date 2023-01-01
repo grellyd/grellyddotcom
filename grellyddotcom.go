@@ -7,10 +7,12 @@ import (
 	"os"
 	"time"
 
+	"github.com/pkg/errors"
 	"golang.org/x/crypto/acme/autocert"
 
 	"github.com/grellyd/filelogging/globallogger"
 	"github.com/grellyd/filelogging/state"
+	"github.com/grellyd/grellyddotcom/config"
 	"github.com/grellyd/grellyddotcom/handlers"
 	"github.com/grellyd/grellyddotcom/router"
 )
@@ -21,48 +23,69 @@ const (
 )
 
 func main() {
-	r, certManager, err := setup()
+	err := run()
+	if err != nil {
+		globallogger.Fatal(err.Error())
+		os.Exit(1)
+	}
+	os.Exit(0)
+}
+
+func run() error {
+
+	config, err := config.NewConfig(os.Args)
+	if err != nil {
+		return errors.Wrap(err, "failed to NewConfig")
+	}
+
+	r, err := buildRouter()
 	if err != nil {
 		checkError(fmt.Errorf("failed to setup: %w", err))
 	}
-	globallogger.Info("Setup Complete")
 
 	server := &http.Server{
-		Addr: AddrHTTPS,
-		TLSConfig: &tls.Config{
-			GetCertificate: certManager.GetCertificate,
-			MinVersion:     tls.VersionTLS12,
-		},
+		Addr:    AddrHTTP,
 		Handler: r,
 	}
 
-	go func() {
-		globallogger.Info("Serving Challenges")
-		err = http.ListenAndServe(AddrHTTP, certManager.HTTPHandler(nil))
+	if config.TLS {
+		certManager, err := buildCertManager()
 		if err != nil {
-			globallogger.Error(fmt.Errorf("failed to listen and serve %s: %w", AddrHTTP, err).Error())
-			fmt.Println(err.Error())
+			return errors.Wrap(err, "failed to buildCertManager")
 		}
-	}()
 
-	globallogger.Info("Serving TLS")
-	err = server.ListenAndServeTLS("", "")
-	if err != nil {
-		checkError(fmt.Errorf("failed to ListenAndServe: %w", err))
+		server.TLSConfig = &tls.Config{
+			GetCertificate: certManager.GetCertificate,
+			MinVersion:     tls.VersionTLS12,
+		}
+		server.Addr = AddrHTTPS
+
+		go func() {
+			globallogger.Info("Serving Challenges")
+			err = http.ListenAndServe(AddrHTTP, certManager.HTTPHandler(nil))
+			if err != nil {
+				globallogger.Error(fmt.Errorf("failed to listen and serve %s: %w", AddrHTTP, err).Error())
+				fmt.Println(err.Error())
+			}
+		}()
+
+		globallogger.Info(fmt.Sprintf("Serving on %s", server.Addr))
+		if err = server.ListenAndServeTLS("", ""); err != nil {
+			return errors.Wrap(err, "failed to ListenAndServeTLS")
+		}
+
+	} else {
+		globallogger.Info(fmt.Sprintf("Serving on %s", server.Addr))
+		if err = server.ListenAndServe(); err != nil {
+			return errors.Wrap(err, "failed to ListenAndServe")
+		}
 	}
+
+	return nil
 
 }
 
-func setup() (*router.Router, *autocert.Manager, error) {
-	err := globallogger.NewGlobalLogger("grellyd.com Server", state.NORMAL)
-	if err != nil {
-		return nil, nil, fmt.Errorf("failed to globallogger.NewGlobalLogger: %w", err)
-	}
-	r, err := registerRoutes()
-	if err != nil {
-		return nil, nil, fmt.Errorf("failed to registerRoutes: %w", err)
-	}
-
+func buildCertManager() (*autocert.Manager, error) {
 	certManager := autocert.Manager{
 		Prompt:      autocert.AcceptTOS,
 		HostPolicy:  autocert.HostWhitelist("grellyd.com", "www.grellyd.com", "dev.grellyd.com"),
@@ -70,7 +93,20 @@ func setup() (*router.Router, *autocert.Manager, error) {
 		RenewBefore: 24 * time.Hour,
 	}
 
-	return r, &certManager, nil
+	return &certManager, nil
+}
+
+func buildRouter() (*router.Router, error) {
+	err := globallogger.NewGlobalLogger("grellyd.com Server", state.NORMAL)
+	if err != nil {
+		return nil, fmt.Errorf("failed to globallogger.NewGlobalLogger: %w", err)
+	}
+	r, err := registerRoutes()
+	if err != nil {
+		return nil, fmt.Errorf("failed to registerRoutes: %w", err)
+	}
+
+	return r, nil
 }
 
 func registerRoutes() (*router.Router, error) {
@@ -122,7 +158,6 @@ func registerRoutes() (*router.Router, error) {
 func checkError(err error) {
 	if err != nil {
 		// Top Level Err Handle
-		globallogger.Fatal(err.Error())
 		os.Exit(1)
 	}
 }
