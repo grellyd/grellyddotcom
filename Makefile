@@ -3,7 +3,7 @@ prd:
 	go build
 
 dev:
-	hugo --buildDrats --buildFuture
+	hugo --buildDrafts --buildFuture
 	go run grellyddotcom.go
 
 deploy:
