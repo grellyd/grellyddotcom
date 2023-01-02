@@ -11,7 +11,7 @@ This is a quick primer to set you expectations for the month ahead.
 
 ## Who
 
-The ULG team. This development cycle change is limited to just the ULG team at this time. If this goes well, it could easily be expanded to other developemt and tech org teams.
+The ULG team. This development cycle change is limited to just the ULG team at this time. If this goes well, it could easily be expanded to other development and tech org teams.
 
 ## What
 
@@ -19,7 +19,7 @@ A **4 week** development cycle composed of **one planning and retro week** and *
 
 ## When
 
-Now! The first planning week starts Januaray 3rd, with the first full cycle starting Januarary 6th completing Januaray 27th. This is directly followed by the next planning and retro week (Jan 30th - Feb 3rd) for the second work period (Feb 6th - Feb 24th).
+Now! The first planning week starts January 3rd, with the first full cycle starting January 6th completing January 27th. This is directly followed by the next planning and retro week (Jan 30th - Feb 3rd) for the second work period (Feb 6th - Feb 24th).
 
 | Week | Focus |
 ------
@@ -58,7 +58,7 @@ Something that has worked for the Provisioning team in the past is two meetings,
     - What is a reasonable scope of work for each high level priority? What does 'done' look like at the end of the cycle?
     - What is the minimum viable deliverable to be successful this cycle? How can we get there?
     - The acceptance criteria defined here will map directly to acceptance criteria in issues and subsequent MRs.
-    - What are we going to do? What are we excplicitly not doing? What are some stretch goals?
+    - What are we going to do? What are we explicitly not doing? What are some stretch goals?
 
 ### Work weeks
 
@@ -66,13 +66,13 @@ Execute on your planned work! You should know at a high level what you are doing
 
 In the last week, look to have everything in MR by Wednesday at the latest. That leaves a two day buffer to review, test, fix get everything through before the end of the cycle. 
 
-If completeing the work inside the cycle isn't possible, take some time in a retro to figure out why. Did you have an over-expansive scope of work? Were you waiting on external stakeholders that couldn't deliver on time? Or did life just get in the way? Bring the uncomplete work forward into the planning meetings and decide if it is still a priority to get done. If it is, bring it forward to the next cycle. If not, leave it behind.
+If completing the work inside the cycle isn't possible, take some time in a retro to figure out why. Did you have an over-expansive scope of work? Were you waiting on external stakeholders that couldn't deliver on time? Or did life just get in the way? Bring the incomplete work forward into the planning meetings and decide if it is still a priority to get done. If it is, bring it forward to the next cycle. If not, leave it behind.
 
 ## Why
 
-Pace! The ULG dream enables us to borrow who and what we need from the different teams under our unmbrella. This only becomes possible if there are natural points at which folks can move between projects.
+Pace! The ULG dream enables us to borrow who and what we need from the different teams under our umbrella. This only becomes possible if there are natural points at which folks can move between projects.
 
-The goal here is **not** to enforce working method compliance. You and your comrades should still pick, scope, design, and exectue on the work as before. The goal is to align working periods.
+The goal here is **not** to enforce working method compliance. You and your comrades should still pick, scope, design, and execute on the work as before. The goal is to align working periods.
 
 # Questions?
 
