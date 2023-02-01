@@ -1,0 +1,24 @@
+# A1
+
+## Reading Log
+
+### Cory Doctorow - [Plura-list] Podcasts are hearteningly enshittification resistant
+
+> Podcasting is an open technology built out of open technologies. We have damned few of those left. The openness of podcasts once allowed wild experimentation, with new kinds of audio made by new kinds of creators finding new kinds of audiences.
+
+> The drive to enshittify, unfettered by regulation or competition, has allowed many of the world’s largest, stupidest tech companies to unhinge their jaws and tempt podcast makers and listeners to traipse blithely onto their slathering tongues. They were *always* going to snap their jaws shut eventually - just because Spotify lacked the executive function to wait for a fully ripened enshittification before biting down, it doesn’t mean we’re out of the woods.
+
+Cory Doctorow
+
+https://pluralistic.net/2023/01/27/enshittification-resistance/
+
+### Patrick McKenzie (patio11) - KYC and AML: beyond the acronyms 
+
+> And this is the first important non-intuitive thing about KYC and AML regimes: the goal is not to achieve banks having good knowledge of their customers or to prevent money laundering. It is to stochastically manage crime and terrorism at the margins by requiring an oft-unrecognized policy arm, the financial industry, to implement their own stochastic management of their books of business.
+
+> A particular important realization is that KYC and AML don’t have to be effective in their own terms to contribute to these goals. That is a bit mindblowing, but let’s come back to it after we talk a bit about their own terms.
+
+Patrick McKenzie (patio11)
+
+https://www.bitsaboutmoney.com/archive/kyc-and-aml-beyond-the-acronyms/
+
