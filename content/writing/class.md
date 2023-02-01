@@ -5,7 +5,11 @@ author: Graham L. Brown
 draft: true
 ---
 
-## Self-Introduction
+# Notes
+
+## Class 1
+
+### Self-Introduction
 
 I write software for a living, and so unlike Debbie, I am quite logical and squential. I am reaching a point in my career where my position gives me to the opportunity to inform, influence, and assist my peers.
 
@@ -23,13 +27,10 @@ Looking to learn to write more effectively and empathetically so that I can bett
   - Balancing between being verbose and concise
 
 
- ## Notes
+ A note: The more we write, the better we get!
 
- The more we write, the better we get!
 
- ## Exercises
-
- ### Wirting Life - Anchor Words
+ ### Writing Life - Anchor Words
 
  Who do you write for? - Myself primarily, peers, friends, folks I mentor. I'd love to write for the wider world, but that doesn't seem real
  Where do you do your writing? - In familiar but different places
@@ -48,34 +49,7 @@ Looking to learn to write more effectively and empathetically so that I can bett
 Can you describe your writing philosophy? What is it about writing? Why does it animate you? Why do you feel you have something to say? What motivates you?
  - I write to learn. To help others learn what I've worked to find out. It is thrilling to see my thoughts reveal themselves on the page with their natural organistation and clear thoughts. While I do not define myself as an expert, I believe I have enough of value to make sharing worthwhile. Beyond learning and helping, bluntly being a better communicator that can inform, influence, and assist others across boundaries will enable me to unlock the next step in my career progression. 
 
- ## Homework
-
-# A1
-
-## Reading Log
-
-### Cory Doctorow - [Plura-list] Podcasts are hearteningly enshittification resistant
-
-> Podcasting is an open technology built out of open technologies. We have damned few of those left. The openness of podcasts once allowed wild experimentation, with new kinds of audio made by new kinds of creators finding new kinds of audiences.
-
-> The drive to enshittify, unfettered by regulation or competition, has allowed many of the world’s largest, stupidest tech companies to unhinge their jaws and tempt podcast makers and listeners to traipse blithely onto their slathering tongues. They were *always* going to snap their jaws shut eventually - just because Spotify lacked the executive function to wait for a fully ripened enshittification before biting down, it doesn’t mean we’re out of the woods.
-
-Cory Doctorow
-
-https://pluralistic.net/2023/01/27/enshittification-resistance/
-
-Leveraging taboo-breaking language. "Enshittification". 
-
-### Patrick McKenzie (patio11) - KYC and AML: beyond the acronyms 
-
-> And this is the first important non-intuitive thing about KYC and AML regimes: the goal is not to achieve banks having good knowledge of their customers or to prevent money laundering. It is to stochastically manage crime and terrorism at the margins by requiring an oft-unrecognized policy arm, the financial industry, to implement their own stochastic management of their books of business.
-
-> A particular important realization is that KYC and AML don’t have to be effective in their own terms to contribute to these goals. That is a bit mindblowing, but let’s come back to it after we talk a bit about their own terms.
-
-Patrick McKenzie (patio11)
-
-https://www.bitsaboutmoney.com/archive/kyc-and-aml-beyond-the-acronyms/
-
+# Class 1
 
 ### Protrait of the artist
 
@@ -88,14 +62,26 @@ How do I begin? Through bullet points. How do I reviese? Through reading out lou
 
 Defining an artisitc self-portait is an uncomfortable exercise, as I do not see myself as an artist; it feels uncomfortable as it gives credit where none is yet due, and renown where none has yet been found. I write, I create, I conjure into being, but the label does not yet feel earned. Yet.
 
+## Class 2
+
 ### Re-writing for another audience: 
 
 Who is the audience of ^^? My super-ego.
 
 Take the portrait, translate it as an author bio as a national literary magazine. 250 max
 
-Graham is a writer who creates in order to clarify, to inform, to influence, and most of all, to assist himself and others. On topics he has knowledge and experience to share, he writes short to medium length essays, technical deep-dives, and how-to guides which desire to be read. Through conversation and internal interrogation, he finds his thoughts and their foundations, he moves them on to the page with an intuitive structure. Graham strives for clarity in his writing, to the point that he would be thoroughly satisified with a series of bullet points if they were crystal clear and fully encapsulated the ideas at hand. His sparse writing style enables interesting word choice to shine, while still delivering clarity and brevity.
+Graham is a writer who creates in order to clarify, to inform, to influence, and most of all, to assist himself and others. On topics he has knowledge and experience to share, he writes short to medium length essays, technical deep-dives, and how-to guides. Through conversation and internal interrogation, he finds his thoughts and their foundations, he moves them on to the page with an intuitive structure. Graham strives for clarity in his writing, to the point that he would be thoroughly satisified with a series of bullet points if they were crystal clear and fully encapsulated the ideas at hand. His sparse writing style enables interesting word choice to shine, while still delivering clarity and brevity.
 
 
 
 -- formal professional writing. Communication, not entertainment is the goal. Play does not exist.
+
+### Profiling
+
+Fear re audience: That no one cares. To put something out into the ether that I slaved over and think is excellent, but no one cares
+Who is your Reader: Younger version of myself that needs a bit of help and support. I write that which I wish I could have read once upon a time.
+Can you characterise your ideal reader? Ditto ^^. Younger me looking to solve problems older me has once encountered.
+As the writer, what kinds of choices would you make to meet their needs and expectations? Assuming little to no prior knowledge. Explaining from nearly first principles, to provide a foundation upon which to build. The building can rise quickly, but the path upwards must be clear.
+
+
+Once upon a time, I needed help and advice. Lacking any sense of wisdom, I turned to Charles Bukowski, an utter rogue. While he was the worst devil of almost every vice, his insights were true and clear and the perfect place to start.
