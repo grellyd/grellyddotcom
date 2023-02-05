@@ -1,15 +1,21 @@
-prd:
+build/prd:
+	hugo
+
+build/dev:
+	hugo --buildDrafts --buildFuture
+
+run/prd:
 	hugo
 	go run grellyddotcom.go
 
-dev:
+run/dev:
 	hugo --buildDrafts --buildFuture
 	go run grellyddotcom.go
 
 
 # ssh root@dev.grellyd.com
 # cd grellyddotcom
-deploy-dev:
+deploy/dev:
 	git pull origin dev -f
 	git submodule update --init --recursive
 	hugo --buildDrafts --buildFuture
@@ -20,7 +26,7 @@ deploy-dev:
 
 # ssh root@grellyd.com
 # cd grellyddotcom
-deploy-prod:
+deploy/prod:
 	git pull origin prod -f
 	git submodule update --init --recursive
 	hugo
