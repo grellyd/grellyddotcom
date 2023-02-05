@@ -1,0 +1,44 @@
+# Workflow for building and deploying my Hugo based site to DigitalOcean Dev instance
+name: Deploy to Dev
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["dev"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+
+# Allow one concurrent deployment
+concurrency:
+  group: "dev-deploy"
+  cancel-in-progress: true
+
+# Default to bash
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  # Build job
+  # build:
+    # uses: ./.github/workflows/hugo.yml
+          
+  # Deployment job
+  deploy:
+    environment:
+      name: tbd
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create SSH
+        run: |
+          mkdir -p ~/.ssh/
+          cd ~/.ssh
+          echo ${{secrets.SA_ID_ED25519}} > id_ed25519
+          sudo chmod 0600 id_ed25519
+          echo ${{SSH_DEV_KNOWN_HOSTS}} > known_hosts
+      - name: Redeploy
+        uses: actions/checkout@v3
+        run: make remote/deploy/dev
