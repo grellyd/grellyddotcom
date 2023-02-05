@@ -1,12 +1,12 @@
-name: Deploy to Dev
+name: Deploy to Prd
 
 on:
   push:
-    branches: ["dev"]
+    branches: ["prd"]
   workflow_dispatch:
 
 concurrency:
-  group: "dev-deploy"
+  group: "prd-deploy"
   cancel-in-progress: true
 
 defaults:
@@ -26,8 +26,8 @@ jobs:
           echo "$SSH_KNOWN_HOSTS" > known_hosts
         env:
           SSH_PRIVATE_KEY: ${{secrets.SA_ID_ED25519}}
-          SSH_KNOWN_HOSTS: ${{secrets.SSH_DEV_KNOWN_HOSTS}}
+          SSH_KNOWN_HOSTS: ${{secrets.SSH_PRD_KNOWN_HOSTS}}
       - name: Checkout
         uses: actions/checkout@v3
       - name: Redeploy
-        run: make remote/deploy/dev
+        run: make remote/deploy/prd
