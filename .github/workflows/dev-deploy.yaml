@@ -36,9 +36,13 @@ jobs:
         run: |
           mkdir -p ~/.ssh/
           cd ~/.ssh
-          echo ${{secrets.SA_ID_ED25519}} > id_ed25519
+          echo "$SSH_PRIVATE_KEY" > id_ed25519
           sudo chmod 0600 id_ed25519
-          echo ${{SSH_DEV_KNOWN_HOSTS}} > known_hosts
+          echo "$SSH_KNOWN_HOSTS" > known_hosts
+        env:
+          SSH_PRIVATE_KEY: ${{secrets.SA_ID_ED25519}}
+          SSH_KNOWN_HOSTS: ${{secrets.SSH_DEV_KNOWN_HOSTS}}
+
       - name: Checkout
         uses: actions/checkout@v3
       - name: Redeploy
