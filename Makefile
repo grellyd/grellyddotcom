@@ -12,34 +12,47 @@ run/dev:
 	hugo --buildDrafts --buildFuture
 	go run grellyddotcom.go
 
+define deploy-dev
+	git pull origin dev -f && \
+	git submodule update --init --recursive && \
+	hugo --buildDrafts --buildFuture && \
+	cp -rf public /var/http && \
+	go install && \
+	systemctl restart grellyddotcom.service && \
+	systemctl status grellyddotcom.service
+endef
 
-# ssh root@dev.grellyd.com
-# cd grellyddotcom
 deploy/dev:
-	git pull origin dev -f
-	git submodule update --init --recursive
-	hugo --buildDrafts --buildFuture
-	cp -rf public /var/http
-	go install
-	systemctl restart grellyddotcom.service
-	systemctl status grellyddotcom.service
+	$(deploy-dev)
 
-# ssh root@grellyd.com
-# cd grellyddotcom
+remote/deploy/dev:
+	ssh root@dev.grellyd.com "cd grellyddotcom && $(deploy-dev)"
+
+define deploy-prd
+	git pull origin prod -f && \
+	git submodule update --init --recursive && \
+	hugo && \
+	cp -rf public /var/http && \
+	go install && \
+	systemctl restart grellyddotcom.service && \
+	systemctl status grellyddotcom.service
+endef
+
 deploy/prod:
-	git pull origin prod -f
-	git submodule update --init --recursive
-	hugo
-	cp -rf public /var/http
-	go install
-	systemctl restart grellyddotcom.service
-	systemctl status grellyddotcom.service
+	$(deploy-dev)
 
+remote/deploy/prod:
+	ssh root@grellyd.com "cd grellyddotcom && $(deploy-prd)"
 
-logs-dev:
-	ssh root@dev.grellyd.com
+define logs
 	journalctl -u grellyddotcom.service --no-pager -f
+endef
 
-logs-prod:
-	ssh root@grellyd.com
-	journalctl -u grellyddotcom.service --no-pager -f
+logs:
+	$(logs)
+
+remote/logs/dev:
+	ssh root@dev.grellyd.com "$(logs)"
+
+remote/logs/prod:
+	ssh root@grellyd.com "$(logs)"
