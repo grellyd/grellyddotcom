@@ -1,6 +1,6 @@
 prd:
 	hugo
-	go build
+	go run grellyddotcom.go
 
 dev:
 	hugo --buildDrats --buildFuture
@@ -22,6 +22,11 @@ deploy-prod:
 	hugo
 	go install
 	systemctl restart grellyddotcom.service
+
+
+logs-dev:
+	ssh root@dev.grellyd.com
+	journalctl -u grellyddotcom.service --no-pager -f
 
 logs-prod:
 	ssh root@grellyd.com
