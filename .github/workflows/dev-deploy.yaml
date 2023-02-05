@@ -39,6 +39,7 @@ jobs:
           echo ${{secrets.SA_ID_ED25519}} > id_ed25519
           sudo chmod 0600 id_ed25519
           echo ${{SSH_DEV_KNOWN_HOSTS}} > known_hosts
-      - name: Redeploy
+      - name: Checkout
         uses: actions/checkout@v3
+      - name: Redeploy
         run: make remote/deploy/dev
