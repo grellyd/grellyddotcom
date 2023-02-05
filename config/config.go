@@ -13,7 +13,7 @@ func NewConfig(args []string) (*Config, error) {
 
 	var config Config
 	for _, arg := range args {
-		if strings.EqualFold(arg, "tls") {
+		if strings.EqualFold(arg, "--tls") {
 			config.TLS = true
 		}
 	}
