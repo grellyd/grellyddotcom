@@ -14,3 +14,7 @@ params:
 googleAnalytics: UA-127080315-1
 buildFuture: true
 pluralizelisttitles: false
+markup:
+    goldmark:
+        renderer:
+            unsafe: true
