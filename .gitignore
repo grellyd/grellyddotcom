@@ -18,6 +18,7 @@ grellyddotcom
 grellyddotcom.zip
 /logs
 /tmp
+/public
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
