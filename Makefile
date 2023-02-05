@@ -8,7 +8,7 @@ dev:
 
 
 deploy-dev:
-	ssh root@devgrellyd.com
+	ssh root@dev.grellyd.com
 	cd grellyddotcom
 	git pull origin dev -f
 	hugo --buildDrafts --buildFuture
