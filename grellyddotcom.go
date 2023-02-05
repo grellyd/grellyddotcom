@@ -15,6 +15,11 @@ import (
 	"github.com/grellyd/grellyddotcom/router"
 )
 
+const (
+	AddrHTTP  = ":80"
+	AddrHTTPS = ":443"
+)
+
 func main() {
 	r, certManager, err := setup()
 	if err != nil {
@@ -23,7 +28,7 @@ func main() {
 	globallogger.Info("Setup Complete")
 
 	server := &http.Server{
-		Addr: ":8443",
+		Addr: AddrHTTPS,
 		TLSConfig: &tls.Config{
 			GetCertificate: certManager.GetCertificate,
 			MinVersion:     tls.VersionTLS12,
@@ -33,9 +38,9 @@ func main() {
 
 	go func() {
 		globallogger.Info("Serving Challenges")
-		err = http.ListenAndServe(":8080", certManager.HTTPHandler(nil))
+		err = http.ListenAndServe(AddrHTTP, certManager.HTTPHandler(nil))
 		if err != nil {
-			globallogger.Error(fmt.Errorf("failed to listen and serve :8080: %w", err).Error())
+			globallogger.Error(fmt.Errorf("failed to listen and serve %s: %w", AddrHTTP, err).Error())
 			fmt.Println(err.Error())
 		}
 	}()
