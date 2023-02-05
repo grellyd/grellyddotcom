@@ -17,6 +17,7 @@ I currently work for [1Password](https://1password.com/) as a Tech Lead on the U
  - Solve hard technical problems
  - Deliver large multi-domain projects on time
  - Translate business requirements into technical requirements
+ - Work with product and design to figure out what we should do next
  - Grease the development wheels under my team enabling them to move quickly 
  - Iterate on our Software Development Lifecycle (SDLC)
  - Look ahead to remove blockers and conflicts before they manifest 
