@@ -29,7 +29,7 @@ remote/deploy/dev:
 	ssh root@dev.grellyd.com "cd grellyddotcom && $(deploy-dev)"
 
 define deploy-prd
-	git pull origin prod -f && \
+	git pull origin prd -f && \
 	git submodule update --init --recursive && \
 	hugo && \
 	cp -rf public /var/http && \
@@ -38,10 +38,10 @@ define deploy-prd
 	systemctl status grellyddotcom.service
 endef
 
-deploy/prod:
+deploy/prd:
 	$(deploy-dev)
 
-remote/deploy/prod:
+remote/deploy/prd:
 	ssh root@grellyd.com "cd grellyddotcom && $(deploy-prd)"
 
 define logs
@@ -54,5 +54,5 @@ logs:
 remote/logs/dev:
 	ssh root@dev.grellyd.com "$(logs)"
 
-remote/logs/prod:
+remote/logs/prd:
 	ssh root@grellyd.com "$(logs)"
