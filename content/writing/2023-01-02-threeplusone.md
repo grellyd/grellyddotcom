@@ -22,7 +22,7 @@ A **4 week** development cycle composed of **one planning and retro week** and *
 Now! The first planning week starts January 3rd, with the first full cycle starting January 6th completing January 27th. This is directly followed by the next planning and retro week (Jan 30th - Feb 3rd) for the second work period (Feb 6th - Feb 24th).
 
 | Week | Focus |
-------
+------ | ----- |
 | Jan 3rd | Planning |
 | Jan 9th | Work |
 | Jan 16th | Work |
