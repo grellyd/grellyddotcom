@@ -1,0 +1,14 @@
+[Unit]
+Description=Grellyd.com server
+After=multi-user.target
+
+[Service]
+WorkingDirectory=/var/http
+ExecStart=/var/http/grellyddotcom
+Type=simple
+
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
