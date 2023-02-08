@@ -2,7 +2,7 @@
 title: "1Password SCIM Bridge Explained: what it is, and why we made it"
 date: 2022-10-03
 author: Graham L. Brown
-draft: true
+draft: false
 ---
 
 

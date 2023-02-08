@@ -1,7 +1,7 @@
 ---
 title: "Writing Effective Self-Review Content"
 date: 2023-02-10
-draft: true
+draft: false
 author: "Graham L. Brown"
 ---
 
