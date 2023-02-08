@@ -62,3 +62,7 @@ Great hook line! This was from the email notification on the publishing of the a
 > But the next pitch makes the BBQ candle and Wake ‘N Bacon seem like billion-dollar ideas.
 
 Almost naught but questions! Quite fun.
+
+## Week Three
+
+### TBD
