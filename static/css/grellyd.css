@@ -12,10 +12,11 @@ img {
     border-radius: 10px;
 }
 
-.callout {
+aside {
     margin-left: 30px;
-    background-color: grey;
-
+    background: rgba(246,246,213,0.5);
+    padding: 10px;
+    border-radius: 15px;
 }
 
 video {
