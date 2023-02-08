@@ -13,7 +13,6 @@ I recently had a good chat with someone on our team on how to write their self-r
 ⚠️ These are my personal thoughts based on doing this a few times and chatting with my peers and mentors. Your milage may vary. Your manager may disagree. This may not work for you. However I feel these thoughts are hard earned and valuable to share, especially for those folks who are going through this for the first time.
 
 The first section talks about money. If you don’t like talking about money, skip ahead to 'Your manager is not omniscient'.
-
 </aside>
 
 ### The blunt context
