@@ -9,7 +9,7 @@ I've found Go intuitive.
 
 While looking up how to do something, after reading the documentation I usually think "oh, of course" rather than "oh. I suppose that works." Therefore I was surprised when trying to manipulate strings, it wasn't clear and simple. Plus, I found Rob Pike's blogpost ['Strings, bytes, runes and characters in Go'](https://blog.golang.org/strings) strangly obtuse on a first read.
 
-Up to this point in my dabbling, I have avoided the need to do low level string manuipulations. However while doing programming practice problems, that changed. Generally, I just wanted to have the string as an array of characters. Since I didn't know immediately what to do, evidently I misunderstood something.
+Up to this point in my dabbling, I have avoided the need to do low level string manipulations. However while doing programming practice problems, that changed. Generally, I just wanted to have the string as an array of characters. Since I didn't know immediately what to do, evidently I misunderstood something.
 
 ---
 
@@ -51,7 +51,7 @@ In otherwords, how are **`'for i, char := range s'`** and **`'s[j]'`** different
 
 ## Character Encodings
 
-Before we can talk about Runes in Go, we have to discuss character encodings and why simple ASCII mappings are no long sufficent. 
+Before we can talk about Runes in Go, we have to discuss character encodings and why simple ASCII mappings are no long sufficient. 
 
 As Pike suggests in his blogpost, I would recommend reading Joel Spolsky's excellent blogpost on [Unicode and Character Sets](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/). I found it greatly clarified the need for some intermediate representation between bytes and strings, plus the historical context of how characters can be varying length.
 
@@ -119,7 +119,7 @@ Note the second byte in the first example on the &#234; character. UTF-8 conside
 
 But how do 'runes' fit into this? 
 
-Runes are a design choice. The designers of Go found 'code point' to be an unwieldly phrase. Therefore they added the word 'rune' to the Go lexicon as a synonyum for 'code point'; it means the same but is one syllable less. Whenever you see 'rune', read 'code point'.
+Runes are a design choice. The designers of Go found 'code point' to be an unwieldy phrase. Therefore they added the word 'rune' to the Go lexicon as a synonym for 'code point'; it means the same but is one syllable less. Whenever you see 'rune', read 'code point'.
 
 ---
 
@@ -166,7 +166,7 @@ func IsUnique(s string) bool {
 }
 {{< / highlight >}}
 
-What if we wanted to compare against array indicies, per our original idea? Lets also clean up that byte array with a helper:
+What if we wanted to compare against array indices, per our original idea? Lets also clean up that byte array with a helper:
 
 {{< highlight go "linenos=table" >}}
 import "unicode/utf8"
@@ -238,13 +238,13 @@ One cautionary note:
 
 Joel Spolsky's post was written in 2003. I came away from reading his post thinking that UCS-2, a precursor to UTF-16, was the best encoding to use. He even notes that was how he chose to use encodings within his business. 
 
-However looking at the adoption chart off wikipedia, it is clear he wrote that at a time when UTF-8 adption was much lower than it is now. 
+However looking at the adoption chart off wikipedia, it is clear he wrote that at a time when UTF-8 adoption was much lower than it is now. 
 
 {{< figure src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Utf8webgrowth.svg" alt="Webpage Encoding Adoption Chart" >}}
 
-Without delving into the encoding history since 2003, I would suggest that larger multibyte encodings such as UTF-16 have since fallen out of favour due to UTF-8's smaller size for the English speaking world, and its lack of backwards-compatability with ASCII. 
+Without delving into the encoding history since 2003, I would suggest that larger multibyte encodings such as UTF-16 have since fallen out of favour due to UTF-8's smaller size for the English speaking world, and its lack of backwards-compatibility with ASCII. 
 
 ### 2.
 
-The RFC document refers to "In UTF-8, characters from the U+0000..U+10FFFF range (the UTF-16 accessible range) are encoded using sequences of 1 to 4 octets." An octet is defined as a set of 8 bits. The RFC document uses 'octet' instead of 'byte' as it is more exact, for historically a 'byte' could be something other than eight bits. In this post, I use the two interchangably.
+The RFC document refers to "In UTF-8, characters from the U+0000..U+10FFFF range (the UTF-16 accessible range) are encoded using sequences of 1 to 4 octets." An octet is defined as a set of 8 bits. The RFC document uses 'octet' instead of 'byte' as it is more exact, for historically a 'byte' could be something other than eight bits. In this post, I use the two interchangeably.
 
