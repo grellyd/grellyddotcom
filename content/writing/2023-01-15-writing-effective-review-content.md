@@ -12,7 +12,7 @@ I recently had a good chat with someone on our team on how to write their self-r
 <aside>
 ⚠️ These are my personal thoughts based on doing this a few times and chatting with my peers and mentors. Your milage may vary. Your manager may disagree. This may not work for you. However I feel these thoughts are hard earned and valuable to share, especially for those folks who are going through this for the first time.
 
-The first section talks about money. If you don’t like talking about money, skip ahead to 'Your manager is not omnipotent'.
+The first section talks about money. If you don’t like talking about money, skip ahead to 'Your manager is not omniscient'.
 
 </aside>
 
@@ -36,7 +36,7 @@ The second conversation is one of compensation.
 
 While they are distinct conversations, one absolutely informs the other. Demonstrating your impact and value in your self-review arms you to get your manager onboard with how amazing you are, which in turn helps the second conversation go well.
 
-### Your manager is not omnipotent
+### Your manager is not omniscient
 
 As much as I wish my manager saw and understood the value of everything that I created and impacted this year, that simply isn’t the case. It is entirely infeasible for them to see everything all their direct reports do, and understand its value. They will hopefully have a good sense of your impact on the whole, but that isn’t enough: they need to be able to defend to their manager and team why you deserve a certain raise or a promotion.
 
