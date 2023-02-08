@@ -17,9 +17,10 @@ draft: false
 <tr><td>Email</td><td><a href="mailto:graham.brown@1password.com">graham.brown@1password.com</a><br></td></tr>
 </table>
 
+__** Please note this is fairly out of date, last updated in 2020 **__
 
 ## Objective
-<b>Backend</b> software developer for a small to medium innovative company in a <b>network/APi</b> engineering role using a modern language.
+<b>Backend</b> software developer for a small to medium innovative company in a <b>network/API</b> engineering role using a modern language.
 
 
 ## Employment
