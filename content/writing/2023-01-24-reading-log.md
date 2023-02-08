@@ -5,6 +5,10 @@ author: Graham L. Brown
 draft: true
 ---
 
+This is my reading log for the **_Principles, Process, and Pleasure of Writing_** class I am taking with Deborah Schnitzer and Amanda Le Rougetel, through their organisation [_Writing as a Tool for Transformation_](https://www.writingastool.ca/)
+
+You can also find my class notes [here](./2023-01-24-writing-class).
+
 # Reading Log
 
 ## Week One
