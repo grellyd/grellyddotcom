@@ -2,7 +2,7 @@
 title: "Principles, Process, and Pleasure of Writing - Reading Log"
 date: 2023-01-24
 author: Graham L. Brown
-draft: true
+draft: false
 ---
 
 This is my reading log for the **_Principles, Process, and Pleasure of Writing_** class I am taking with Deborah Schnitzer and Amanda Le Rougetel, through their organisation [_Writing as a Tool for Transformation_](https://www.writingastool.ca/)

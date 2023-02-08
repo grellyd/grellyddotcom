@@ -5,7 +5,7 @@ author: Graham L. Brown
 draft: false
 ---
 
-
+<br>
 
 <aside>
 ⚠️This is the republication of a piece I wrote for the <a href="https://blog.1password.com/1password-scim-bridge-explained/">1Password corporate blog</a>.

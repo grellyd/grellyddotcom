@@ -2,10 +2,10 @@
 title: "Principles, Process, and Pleasure of Writing - Class Notes"
 date: 2023-01-24
 author: Graham L. Brown
-draft: true
+draft: false
 ---
 
-These are the class notes for the **_Principles, Process, and Pleasure of Writing_** class I am taking with Deborah Schnitzer and Amanda Le Rougetel, through their organisation [_Writing as a Tool for Transformation_](https://www.writingastool.ca/)
+These are my class notes for the **_Principles, Process, and Pleasure of Writing_** class I am taking with Deborah Schnitzer and Amanda Le Rougetel, through their organisation [_Writing as a Tool for Transformation_](https://www.writingastool.ca/)
 
 The class is described as:
 
