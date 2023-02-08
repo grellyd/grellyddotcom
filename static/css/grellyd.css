@@ -12,6 +12,12 @@ img {
     border-radius: 10px;
 }
 
+callout {
+    margin-left: 30px;
+    background-color: grey;
+
+}
+
 video {
     max-height: 480px;
 }
