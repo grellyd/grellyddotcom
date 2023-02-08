@@ -19,7 +19,7 @@ draft: false
 <br>
 
 <aside>
-️⚠️ Please note this resume is fairly out of date, last updated in 2020. Less formal but more current information can be found on the <a href="./about">about</a>page.
+️⚠️ Please note this resume is fairly out of date, last updated in 2020. Less formal but more current information can be found on the <a href="./about">about</a> page.
 
 I also recently published an explainer on the tool I helped bring to fruition on the 1Password blog: [1Password SCIM bridge explained: what it is, and why we made it](https://blog.1password.com/1password-scim-bridge-explained/)
 </aside>

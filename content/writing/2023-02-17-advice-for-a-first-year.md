@@ -5,8 +5,6 @@ author: Graham L. Brown
 draft: true
 ---
 
-**Insert Lead paragraph here.**
-
 Being a first year university student with an eye to entering the Computer Science (CS) program, looking for your first co-ops, and hoping to enter tech as a field is scary. Hard too. With the large number of folks entering the field, the odds are stacked against you.
 
 So how can you improve the odds?
