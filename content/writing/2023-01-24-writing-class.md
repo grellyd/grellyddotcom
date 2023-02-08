@@ -17,7 +17,7 @@ The class is described as:
 
 These notes are fairly haphazard and incomplete. However they offer quite a few of my in-progress writing samples, responses to in-class prompts, and homework assignments.
 
-You can also find my associated reading log [here](./2023-01-24-reading-log).
+You can also find my associated reading log [here](./writing/2023-01-24-reading-log).
 
 # Notes
 
