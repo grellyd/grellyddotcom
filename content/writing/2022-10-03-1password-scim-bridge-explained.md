@@ -8,7 +8,9 @@ draft: false
 
 
 <aside>
-⚠️This is the republication of a piece I wrote for the <a href="https://blog.1password.com/1password-scim-bridge-explained/">1Password corporate blog</a>. I'm pretty proud of this piece, and given the fickle nature of hyperlinks, I am reproducing it here for posterity. I had help editing and refining this piece from our fantastic content team. The content is all me, just a little filtered.
+⚠️This is the republication of a piece I wrote for the <a href="https://blog.1password.com/1password-scim-bridge-explained/">1Password corporate blog</a>.
+
+I'm pretty proud of this piece, but given the fickle nature of hyperlinks, I am reproducing it here for posterity. I had help editing and refining this piece from our fantastic content team. The content is all me, just a little filtered.
 </aside>
 
 # 1Password SCIM bridge explained: what it is, and why we made it
