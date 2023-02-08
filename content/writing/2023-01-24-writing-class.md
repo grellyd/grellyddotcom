@@ -1,6 +1,6 @@
 ---
 title: "Principles, Process, and Pleasure of Writing - Class Notes"
-date: 2023-01-02T08:38:01-08:00
+date: 2023-01-24
 author: Graham L. Brown
 draft: true
 ---
