@@ -5,6 +5,20 @@ author: Graham L. Brown
 draft: true
 ---
 
+These are the class notes for the _Principles, Process, and Pleasure of Writing_ class I am taking with Deborah Schnitzer and Amanda Le Rougetel, through their organisation [_Writing as a Tool for Transformation_](https://www.writingastool.ca/)
+
+The class is described as:
+
+> Experience the joy of becoming the writer you want to be. Join us for an exploration of writing—from elements of style to foundational principles of composition and forms of revision. 
+>
+> A big part of what makes writing pleasurable is being able to bend language and structure to our command, because we know what we are doing and why we're doing it. Bring your interest in writing and in reading, your joy of language and your questions, as we dive into the writer’s sandbox of principles and processes. 
+>
+> In a creative and generative way, you will respond to existing texts and compose your own. Whether your goal is pleasure or publication, this course is open to writers of any genre or subject matter.
+
+These notes are fairly haphazard and incomplete. However they offer quite a few of my in-progress writing samples, responses to in-class prompts, and homework assignments.
+
+You can also find my associated reading log [here](./2023-01-24-reading-log).
+
 # Notes
 
 ## Class 1
