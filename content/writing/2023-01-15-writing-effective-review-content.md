@@ -26,13 +26,13 @@ Therefore everything you put in your self-review should be working to show off y
 
 ### 0,1,2 conversations
 
-At 1Password we do not talk about your value and compensation in the same conversation. This is beneficial as it allows us to talk about impact and value, without getting whiplash spinning over to the ‘well how much is that worth?’ conversation on each item. 
+At 1Password we do not talk about your value and compensation in the same conversation, and I quite like this. This is beneficial as it allows us to talk about impact and value, without getting whiplash spinning over to the ‘well how much is that worth?’ conversation on each item. 
 
-The zeroth conversation is your self-review alongside the review your manager will write up on you. 
+ - The zeroth conversation is your self-review alongside the review your manager will write up on you. 
 
-The first conversation is one where you go over the two and discuss how they align or differ.
+ - The first conversation is one where you go over the two and discuss how they align or differ.
 
-The second conversation is one of compensation.
+ - The second conversation is one of compensation.
 
 While they are distinct conversations, one absolutely informs the other. Demonstrating your impact and value in your self-review arms you to get your manager onboard with how amazing you are, which in turn helps the second conversation go well.
 
