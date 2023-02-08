@@ -17,7 +17,9 @@ draft: false
 <tr><td>Email</td><td><a href="mailto:graham.brown@1password.com">graham.brown@1password.com</a><br></td></tr>
 </table>
 
-__** Please note this is fairly out of date, last updated in 2020 **__
+<aside>
+️⚠️ Please note this resume is fairly out of date, last updated in 2020. Less formal but more current information can be found on the [about](./about) page.
+</aside>
 
 ## Objective
 <b>Backend</b> software developer for a small to medium innovative company in a <b>network/API</b> engineering role using a modern language.
