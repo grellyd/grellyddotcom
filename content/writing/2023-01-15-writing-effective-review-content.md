@@ -67,7 +67,7 @@ This is exactly the same, except you are able to write more than a single line a
 
 How to reinforce your answers? Links to internal resources are a great start. That super difficult epic you delivered? Link to it. That shiny new documentation page you wrote? Link to it. That heart-warming piece of customer feedback? Link to it. The more effective evidence you can present, the better. 
 
-Another way to reinforce your answers is to leverage action verbs. These are strong verbs that clearly communicate what you did. “Initiated and delivered the project” is far better than “worked on the project”. I have had to work hard to shake off passive language in my writing; you probably will have to as well. To help, try using an action verb sheet. I’ve included my favourite below. Simply reviewing your writing with one eye on this sheet goes a long way. 
+Another way to reinforce your answers is to leverage action verbs. These are strong verbs that clearly communicate what you did. “Initiated and delivered the project” is far better than “worked on the project”. I have had to work hard to shake off passive language in my writing; you probably will have to as well. To help, try using an action verb sheet. I’ve included my favourite below, from [MIT's Career, Advising, and Professional Development centre](https://capd.mit.edu/). Simply reviewing your writing with one eye on this sheet goes a long way. 
 
 [resume-action-verbs-capd.pdf](./files/resume-action-verbs-capd.pdf)
 
