@@ -66,7 +66,9 @@ Execute on your planned work! You should know at a high level what you are doing
 
 In the last week, look to have everything in MR by Wednesday at the latest. That leaves a two day buffer to review, test, fix get everything through before the end of the cycle. 
 
-If completing the work inside the cycle isn't possible, take some time in a retro to figure out why. Did you have an over-expansive scope of work? Were you waiting on external stakeholders that couldn't deliver on time? Or did life just get in the way? Bring the incomplete work forward into the planning meetings and decide if it is still a priority to get done. If it is, bring it forward to the next cycle. If not, leave it behind.
+If it looks like you are not going to be able to conclude before the end of the cycle, work with your manager, tech lead, and team to figure out what can be cut from the scope. How can you still deliver within the work weeks? If cutting from the scope is not possible, document your efforts and context. Priorities may shift. You want to enable any developer to pick this work back up a few cycles from now.
+
+If completing the work inside the cycle wasn’t possible, take some time in a retro to figure out why. Did you have an over-expansive scope of work? Were you waiting on external stakeholders that couldn't deliver on time? Or did life just get in the way? Bring the incomplete work forward into the planning meetings and decide if it is still a priority to get done. If it is, bring it forward to the next cycle. If not, leave it behind.
 
 ## Why
 
