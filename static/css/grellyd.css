@@ -12,6 +12,13 @@ img {
     border-radius: 10px;
 }
 
+aside {
+    margin-left: 15px;
+    background: rgba(246,246,213,0.5);
+    padding: 10px;
+    border-radius: 15px;
+}
+
 video {
     max-height: 480px;
 }

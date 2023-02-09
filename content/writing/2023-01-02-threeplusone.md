@@ -1,6 +1,6 @@
 ---
 title: "Three Plus One"
-date: 2023-01-02T08:38:01-08:00
+date: 2023-01-02
 author: Graham L. Brown
 draft: true
 ---

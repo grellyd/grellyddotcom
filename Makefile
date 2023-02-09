@@ -1,3 +1,7 @@
+edits:
+	git add -u
+	git commit -m "Edits"
+
 build/prd:
 	hugo
 
