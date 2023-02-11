@@ -65,4 +65,18 @@ Almost naught but questions! Quite fun.
 
 ## Week Three
 
-### TBD
+### Cory Doctorow - [Plura-list] The Collective Intelligence Institute
+
+> The Collective Intelligence Project’s research focus is “collective intelligence capabilities: decision-making technologies, processes, and institutions that expand a group’s capacity to construct and cooperate towards shared goals.” That is, asking more than how automation works, but who it should work \*for\*.
+
+Neat asterisking in company with holding, not a replacement but an addition 
+
+### The Walrus - Many Canadians Will Never Own a Home. Does It Matter?
+
+> But there’s something deeper that I struggle with: the pride.
+>
+> My grandfather built his own home in northern Ontario, a modest two-storey house where he and my grandmother raised four kids. Likewise, my father built the split-level brick-and-siding house that I grew up in. For both, homes were more than shelter—they were the repositories of their lives, places where memories were made and stored, where various knick-knacks and keepsakes were kept. With all the precarity that comes with renting, it’s difficult for me to feel the same about my apartment. And so I still cling to the idea of someday owning my own home, as far fetched as that might seem.
+
+The last paragraph resonated with me. The combination of the connecting phrase from the previous paragraph, with the emotional connection of the second paragraph got me. 
+
+https://thewalrus.ca/rental-reality/
