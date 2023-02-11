@@ -19,14 +19,22 @@ So how can you improve the odds?
 
 ---
 
+## LinkedIn Chat
+
+
+
+## Tri Convo
+
+
+
 ### Sources and Further Reading
 
 ### TODO: 
 
 **TODOs before the release of this blog post.**
- - [ ] Finish conversation
+ - [x] Finish conversation
  - [ ] Capture my thoughts
- - [ ] Check in with Tri for thoughts
+ - [x] Check in with Tri for thoughts
  - [ ] Revise
 
 ---
