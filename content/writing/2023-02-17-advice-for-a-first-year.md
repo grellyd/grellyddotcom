@@ -21,11 +21,23 @@ So how can you improve the odds?
 
 ## LinkedIn Chat
 
+Since I’m applying to a developer position, I want to know what languages/frameworks 1Password usually works with - any must haves?
 
+Take a peek at this blog post: https://blog.1password.com/internship-what-its-like/
+
+It’s from a number of previous coops, and they highlight quite a few of the technologies we use. 
+
+Go, React, Rust, Typescript, and more! 
 
 ## Tri Convo
 
+I think the biggest thing especially in terms of finding the first internship is showing interest. you generally dont have a lot of relevant experience and neither do first year/second year courses really show relevant experience
 
+but i think the biggest thing is showing a desire to learn and gain those experiences through interest
+
+whether that be going to hackathons, sideprojects or whatever - showing interest is important in the scope of a first internship
+
+and i think if you center your resume around that it helps
 
 ### Sources and Further Reading
 
