@@ -29,7 +29,40 @@ It’s from a number of previous coops, and they highlight quite a few of the te
 
 Go, React, Rust, Typescript, and more! 
 
+I’m trying to apply as a first year with no past work experience, how should I try to stand out?
+
+Bluntly, it’s hard. As someone whose looked at a lot of resumes, experiences really matter. However they do not have to be work. Class projects, personal projects, initiatives outside of school, those all count.
+
+Thank you for being frank with this
+Have you worked with any first year interns?
+
+Getting internships as a first year is hard. I don’t think I’ve ever hired one nor worked with one. Since first years are generally competing for the same spots as more advanced year students, the more experienced folks generally win out. Sadly, we only have a limited number of folks we can hire.
+For the few first years I’ve seen meet with success, at 1Password and beyond, they have a passion for the company’s problems space plus relevant extra curricular experiences. Eg: for a game development studio, the student goes to game jams and has launched an indie title.
+As an important call-out, success, while nice, generally matters less than what the student learned along the way, and how they can speak to how they have changed because of their experiences.
+
+Also to be clear, I’m not a hiring manager, so please take all this with a few grains of salt. Your experience and the demands of the hiring manager may differ from what I’m relating here.
+However I’ve personally found these things to be true.
+
+Ahh I see, I really appreciate your thoughts still though!
+When you were in university, what sort of experience did you learn from the most?
+
+Hackathons and other practical experiences. The Global Game Jam takes place at UBC yearly, plus NWHacks, and bunch of others. My team’s generally did quite well, including winning the Vancouver Startup Week Havkathon one year. We also occasionally did quite poorly. Both were immensely valuable.   The experiences of trying to build something viable in a short period of time outside the constraints of class taught me so much about bringing a product to market and developing a software system quickly.
+
+
+Oh I attended NWHacks!
+Didn’t finish in time, but I’ll make sure to attend more hackathons
+Thanks for your super detailed replies btw,
+I feel like I’m getting the tri-mentorship without even signing up for it haha
+
+Haha happy to help! I was a Tri-mentor for years and participated in many UBC CS community programs.
+
+You’re also asking good questions that I’m sure quite a few others like yourself also have.   I might even write up a summary of what we’re talking about here into a more shareable format. Anything you’ve been wondering that we haven’t covered? 
+
+I think that’s all the questions
+
 ## Tri Convo
+
+> When you were first applying to internships, what questions did you have that you wish you’d had answers to?b
 
 I think the biggest thing especially in terms of finding the first internship is showing interest. you generally dont have a lot of relevant experience and neither do first year/second year courses really show relevant experience
 

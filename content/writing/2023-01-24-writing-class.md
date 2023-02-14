@@ -166,3 +166,30 @@ The young tired boy jumped, again and again. Up and down, up and down, with the 
 ### Homework
 
 __Revise Your Audience Piece__
+
+Edit and revise the Audience piece you wrote as homework from Class No. 2 —
+• Name the audience you wrote for. Consider how you might have written the piece differently for a different audience...
+• Content: Does it say what you want it to say? Revise it to say the same thing but differently. Revise it to say something different
+• Keep the content but change the tone, the structure, and/or the style
+• Language: Phrasing, word choice, consistency, active verbs, sentence patterns and
+variety, incl. coordinating conjunctions
+• Mechanics: Punctuation, grammar, spelling, (format)
+• Pay attention to the opening line(s) and the closing line(s) — does it open and close effectively, powerfully, evocatively?
+• Pay equal attention to each paragraph - does it open and close strong?
+• Look at transitions between paragraphs: logical? Necessary? Changeable?
+• Consider...: Reworking from current word count to 200 words ... to 100 words ... to 50
+words
+
+__50__
+
+> I write for myself now, tomorrow, and years ago. For today, I write with a clear approach defined from first principles. For the future I write with context. For the past I teach.
+
+> I fear no matter how hard I work, no one will care. Someday that will be unfounded. 
+
+Really forces one to cut to the heart of the matter.  Nuance has no place here. Nor details.
+
+__Overwhelming flourish__
+
+> Like three visiting ghosts, I write to embody the past, the present, and the future. Through revision, I visit my writing as each Christmas ghost in turn and examine my work with fresh eyes, the wool of creation freshly torn away. Should the work prove wanting despite my most heartfelt effort, I will suffer as Scrooge once suffered when the proof of his sins were revealed to him. Whereas he wounded the world, I shall feel as though the world has wounded me. Yet hope lies anew: hard work has it’s own virtue, and sweat most often leads to good outcomes. Perhaps the ghosts will judge me worthy next year.
+
+This is quite laughable. It’s so pretentious with a wistful air that does me no favours. Frankly a bit cringey. There are a few good aspects: I maintain the running example throughout with focus; I touch on most of the main points of the original writing; there are a few good turns of phrase. However overall this is not work I would publish.  
