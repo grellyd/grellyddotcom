@@ -1,9 +1,54 @@
 ---
-title: "Three Plus One"
-date: 2023-01-02
+title: "The One plus Three Development Cycle: a six month retrospective"
+date: 2023-07-31
 author: Graham L. Brown
 draft: true
 ---
+
+My team has embraced the 1+3 development cycle over the past six months, and frankly I think I like it the most of anything I’ve tried. For myself in a technical leadership role at least, it strikes the right balance between time to dig around in your priorities to figure out what is important, and time to execute on your priorities. 
+
+Sound interesting? Read on.
+
+# Structure
+
+No good system is complete without a little structure. It’s even in the name. 1+3. 1 planning week, followed by 3 development weeks. 
+
+## Planning
+
+The planning week should contain a decision on what is important, what we as a team commit to doing, and what stretch goals exist if we finish early. The presence of stretch goals is essential as it allows the team to estimate conservatively without enabling the work to fill the time allotted. 
+
+At the end of the planning week you should know:
+ 1. The most important topics to work on.
+ 2. The scope of a successful three week iteration.
+ 3. An idea of what external resources you will need.
+
+**Remember: 3 weeks is very short.** Whatever you choose to do, work to keep it within the cycle.
+
+### Big Rocks, Scope and Details
+
+Exactly how to arrive at the commitments will vary by team, but what I have found effective is to schedule one fifty minute meeting, your Big Rock meeting plus an async Scope and Details meeting a few days later. The entire goal of that meeting is to negotiate with your product partners, your engineering team, and you management to decide at this time, what is the most important thing? What initiative must be shifted? What is your top priority? 
+
+I like the term “big rocks” because it demonstrates that the initiatives do not need to be resolved entirely within that cycle. Instead, just like eating an elephant a bite at a time or climbing a mountain a step at a time, a large rock gets shifted an inch at a time. To me, the iterative thinking of multiple small movements combined with the cautious approach one takes to moving a large boulder well encapsulates the aim of the Big Rock or Priority Setting Meeting. Plus attending the monthly big rock call is more fun than attending the monthly priority meeting.  
+
+As you are determining priority as a team, it is important that stakeholders come prepared. If the engineering team isn’t ready to advocate for the tech debt they see, or the product partners to advocate for the feature work, or the management team to push for other initiatives, they won’t get acted upon. Or worse, the cycle gets derailed due to poor planning and true priorities revealing themselves part way through the cycle. 
+
+For myself as a technical lead on the team, that means I come armed with small and medium sized projects that I see as top priorities, why they are important, and why they are urgent. It is my goal to effectively communicate this with evidence to my coworkers and convince them these are what the team should tackle this cycle, compared to other incoming or existing work. Conversely, it is role of the other stakeholders to communicate why their initiatives are important and why they are more urgent than what I bring to the table.
+
+Of course, as the coordinator and facilitator in the room, our EM eventually gets the last say. The buck stops with them as one might say. 
+
+#### Scope and Details
+
+The second meeting is the scope and details meeting. As our team is not small (~8 developers), we may end up working to shift multiple priorities in the same cycle. Frequently it is effective to split the team in two or three to make appropriate progress on that which we deem most important. 
+
+### Other planning week activities
+
+Every few cycles it should contain a quick retrospective look on the cycles that have come before, and examine what we like, what we don’t like, and how we can do better. 
+
+It’s important for the team to be heard, and it’s also important to not navel gaze too tightly. It’s good to take feedback, make change, give it a time to work, and then check in again. 
+
+How you wish to structure them in detail 
+
+The planning week itself can be split into a couple small co
 
 Welcome to the 3+1 development cycle!
 
