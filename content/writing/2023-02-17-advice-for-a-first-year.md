@@ -5,6 +5,8 @@ author: Graham L. Brown
 draft: true
 ---
 
+
+
 Being a first year university student with an eye to entering the Computer Science (CS) program, looking for your first co-ops, and hoping to enter tech as a field is scary. Hard too. With the large number of folks entering the field, the odds are stacked against you.
 
 So how can you improve the odds?
@@ -16,6 +18,41 @@ So how can you improve the odds?
  - Cover Letters
  - Passion for $company domain
  - Experiences in $company domain
+
+## Applying
+
+### Write a Cover Letter
+
+A cover letter makes your application stand out. Especially as a co-op. Many applicants only send a resume and transcripts (usually through a university application portal), so the simple act of writing a cover letter is a differentiator. Writing a good one is even better!
+
+To write a good one: use spell check, read it out loud for pacing and phrasing, relate yourself to the position, and most importantly, research the company and the role and provide a ‘why’ you are a good fit. To do that well, you need to…
+
+### Research the company and the role
+
+Personally there are few stronger turn offs in an interview than when someone barely knows what they are applying for and what the company they are currently speaking to does at a basic level. 
+
+On the contrary, there are few stronger positive signals than an applicant which is eager, interested, knowledgeable about the company and the domain in which the company operates, and personally engaged with the role. That is a person I want to hire.
+
+Of course, you do not need to be at that extreme for every opportunity. Having a working knowledge of the domain, the company’s role in that domain, plus some of the key challenges of the domain are enough. 
+
+For example, 1Password operates in the realm of credential management. We provide a credential management solution for individuals, families, and businesses of varying sizes across platforms. Some of the key challenges are password reuse, credential exposure through data breaches, credential stuffing, and securely sharing credentials at scale.  
+
+## Interviewing
+
+### Working
+
+When you get hired as a full time employee, even after multiple rounds of interviews, usually you are not yet done being evaluated. Most companies have a blah period (not trial but…) where  …. Treat your internship as an qualifying period. 
+
+That means:
+ - Be on good behaviour
+ - Don’t sleep on the job
+ - Work hard
+ - Ask questions
+ - Be eager, be interested, and be engaged.
+
+### Asking for help
+
+###
 
 ---
 
