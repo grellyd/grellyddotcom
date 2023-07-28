@@ -67,4 +67,12 @@ As an interviewer, I attempt to lead by example and give my “tell me about you
 
 As an interviewer, mine sounds something like this:
 
-> Let me tell me a little bit about myself. My official title is a “Tech Lead on the Admin Onboarding and Provisioning team, operating under the User Lifecycle & Growth umbrella. What do all those words mean? I primarily care for our business administrators’ first 60 days with 1Password, enabling them to bring their tens if not hundreds of thousands of users into 1Password, tailor the 1Password Business experience to fit their needs and constraints, and otherwise set up their organization for long term success. As a tech lead, I provide technical leadership for my team, guidance and mentoring to our more junior developers, and dig in and solve some of our hardest problems. I’ve been at 1Password for just over four years, and I’ve watch the org go from just over a hundred employees to now just over a thousand. 
+> Let me tell me a little bit about myself. My official title is a “Tech Lead on the Admin Onboarding and Provisioning team, operating under the User Lifecycle & Growth umbrella. What do all those words mean? I primarily care for our business administrators’ first 60 days with 1Password, enabling them to bring their tens if not hundreds of thousands of users into 1Password, tailor the 1Password Business experience to fit their needs and constraints, and otherwise set up their organization for long term success. As a tech lead, I provide technical leadership for my team, guidance and mentoring to our more junior developers, and dig in and solve some of our hardest problems. I’ve been at 1Password for just over four years, and I’ve watch the org go from just over a hundred employees to now just over a thousand. Currently I’m living in Saskatoon, SK after moving four times in the last five years as 1Password is a remote first company. 
+
+What am I working to communicate there?
+ - My team’s scope and purview
+ - My specific role’s responsibilities
+ - The user persona that I most care about
+ - My tenure and context with the company
+ 
+   
