@@ -1,0 +1,76 @@
+Hey folks,
+
+Graham and Viv here. This email is about your interest in joining us for a dive trip to Bonaire next May. We’ve spoken to you briefly before about the trip, but here it is in full detail.
+
+## Who
+
+4-8 divers of varying skills and experience. While this will not be a hardcore technical diving trip, I believe everyone invited has enough skills and good cheer to enjoy the warm and calm waters of the Caribbean. 
+
+If you have a best buddy that you think would be a great fit, let us know! The more ~the cheaper the villa~ the merrier! As the organizers, we’d love to chat with them first before committing to ensure we’d get along. However knowing you folks, that shouldn’t be a problem. 
+
+## Where
+
+Bonaire, a Dutch island off the coast of Venezuela. For visa purposes, note that most flights will have to pass through the US, although there were recently announced some direct flights from Toronto via WestJet
+
+## When
+
+Early May 2024. We intend to depart a week or so after Viv finishes classes on April 22nd, 2024. Exact dates are negotiable. 
+
+Viv and I are looking to stay for two weeks including travel time. That would mean 10-12 days of diving, and two to four days of travel. 
+
+You are welcome to join us for all, some, or just a part of this time. We are looking to make the most of our time there, and I have a few vacation days to burn. We acknowledge that everyone’s work schedules and vacation day uses are different, so whatever suits you works for us. 
+
+Flights are not exactly every day, so we may need to adjust as we research, but let’s pretend it will work as we desire for now.
+
+## Why
+
+Because we are turning 30. Because we have been dreaming of warm tropical waters since COVID came to visit. Because we are adults and fuck it we can be frivolous and go on vacation. 
+
+## How
+
+We are looking to bring the vast majority of the required gear, and are just looking to rent tanks and weights. This means transporting our regs, BCDs, fins, mask, wetsuit etc. in a checked bag on the airplane. 
+
+We are looking to rent a villa via AirBnB that we can all share for the two weeks. Think private pool. Think late nights with the Caribbean sun, and a little too much rum. Think every couple with a private room, but possibly shared bathrooms. 
+
+We anticipate the trip down will not be easy or quick, but hopefully pain free. We’ve heard a few stories of multiple connecting flights, and well these days, YXE in Saskatoon isn’t exactly the most connected of airports. We may try to fly out of YVR. 
+
+## Costs
+
+Here is a rough breakdown of our expected costs:
+
+ - Flight: $1200 CAD / person round trip
+ - AirBnB Villa: 5k for everyone. With 8, that’s ~625 CAD / person. If we have fewer folks coming, we can find a smaller place for less. 
+ - Diving Rentals: $35/day for air, plus $7/day for the tank. With weights and whatever else gets tacked on, call it $50/day for rentals all in per person. Therefore for 10-12 days of diving we are looking at $500-$600 CAD / person
+ - Food: Ideally we will cook in our villa and occasionally go out. Ballpark, call it $30 CAD per day, or $300-$360 CAD / person 
+ 
+Rounding up slightly, that means we are looking at ~$3000 CAD / person for the trip, all in.  
+ 
+We will get a more accurate number as we plan, and can adjust if folks need.
+
+## The ask
+
+We want to get a solid feel for numbers within the next month. That means please let us know by the end of the day on **Sunday September 10th** if you’re game.
+
+If you are, please let us know:
+ - How many in your crew you are bringing
+ - Who is in your crew
+ - What diving certification each person has attained
+ - What diving experience each person has
+ - The last time each person has been in the water
+ - How long you want to come for
+ - What travel dates work best for you.
+ 
+ For example:
+  - We are two
+  - Graham Brown, and Viviana Lee
+  - PADI Advanced Open Water, and PADI Instructor
+  - ~200 dives overall, and 500+
+  - Summer 2023 for both
+  - 14 days ideally
+  - Anything in the first week of May, up to the end of the month.
+
+Thanks for being open to the idea of this tropical dive trip. We are incredibly excited and hope you all can come!
+
+With love, 
+
+Graham and Viv 
