@@ -42,6 +42,7 @@ Here is a rough breakdown of our expected costs:
  - AirBnB Villa: 5k for everyone. With 8, that’s ~625 CAD / person. If we have fewer folks coming, we can find a smaller place for less. 
  - Diving Rentals: $35/day for air, plus $7/day for the tank. With weights and whatever else gets tacked on, call it $50/day for rentals all in per person. Therefore for 10-12 days of diving we are looking at $500-$600 CAD / person
  - Food: Ideally we will cook in our villa and occasionally go out. Ballpark, call it $30 CAD per day, or $300-$360 CAD / person 
+ - Travel insurance and the like: ~$100/person
  
 Rounding up slightly, that means we are looking at ~$3000 CAD / person for the trip, all in.  
  
@@ -59,6 +60,7 @@ If you are, please let us know:
  - The last time each person has been in the water
  - How long you want to come for
  - What travel dates work best for you.
+ - Any other considerations or concerns. 
  
  For example:
   - We are two
@@ -68,6 +70,7 @@ If you are, please let us know:
   - Summer 2023 for both
   - 14 days ideally
   - Anything in the first week of May, up to the end of the month.
+  - Graham would be turning 30 on this trip, while Viv will have already turned 30 in Jan.
 
 Thanks for being open to the idea of this tropical dive trip. We are incredibly excited and hope you all can come!
 
