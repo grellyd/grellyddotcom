@@ -6,7 +6,7 @@ Graham and Viv here. This email is about your interest in joining us for a dive 
 
 4-8 divers of varying skills and experience. While this will not be a hardcore technical diving trip, I believe everyone invited has enough skills and good cheer to enjoy the warm and calm waters of the Caribbean. 
 
-If you have a best buddy that you think would be a great fit, let us know! The more ~the cheaper the villa~ the merrier! As the organizers, we’d love to chat with them first before committing to ensure we’d get along. However knowing you folks, that shouldn’t be a problem. 
+If you have a best buddy that you think would be a great fit, let us know! The more ~~the cheaper the villa~~ the merrier! As the organizers, we’d love to chat with them first before committing to ensure we’d get along. However knowing you folks, that shouldn’t be a problem. 
 
 ## Where
 
