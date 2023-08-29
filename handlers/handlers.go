@@ -66,7 +66,7 @@ func QRCode(w http.ResponseWriter, r *http.Request) {
 	link := r.PostFormValue("link")
 	globallogger.Info(fmt.Sprintf("link: %s\n", link))
 
-	if _, err := url.Parse(link); err != nil {
+	if _, err := url.ParseRequestURI(link); err != nil {
 		http.Error(w, fmt.Sprintf("invalid link: %s\n", err.Error()), http.StatusBadRequest)
 		return
 	}
