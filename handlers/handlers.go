@@ -63,7 +63,7 @@ func generateQRCode(link string, scaleFactor int) (*image.Gray, error) {
 
 func QRCode(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
-		http.Error(w, fmt.Sprintln("Wrong method"), http.StatusBadRequest)
+		http.Error(w, fmt.Sprintln("Wrong method: Got %s; expected %s", r.Method, http.MethodPost), http.StatusBadRequest)
 		return
 	}
 	globallogger.Info("in qrcode")
@@ -85,6 +85,11 @@ func QRCode(w http.ResponseWriter, r *http.Request) {
 	path := fmt.Sprintf("/images/qrcodes/%s.png", uuid)
 
 	f, err := os.Create(fmt.Sprintf("/var/http/public/%s", path))
+	if err != nil {
+		http.Error(w, fmt.Sprintf("failed to create file: %s\n", err.Error()), http.StatusInternalServerError)
+		return
+	}
+
 	defer f.Close()
 	if err = png.Encode(f, i); err != nil {
 		http.Error(w, fmt.Sprintf("failed to encode png: %s\n", err.Error()), http.StatusInternalServerError)
