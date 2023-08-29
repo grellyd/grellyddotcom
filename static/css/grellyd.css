@@ -104,6 +104,6 @@ li .formItem {
 }
 
 .clickButton {
-    margin: 10px;
-    text-decoration:none;
+    padding: 10px;
+    text-decoration: none;
 }
