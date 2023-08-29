@@ -71,6 +71,10 @@ func QRCode(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("r.RequestURI: %v\n", r.RequestURI)
 	defer r.Body.Close()
 	body, err := io.ReadAll(r.Body)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("failed to ReadAll: %s\n", err.Error()), http.StatusInternalServerError)
+		return
+	}
 	globallogger.Info(string(body))
 
 	if err := r.ParseForm(); err != nil {
