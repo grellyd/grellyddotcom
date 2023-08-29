@@ -1,5 +1,3 @@
-.PHONY : all/dev push/dev edits remote/deploy/dev
-
 all/dev: edits push/dev remote/deploy/dev
 
 push/dev:
