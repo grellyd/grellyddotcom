@@ -16,7 +16,7 @@ func QRGen(w http.ResponseWriter, r *http.Request) {
 
 	path := "../pages/templates/qrgen.tmpl"
 
-	globallogger.LogInfo("in qrgen")
+	globallogger.Info("in qrgen")
 
 	b, err := os.ReadFile(path)
 	if err != nil {
