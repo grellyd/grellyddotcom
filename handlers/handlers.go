@@ -3,8 +3,8 @@ package handlers
 import (
 	"fmt"
 	"html/template"
-	"io/ioutil"
 	"net/http"
+	"os"
 	"strings"
 
 	"github.com/grellyd/filelogging/globallogger"
@@ -16,7 +16,9 @@ func QRGen(w http.ResponseWriter, r *http.Request) {
 
 	path := "../pages/templates/qrgen.tmpl"
 
-	b, err := ioutil.ReadFile(path)
+	globallogger.LogInfo("in qrgen")
+
+	b, err := os.ReadFile(path)
 	if err != nil {
 		http.Error(w, fmt.Sprintf("failed to readfile %s: %s\n", path, err.Error()), http.StatusInternalServerError)
 	}

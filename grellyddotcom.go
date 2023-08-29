@@ -113,7 +113,7 @@ func registerRoutes() (*router.Router, error) {
 	r := router.NewRouter()
 	err := r.Register("/qrgen", "^/qrgen$", handlers.QRGen)
 	if err != nil {
-		return nil, fmt.Errorf("unable to register writing: %w", err)
+		return nil, fmt.Errorf("unable to register qrgen: %w", err)
 	}
 	err = r.Register("/", "(^/$)|(^/(status|about|quote|xmas)$)", handlers.File)
 	if err != nil {
