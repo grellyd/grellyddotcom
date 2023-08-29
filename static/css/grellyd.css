@@ -83,3 +83,8 @@ video {
     margin-right: auto;
     padding: 10px;
 }
+
+form {
+    padding: 10px;
+    list-style-type: none;
+}
