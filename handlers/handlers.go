@@ -2,12 +2,36 @@ package handlers
 
 import (
 	"fmt"
+	"html/template"
+	"io/ioutil"
 	"net/http"
 	"strings"
 
 	"github.com/grellyd/filelogging/globallogger"
 	"github.com/grellyd/grellyddotcom/pages"
 )
+
+func QRGen(w http.ResponseWriter, r *http.Request) {
+	fmt.Printf("r.RequestURI: %v\n", r.RequestURI)
+
+	path := "../pages/templates/qrgen.tmpl"
+
+	b, err := ioutil.ReadFile(path)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("failed to readfile %s: %s\n", path, err.Error()), http.StatusInternalServerError)
+	}
+
+	t, err := template.New("qrgen").Parse(string(b))
+	if err != nil {
+		http.Error(w, fmt.Sprintf("failed to parse %s: %s\n", string(b), err.Error()), http.StatusInternalServerError)
+	}
+
+	err = t.Execute(w, nil)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("failed to execute '%s' %s\n", string(b), err.Error()), http.StatusInternalServerError)
+	}
+
+}
 
 // File handler for any file
 func File(w http.ResponseWriter, r *http.Request) {
@@ -34,14 +58,14 @@ func File(w http.ResponseWriter, r *http.Request) {
 }
 
 // decomponseURL breaks a URL down into its sections and title for hugo's routing.
-// / ->                         ['','']
-// /resume ->                   ['', 'resume']
-// /resume/ ->                  ['', 'resume', '']
-// /blog/post ->                ['', 'blog', 'post']
-// /blog/post/ ->               ['', 'blog', 'post', '']
-// /css/grellyd.com ->          ['', 'css'   , 'grellyd.com']
-// /images/xmas/2018/wct.jpg -> ['', 'images', 'xmas', '2018', 'wct.jpg']
-// /favicon.ico ->              ['', 'favicon.ico']
+// / ->                         [”,”]
+// /resume ->                   [”, 'resume']
+// /resume/ ->                  [”, 'resume', ”]
+// /blog/post ->                [”, 'blog', 'post']
+// /blog/post/ ->               [”, 'blog', 'post', ”]
+// /css/grellyd.com ->          [”, 'css'   , 'grellyd.com']
+// /images/xmas/2018/wct.jpg -> [”, 'images', 'xmas', '2018', 'wct.jpg']
+// /favicon.ico ->              [”, 'favicon.ico']
 func decomposeURL(url string) (sections []string, title string, pending pages.PageEnding, err error) {
 	globallogger.Debug(fmt.Sprintf("decomposing '%s'", url))
 	downcasedURL := strings.ToLower(url)

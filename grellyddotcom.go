@@ -117,7 +117,11 @@ func registerRoutes() (*router.Router, error) {
 	}
 	err = r.Register("/writing/", "^/writing/([a-zA-Z0-9]*)$", handlers.File)
 	if err != nil {
-		return nil, fmt.Errorf("unable to register blog: %w", err)
+		return nil, fmt.Errorf("unable to register writing: %w", err)
+	}
+	err = r.Register("/qrgen/", "^/qrgen/$", handlers.File)
+	if err != nil {
+		return nil, fmt.Errorf("unable to register writing: %w", err)
 	}
 	err = r.Register("/css/", "^/css/([a-zA-Z0-9_]*).css$", handlers.File)
 	if err != nil {
