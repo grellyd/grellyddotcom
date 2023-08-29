@@ -21,7 +21,9 @@ define deploy-dev
 	git submodule update --init --recursive && \
 	hugo --buildDrafts --buildFuture && \
 	cp -rf public /var/http && \
+	ls /var/http/ && \
 	go install && \
+	ls /var/http/ && \
 	systemctl restart grellyddotcom.service && \
 	systemctl status grellyddotcom.service
 endef
