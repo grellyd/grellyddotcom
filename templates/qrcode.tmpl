@@ -159,10 +159,12 @@
         <img src="{{ .image }}" class="qrcode">
       <a/>
       <br>
-      <a href="{{ .image }}" download="{{ .fileName }}" class="linkButton">
+      <a href="{{ .image }}" download="{{ .fileName }}" class="clickButton">
         <button type="button" >Download</button>
-      <a/>
-      <button onclick="location.href='/qrgen'" type="button" class="linkButton">Back</button>
+      </a>
+      <a href="/qrgen" class="clickButton">
+        <button type="button">Back</button>
+      </a>
     </div>
   </body>
 </html>
