@@ -1,21 +1,40 @@
-<div class="single">
-<h1><span class="single-title">QR Code Generator</span></h1>
+<!DOCTYPE html>
+<html lang="en-ca">
+  <head>
+      <meta charset="utf-8">
+      <meta name="description" content="Home of Graham L. Brown. Blog, projects, technical work, and more!">
+      <meta name="keywords" content="Grellyd Blog,Personal Site">
+      <meta name="author" content="Graham L. Brown">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <base href="/">
+      <link rel="stylesheet" href="/css/grellyd.css">
+      <link rel="stylesheet" href="/css/kubo.css">
+      <link rel="stylesheet" href="/css/sidebar.css">
+      <script src="/js/sidebar.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+      <title>Grellyd - Graham L. Brown</title>
+    </head>
+  <body>
+    <div class="single">
+      <h1><span class="single-title">QR Code Generator</span></h1>
 
-<p>Enter your link below. Press 'Generate', the page will refresh, and you will see your QR code in all it's glory. Right click, save as image.</p>
+      <p>Enter your link below. Press 'Generate', the page will refresh, and you will see your QR code in all it's glory. Right click, save as image.</p>
 
-<form action="/qrcode" method="post">
-<ul>
-    <li>
-      <label for="Link">Link:</label>
-      <input type="text" id="link" name="link" />
-    </li>
-    <li>
-      <label for="image">Overlay Image:</label>
-      <input type="file" id="overlay" name="overlay" accept="image/png, image/jpeg"/>
-    </li>
-    <li>
-      <input type="submit" value="Generate">
-  </ul>
-
-
-</form>
+      <form action="/qrcode" method="post">
+      <ul>
+          <li>
+            <label for="Link">Link:</label>
+            <input type="text" id="link" name="link" />
+          </li>
+          <li>
+            <label for="image">Overlay Image:</label>
+            <input type="file" id="overlay" name="overlay" accept="image/png, image/jpeg"/>
+          </li>
+          <li>
+            <input type="submit" value="Generate">
+        </ul>
+      </form>
+    </div>
+  </body>
+</html>
