@@ -31,7 +31,7 @@ define deploy-dev
 	cp -r ./public /var/http && \
 	go build grellyddotcom.go && \
 	cp grellyddotcom /var/http/ && \
-	cp -r ./pages/templates /var/http/ && \
+	cp -r ./templates /var/http/ && \
 	ls /var/http/ && \
 	go version && \
 	systemctl restart grellyddotcom.service && \
@@ -48,8 +48,15 @@ define deploy-prd
 	git pull origin prd -f && \
 	git submodule update --init --recursive && \
 	hugo && \
-	cp -rf public /var/http && \
-	go install && \
+	rm -f /var/http/grellyddotcom && \
+	rm -rf /var/http/public && \
+	rm -rf /var/http/templates && \
+	cp -r ./public /var/http && \
+	go build grellyddotcom.go && \
+	cp grellyddotcom /var/http/ && \
+	cp -r ./templates /var/http/ && \
+	ls /var/http/ && \
+	go version && \
 	systemctl restart grellyddotcom.service && \
 	systemctl status grellyddotcom.service
 endef

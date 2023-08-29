@@ -85,8 +85,12 @@ video {
 }
 
 form {
-    padding: 10px;
-    list-style-type: none;
+    margin: 10px;
+}
+
+input#link.inputBox {
+    margin: 10px;
+    width: 80%;
 }
 
 ul .formList {
