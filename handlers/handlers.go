@@ -40,7 +40,7 @@ func QRGen(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	w.Header().Set("Content-Type", "application/x-www-form-urlencoded")
+	//w.Header().Set("Content-Type", "application/x-www-form-urlencoded")
 	err = t.Execute(w, nil)
 	if err != nil {
 		http.Error(w, fmt.Sprintf("failed to execute '%s' %s\n", string(b), err.Error()), http.StatusInternalServerError)
@@ -53,8 +53,11 @@ func QRCode(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, fmt.Sprintf("Wrong method: Got %s; expected %s\n", r.Method, http.MethodPost), http.StatusBadRequest)
 		return
 	}
-	globallogger.Info("in qrcode")
-	fmt.Printf("r.RequestURI: %v\n", r.RequestURI)
+
+	if !strings.Contains(r.Header.Get("Content-Type"), "application/x-www-form-urlencoded") {
+		r.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	}
+
 	defer r.Body.Close()
 	body, err := io.ReadAll(r.Body)
 	if err != nil {
