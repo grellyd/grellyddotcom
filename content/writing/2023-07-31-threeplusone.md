@@ -1,8 +1,8 @@
 ---
-title: "The One plus Three Development Cycle: a six month retrospective"
+title: "The One plus Three Development Cycle: six months in"
 date: 2023-07-31
 author: Graham L. Brown
-draft: true
+draft: false
 ---
 
 My team has embraced the 1+3 development cycle over the past six months, and frankly I think I like it the most of any cadence I’ve tried. From my perspective in a technical leadership role, it strikes the right balance between time to dig around in your priorities to figure out what is important, and time to execute on your priorities. 
@@ -80,5 +80,3 @@ In the last week, look to have everything in MR by Wednesday at the latest. That
 If it looks like you are not going to be able to conclude before the end of the cycle, work with your manager, tech lead, and team to figure out what can be cut from the scope. How can you still deliver within the work weeks? If cutting from the scope is not possible, document your efforts and context. Priorities may shift. You want to enable any developer to pick this work back up a few cycles from now.
 
 If completing the work inside the cycle wasn’t possible, take some time in a retro to figure out why. Did you have an over-expansive scope of work? Were you waiting on external stakeholders that couldn’t deliver on time? Or did life just get in the way? Bring the incomplete work forward into the planning meetings and decide if it is still a priority to get done. If it is, bring it forward to the next cycle. If not, leave it behind.
-
-** TODO: Conclude? Reflect? Something **

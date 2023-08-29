@@ -1,5 +1,5 @@
 ---
-title: "Effective apologies"
+title: "Effective Apologies"
 date: 2023-08-26T13:23:50-06:00
 author: Graham L. Brown
 draft: true
