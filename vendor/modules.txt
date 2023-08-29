@@ -1,19 +1,27 @@
+# github.com/google/uuid v1.3.1
+## explicit
+github.com/google/uuid
 # github.com/grellyd/filelogging v0.0.0-20180915010018-b2a208a9a587
 ## explicit
 github.com/grellyd/filelogging/globallogger
 github.com/grellyd/filelogging/level
 github.com/grellyd/filelogging/logger
 github.com/grellyd/filelogging/state
+# github.com/grellyd/qrgen v0.0.0-20201216011122-e729d155aeef
+## explicit; go 1.14
+github.com/grellyd/qrgen/qrlib
 # github.com/pkg/errors v0.9.1
 ## explicit
 github.com/pkg/errors
 # golang.org/x/crypto v0.0.0-20201124201722-c8d3bf9c5392
-## explicit
+## explicit; go 1.11
 golang.org/x/crypto/acme
 golang.org/x/crypto/acme/autocert
 # golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3
+## explicit
 golang.org/x/net/idna
 # golang.org/x/text v0.3.0
+## explicit
 golang.org/x/text/secure/bidirule
 golang.org/x/text/transform
 golang.org/x/text/unicode/bidi

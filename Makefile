@@ -24,8 +24,9 @@ define deploy-dev
 	cp -rf ./public /var/http && \
 	go build grellyddotcom.go && \
 	cp grellyddotcom /var/http/ && \
-	cp ./pages/templates /var/http/ && \
+	cp -r ./pages/templates /var/http/ && \
 	ls /var/http/ && \
+	go version && \
 	systemctl restart grellyddotcom.service && \
 	systemctl status grellyddotcom.service
 endef

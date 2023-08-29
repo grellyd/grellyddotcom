@@ -123,42 +123,42 @@ func registerRoutes() (*router.Router, error) {
 	if err != nil {
 		return nil, fmt.Errorf("unable to register qrgen: %w", err)
 	}
-	// err = r.Register("/", "(^/$)|(^/(status|about|quote|xmas)$)", handlers.File)
-	// if err != nil {
-	// return nil, fmt.Errorf("unable to register static: %w", err)
-	// }
-	// err = r.Register("/writing/", "^/writing/([a-zA-Z0-9]*)$", handlers.File)
-	// if err != nil {
-	// return nil, fmt.Errorf("unable to register writing: %w", err)
-	// }
-	// err = r.Register("/css/", "^/css/([a-zA-Z0-9_]*).css$", handlers.File)
-	// if err != nil {
-	// return nil, fmt.Errorf("unable to register css: %w", err)
-	// }
-	// err = r.Register("/js/", "^/js/([a-zA-Z0-9_]*).js$", handlers.File)
-	// if err != nil {
-	// return nil, fmt.Errorf("unable to register js: %w", err)
-	// }
-	// err = r.Register("/images/", "^/images/(([a-zA-Z0-9_]*)/)*.(jpg|png)$", handlers.File)
-	// if err != nil {
-	// return nil, fmt.Errorf("unable to register images: %w", err)
-	// }
-	// err = r.Register("/videos/", "^/videos/(([a-zA-Z0-9_]*)/)*.mp4$", handlers.File)
-	// if err != nil {
-	// return nil, fmt.Errorf("unable to register videos: %w", err)
-	// }
-	// err = r.Register("/files/", "^/files/(([a-zA-Z0-9_]*)/)*.jpg$", handlers.File)
-	// if err != nil {
-	// return nil, fmt.Errorf("unable to register files: %w", err)
-	// }
-	// err = r.Register("/xmas/", "^/xmas/([a-zA-Z0-9_]*).html$", handlers.File)
-	// if err != nil {
-	// return nil, fmt.Errorf("unable to register xmas: %w", err)
-	// }
-	// err = r.Register("/email/", "^/email/([a-zA-Z0-9_]*).html$", handlers.File)
-	// if err != nil {
-	// return nil, fmt.Errorf("unable to register email: %w", err)
-	// }
+	err = r.Register("/", "(^/$)|(^/(status|about|quote|xmas)$)", handlers.File)
+	if err != nil {
+		return nil, fmt.Errorf("unable to register static: %w", err)
+	}
+	err = r.Register("/writing/", "^/writing/([a-zA-Z0-9]*)$", handlers.File)
+	if err != nil {
+		return nil, fmt.Errorf("unable to register writing: %w", err)
+	}
+	err = r.Register("/css/", "^/css/([a-zA-Z0-9_]*).css$", handlers.File)
+	if err != nil {
+		return nil, fmt.Errorf("unable to register css: %w", err)
+	}
+	err = r.Register("/js/", "^/js/([a-zA-Z0-9_]*).js$", handlers.File)
+	if err != nil {
+		return nil, fmt.Errorf("unable to register js: %w", err)
+	}
+	err = r.Register("/images/", "^/images/(([a-zA-Z0-9_]*)/)*.(jpg|png)$", handlers.File)
+	if err != nil {
+		return nil, fmt.Errorf("unable to register images: %w", err)
+	}
+	err = r.Register("/videos/", "^/videos/(([a-zA-Z0-9_]*)/)*.mp4$", handlers.File)
+	if err != nil {
+		return nil, fmt.Errorf("unable to register videos: %w", err)
+	}
+	err = r.Register("/files/", "^/files/(([a-zA-Z0-9_]*)/)*.jpg$", handlers.File)
+	if err != nil {
+		return nil, fmt.Errorf("unable to register files: %w", err)
+	}
+	err = r.Register("/xmas/", "^/xmas/([a-zA-Z0-9_]*).html$", handlers.File)
+	if err != nil {
+		return nil, fmt.Errorf("unable to register xmas: %w", err)
+	}
+	err = r.Register("/email/", "^/email/([a-zA-Z0-9_]*).html$", handlers.File)
+	if err != nil {
+		return nil, fmt.Errorf("unable to register email: %w", err)
+	}
 	err = r.Register("/certs/", "^/certs/([a-zA-Z0-9_]*).html$", handlers.File)
 	if err != nil {
 		return nil, fmt.Errorf("unable to register certs: %w", err)

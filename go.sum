@@ -1,5 +1,9 @@
+github.com/google/uuid v1.3.1 h1:KjJaJ9iWZ3jOFZIf1Lqf4laDRCasjl0BCmnEGxkdLb4=
+github.com/google/uuid v1.3.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/grellyd/filelogging v0.0.0-20180915010018-b2a208a9a587 h1:cr5+7q79KwmiI1xut+glbx3CkTBzllmepAc5ig55dkY=
 github.com/grellyd/filelogging v0.0.0-20180915010018-b2a208a9a587/go.mod h1:UBvU1eltqysKHO7Qk2pReOgIzvTJfVaPR6WikncY34w=
+github.com/grellyd/qrgen v0.0.0-20201216011122-e729d155aeef h1:q/0wMnBHSCzH/e446gUALXjX0jOuE8D7gSV+5tD4HMI=
+github.com/grellyd/qrgen v0.0.0-20201216011122-e729d155aeef/go.mod h1:cIONnJbrw5tRvH85Wsqu447VDm0lP/QFoVQiD0kIEnM=
 github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
 github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
