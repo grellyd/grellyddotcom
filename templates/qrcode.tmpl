@@ -151,12 +151,16 @@
     <div id="main" class="single">
       <h1><span class="single-title">QR Code Generator</span></h1>
 
-     <p>Your QR Code to <a  href="{{ .link }}">{{ .link }}</a>. This image has a high correction factor, and so ~30% of the image can be covered.</p>
+     <p>Your QR Code to <a  href="{{ .link }}">{{ .link }}</a>.</p>
+     <p>This image has a high correction factor, and so ~30% of the image can be covered and it will still work.</p>
 
-      <img src="{{ .image }}" class="qrcode">
-
+      <a href="{{ .image }}" download="{{ .fileName }}">
+        <img src="{{ .image }}" class="qrcode">
+      <a/>
       <br>
-      <a href="{{ .image }}" download="{{ .fileName }}">Download<a/>
+      <a href="{{ .image }}" download="{{ .fileName }}">
+        <button type="button">Download</button>
+      <a/>
       <button onclick="location.href='/qrgen'" type="button">Back</button>
     </div>
   </body>
