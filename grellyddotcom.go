@@ -119,7 +119,7 @@ func registerRoutes() (*router.Router, error) {
 	if err != nil {
 		return nil, fmt.Errorf("unable to register writing: %w", err)
 	}
-	err = r.Register("/qrgen/", "^/qrgen$", handlers.QRGen)
+	err = r.Register("/qrgen", "^/qrgen$", handlers.QRGen)
 	if err != nil {
 		return nil, fmt.Errorf("unable to register writing: %w", err)
 	}
