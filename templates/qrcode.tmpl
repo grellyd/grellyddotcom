@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+  <head>
+      <meta charset="utf-8">
+      <meta name="description" content="Home of Graham L. Brown. Blog, projects, technical work, and more!">
+      <meta name="keywords" content="Grellyd Blog,Personal Site">
+      <meta name="author" content="Graham L. Brown">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <base href="/">
+      <link rel="stylesheet" href="/css/grellyd.css">
+      <link rel="stylesheet" href="/css/kubo.css">
+      <link rel="stylesheet" href="/css/sidebar.css">
+      <script src="/js/sidebar.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+      <title>Grellyd - Graham L. Brown</title>
+    </head>
+  <body>
+        <div id="sidebar" class="sidenav">
+    <a href="/" id="link-title">Grellyd</a>
+    <a href="javascript:void(0)" class="navToggle" onclick="toggleNav()" id="navToggle">&or;</a>
+    <div id="sidebarContent">
+        
+            
+            
+                
+            
+                
+                    
+                    
+            
+        
+            
+            
+                
+                    
+                    
+            
+        
+            
+            
+                
+            
+                
+            
+                
+            
+            
+            <a href="/about/">About</a>
+            
+        
+            
+            
+                
+            
+                
+            
+                
+            
+            
+            <a href="/resume/">Resume</a>
+            
+        
+            
+            
+                
+            
+                
+            
+                
+                    
+                    
+            
+        
+        
+
+<div id="newwriting">
+    
+    <a href="/writing/">Writing</a>
+    
+    <ul>
+        
+        <li>
+            <span class="date">2023/08/26</span>
+            <a class="sidenav-link" href="/writing/effective-apologies/">Effective apologies</a>
+        </li>
+        
+        <li>
+            <span class="date">2023/07/31</span>
+            <a class="sidenav-link" href="/writing/2023-01-02-threeplusone/">The One plus Three Development Cycle: a six month retrospective</a>
+        </li>
+        
+        <li>
+            <span class="date">2023/02/17</span>
+            <a class="sidenav-link" href="/writing/2023-02-17-advice-for-a-first-year/">Advice for a First Year</a>
+        </li>
+        
+        <li>
+            <span class="date">2023/02/10</span>
+            <a class="sidenav-link" href="/writing/2023-02-10-writing-effective-self-review-content/">Writing Effective Self-Review Content</a>
+        </li>
+        
+        <li>
+            <span class="date">2023/01/24</span>
+            <a class="sidenav-link" href="/writing/2023-01-24-writing-class/">Principles, Process, and Pleasure of Writing - Class Notes</a>
+        </li>
+        
+        <li>
+            <span class="date">2023/01/24</span>
+            <a class="sidenav-link" href="/writing/2023-01-24-reading-log/">Principles, Process, and Pleasure of Writing - Reading Log</a>
+        </li>
+        
+        <li>
+            <span class="date">2023/01/02</span>
+            <a class="sidenav-link" href="/writing/2023-01-30-class/">Principles, Process, and Pleasure of Writing - Class Notes</a>
+        </li>
+        
+        <li>
+            <span class="date">2022/10/03</span>
+            <a class="sidenav-link" href="/writing/2022-10-03-1password-scim-bridge-explained/">1Password SCIM Bridge Explained: what it is, and why we made it</a>
+        </li>
+        
+        <li>
+            <span class="date">2019/03/06</span>
+            <a class="sidenav-link" href="/writing/2019_03_06_strings_runes_and_bytes/">Demystifying Go&#39;s Strings, Runes, and Bytes</a>
+        </li>
+        
+        <li>
+            <span class="date">0001/01/01</span>
+            <a class="sidenav-link" href="/writing/bonaire/"></a>
+        </li>
+        
+        <li>
+            <span class="date">0001/01/01</span>
+            <a class="sidenav-link" href="/writing/draft_dive_email/"></a>
+        </li>
+        
+        <li>
+            <span class="date">0001/01/01</span>
+            <a class="sidenav-link" href="/writing/draft_your-first-behavioural-interview/"></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        
+    </div>
+</div>
+
+    <div id="main" class="single">
+      <h1><span class="single-title">QR Code Generator</span></h1>
+
+     <p>Your QR Code to <a  href="{{ .link }}">{{ .link }}</a>. This image has a high correction factor, and so ~30% of the image can be covered.</p>
+
+      <img src="{{ .image }}" class="qrcode">
+
+      <br>
+      <a href="{{ .image }}" download="{{ .fileName }}">Download<a/>
+      <button onclick="location.href='/qrgen'" type="button">Back</button>
+    </div>
+  </body>
+</html>
