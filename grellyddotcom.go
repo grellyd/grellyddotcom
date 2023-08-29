@@ -18,7 +18,7 @@ import (
 )
 
 const (
-	AddrHTTP  = ":80"
+	AddrHTTP  = ":3080"
 	AddrHTTPS = ":443"
 )
 
@@ -111,10 +111,10 @@ func buildRouter() (*router.Router, error) {
 
 func registerRoutes() (*router.Router, error) {
 	r := router.NewRouter()
-	// err := r.Register("/qrgen", "^/qrgen$", handlers.QRGen)
-	// if err != nil {
-	// return nil, fmt.Errorf("unable to register qrgen: %w", err)
-	// }
+	err := r.Register("/qrgen", "^/qrgen$", handlers.QRGen)
+	if err != nil {
+		return nil, fmt.Errorf("unable to register qrgen: %w", err)
+	}
 	// err = r.Register("/", "(^/$)|(^/(status|about|quote|xmas)$)", handlers.File)
 	// if err != nil {
 	// return nil, fmt.Errorf("unable to register static: %w", err)
@@ -151,7 +151,7 @@ func registerRoutes() (*router.Router, error) {
 	// if err != nil {
 	// return nil, fmt.Errorf("unable to register email: %w", err)
 	// }
-	err := r.Register("/certs/", "^/certs/([a-zA-Z0-9_]*).html$", handlers.File)
+	err = r.Register("/certs/", "^/certs/([a-zA-Z0-9_]*).html$", handlers.File)
 	if err != nil {
 		return nil, fmt.Errorf("unable to register certs: %w", err)
 	}

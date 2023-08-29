@@ -14,7 +14,7 @@ import (
 func QRGen(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("r.RequestURI: %v\n", r.RequestURI)
 
-	path := "../pages/templates/qrgen.tmpl"
+	path := "./pages/templates/qrgen.tmpl"
 
 	globallogger.Info("in qrgen")
 
