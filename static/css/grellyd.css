@@ -102,3 +102,7 @@ ul .formList {
 li .formItem {
     padding-top: 10px;
 }
+
+.linkButton {
+    margin: 10px;
+}
