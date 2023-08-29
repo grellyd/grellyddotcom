@@ -5,7 +5,6 @@ import (
 	"html/template"
 	"image"
 	"image/png"
-	"io"
 	"net/http"
 	"os"
 	"strings"
@@ -57,14 +56,6 @@ func QRCode(w http.ResponseWriter, r *http.Request) {
 	if !strings.Contains(r.Header.Get("Content-Type"), "application/x-www-form-urlencoded") {
 		r.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	}
-
-	defer r.Body.Close()
-	body, err := io.ReadAll(r.Body)
-	if err != nil {
-		http.Error(w, fmt.Sprintf("failed to ReadAll: %s\n", err.Error()), http.StatusInternalServerError)
-		return
-	}
-	globallogger.Info(fmt.Sprintf("body: %s\n", string(body)))
 
 	if err := r.ParseForm(); err != nil {
 		http.Error(w, fmt.Sprintf("failed to parseForm: %s\n", err.Error()), http.StatusInternalServerError)
