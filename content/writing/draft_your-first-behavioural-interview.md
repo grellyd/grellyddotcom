@@ -1,9 +1,9 @@
-—-
+---
 title: “Your First Behavioural Interview”
 date: 2023-08-15
 author: Graham L. Brown
 draft: true
-—-
+---
 
 <todos>
  - [ ] Rework prep list. Hate the second layer bullets.
