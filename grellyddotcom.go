@@ -13,7 +13,6 @@ import (
 	"github.com/grellyd/filelogging/globallogger"
 	"github.com/grellyd/filelogging/state"
 	"github.com/grellyd/grellyddotcom/config"
-	"github.com/grellyd/grellyddotcom/handlers"
 	"github.com/grellyd/grellyddotcom/router"
 )
 
@@ -111,10 +110,10 @@ func buildRouter() (*router.Router, error) {
 
 func registerRoutes() (*router.Router, error) {
 	r := router.NewRouter()
-	err := r.Register("/qrgen", "^/qrgen$", handlers.QRGen)
-	if err != nil {
-		return nil, fmt.Errorf("unable to register qrgen: %w", err)
-	}
+	// err := r.Register("/qrgen", "^/qrgen$", handlers.QRGen)
+	// if err != nil {
+	// return nil, fmt.Errorf("unable to register qrgen: %w", err)
+	// }
 	// err = r.Register("/", "(^/$)|(^/(status|about|quote|xmas)$)", handlers.File)
 	// if err != nil {
 	// return nil, fmt.Errorf("unable to register static: %w", err)
