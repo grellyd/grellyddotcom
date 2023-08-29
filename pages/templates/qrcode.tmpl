@@ -151,9 +151,11 @@
     <div id="main" class="single">
       <h1><span class="single-title">QR Code Generator</span></h1>
 
-      Your code:
+     <p>Your QR Code to <a  href="{{ .link }}">{{ .link }}</a>. This image has a high correction factor, and so ~30% of the image can be covered.</p>
 
       <img src="{{ .image }}" class="qrcode">
+
+      <a href="{{ .image }}" download="{{ .fileName }}">Download<a/>
     </div>
   </body>
 </html>

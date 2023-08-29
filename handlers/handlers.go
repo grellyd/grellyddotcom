@@ -86,7 +86,8 @@ func QRCode(w http.ResponseWriter, r *http.Request) {
 	}
 
 	uuid := uuid.NewString()
-	path := fmt.Sprintf("/images/qrcodes/%s.png", uuid)
+	name := fmt.Sprintf("%s.png", uuid)
+	path := fmt.Sprintf("/images/qrcodes/%s", name)
 
 	f, err := os.Create(fmt.Sprintf("/var/http/public/%s", path))
 	if err != nil {
@@ -112,7 +113,7 @@ func QRCode(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = t.Execute(w, map[string]any{"image": path})
+	err = t.Execute(w, map[string]any{"image": path, "name": name, "link": link})
 	if err != nil {
 		http.Error(w, fmt.Sprintf("failed to execute '%s' %s\n", string(b), err.Error()), http.StatusInternalServerError)
 		return
