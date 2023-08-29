@@ -1,5 +1,5 @@
 ---
-title: "The One plus Three Development Cycle: six months in"
+title: "The One plus Three Development Cycle: Six Months In"
 date: 2023-07-31
 author: Graham L. Brown
 draft: false
