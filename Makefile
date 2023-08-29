@@ -1,4 +1,4 @@
-all/dev: edits push/dev remote/deploy/dev
+all/dev: edits push/dev remote/deploy/dev remote/logs/dev
 
 push/dev:
 	git push
