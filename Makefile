@@ -20,9 +20,11 @@ define deploy-dev
 	git pull origin dev -f && \
 	git submodule update --init --recursive && \
 	hugo --buildDrafts --buildFuture && \
-	cp -rf public /var/http && \
-	ls /var/http/ && \
-	go install && \
+	rm -f /var/http/grellyddotcom && \
+	cp -rf ./public /var/http && \
+	go build grellyddotcom.go && \
+	cp grellyddotcom /var/http/ && \
+	cp ./pages/templates /var/http/ && \
 	ls /var/http/ && \
 	systemctl restart grellyddotcom.service && \
 	systemctl status grellyddotcom.service
