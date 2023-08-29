@@ -82,6 +82,10 @@ func QRCode(w http.ResponseWriter, r *http.Request) {
 		globallogger.Info(fmt.Sprintf("%s: %s\n", k, v))
 	}
 
+	for k, v := range r.PostForm {
+		globallogger.Info(fmt.Sprintf("%s: %s\n", k, v))
+	}
+
 	link := r.PostFormValue("link")
 	globallogger.Info(fmt.Sprintf("link: %s\n", link))
 
