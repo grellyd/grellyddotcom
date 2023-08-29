@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"runtime/debug"
 	"time"
 
 	"github.com/pkg/errors"
@@ -23,6 +24,13 @@ const (
 )
 
 func main() {
+	info, ok := debug.ReadBuildInfo()
+	if !ok {
+		globallogger.Fatal("failed to ReadBuildInfo")
+		os.Exit(1)
+	}
+	globallogger.Info(info.Main.Version)
+
 	err := run()
 	if err != nil {
 		globallogger.Fatal(err.Error())
