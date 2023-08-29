@@ -1,3 +1,10 @@
+.PHONY : all/dev push/dev edits remote/deploy/dev
+
+all/dev: edits push/dev remote/deploy/dev
+
+push/dev:
+	git push
+
 edits:
 	git add -u
 	git commit -m "Edits"
