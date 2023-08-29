@@ -62,5 +62,5 @@ remote/logs/prd:
 	ssh root@grellyd.com "$(logs)"
 
 new/writing:
-	NAME ?= $(shell bash -c 'read -s -p "Name: " name; echo $$name')
+	NAME ?= $(shell bash -c 'read -s -p "Name: " name; echo $$name'')
 	hugo new content writing/$(NAME)
