@@ -78,10 +78,13 @@ func QRCode(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	l := r.PostFormValue("link")
-	globallogger.Info(fmt.Sprintf("link: %s\n", l))
+	for k, v := range r.Form {
+		globallogger.Info(fmt.Sprintf("%s: %s\n", k, v))
+	}
 
-	link := "https://docs.google.com/forms/d/1UX81h0a9k1NaFY6Q09jgO4ns1iNwEOSnkw1c33YBON4/edit"
+	link := r.PostFormValue("link")
+	globallogger.Info(fmt.Sprintf("link: %s\n", link))
+
 	scaleFactor := 50
 
 	i, err := generateQRCode(link, scaleFactor)
