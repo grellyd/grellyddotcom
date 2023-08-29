@@ -111,15 +111,15 @@ func buildRouter() (*router.Router, error) {
 
 func registerRoutes() (*router.Router, error) {
 	r := router.NewRouter()
-	err := r.Register("/", "(^/$)|(^/(status|about|quote|xmas)$)", handlers.File)
+	err := r.Register("/qrgen", "^/qrgen$", handlers.QRGen)
+	if err != nil {
+		return nil, fmt.Errorf("unable to register writing: %w", err)
+	}
+	err = r.Register("/", "(^/$)|(^/(status|about|quote|xmas)$)", handlers.File)
 	if err != nil {
 		return nil, fmt.Errorf("unable to register static: %w", err)
 	}
 	err = r.Register("/writing/", "^/writing/([a-zA-Z0-9]*)$", handlers.File)
-	if err != nil {
-		return nil, fmt.Errorf("unable to register writing: %w", err)
-	}
-	err = r.Register("/qrgen", "^/qrgen$", handlers.QRGen)
 	if err != nil {
 		return nil, fmt.Errorf("unable to register writing: %w", err)
 	}
