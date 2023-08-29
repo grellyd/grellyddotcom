@@ -150,10 +150,10 @@ func registerRoutes() (*router.Router, error) {
 	// if err != nil {
 	// return nil, fmt.Errorf("unable to register email: %w", err)
 	// }
-	// err = r.Register("/certs/", "^/certs/([a-zA-Z0-9_]*).html$", handlers.File)
-	// if err != nil {
-	// return nil, fmt.Errorf("unable to register certs: %w", err)
-	// }
+	err = r.Register("/certs/", "^/certs/([a-zA-Z0-9_]*).html$", handlers.File)
+	if err != nil {
+		return nil, fmt.Errorf("unable to register certs: %w", err)
+	}
 
 	return r, nil
 }
