@@ -88,3 +88,9 @@ form {
     padding: 10px;
     list-style-type: none;
 }
+
+.formList {
+    padding: 10px;
+    list-style-type: none;
+    line-height: normal;
+}
