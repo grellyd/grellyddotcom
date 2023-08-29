@@ -153,6 +153,7 @@
 
      <p>Your QR Code to <a  href="{{ .link }}">{{ .link }}</a>.</p>
      <p>This image has a high correction factor, and so ~30% of the image can be covered and it will still work.</p>
+    
 
       <a href="{{ .image }}" download="{{ .fileName }}">
         <img src="{{ .image }}" class="qrcode">
@@ -161,6 +162,7 @@
       <a href="{{ .image }}" download="{{ .fileName }}">
         <button type="button">Download</button>
       <a/>
+      <br>
       <button onclick="location.href='/qrgen'" type="button">Back</button>
     </div>
   </body>
