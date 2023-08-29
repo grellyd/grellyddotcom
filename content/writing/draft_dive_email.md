@@ -1,3 +1,10 @@
+---
+title: "The One plus Three Development Cycle: six months in"
+date: 2023-07-31
+author: Graham L. Brown
+draft: true
+---
+
 To the Bonaire Dive shops:
 
 
