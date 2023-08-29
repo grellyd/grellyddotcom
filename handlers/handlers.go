@@ -6,6 +6,7 @@ import (
 	"image"
 	"image/png"
 	"net/http"
+	"net/url"
 	"os"
 	"strings"
 
@@ -62,20 +63,13 @@ func QRCode(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	for k, v := range r.Header {
-		globallogger.Info(fmt.Sprintf("Header %s: %s\n", k, v))
-	}
-
-	for k, v := range r.Form {
-		globallogger.Info(fmt.Sprintf("Form %s: %s\n", k, v))
-	}
-
-	for k, v := range r.PostForm {
-		globallogger.Info(fmt.Sprintf("PostForm %s: %s\n", k, v))
-	}
-
 	link := r.PostFormValue("link")
 	globallogger.Info(fmt.Sprintf("link: %s\n", link))
+
+	if _, err := url.Parse(link); err != nil {
+		http.Error(w, fmt.Sprintf("invalid link: %s\n", err.Error()), http.StatusBadRequest)
+		return
+	}
 
 	scaleFactor := 50
 
