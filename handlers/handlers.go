@@ -50,7 +50,7 @@ func QRGen(w http.ResponseWriter, r *http.Request) {
 
 func QRCode(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
-		http.Error(w, fmt.Sprintln("Wrong method: Got %s; expected %s", r.Method, http.MethodPost), http.StatusBadRequest)
+		http.Error(w, fmt.Sprintf("Wrong method: Got %s; expected %s\n", r.Method, http.MethodPost), http.StatusBadRequest)
 		return
 	}
 	globallogger.Info("in qrcode")

@@ -26,7 +26,9 @@ define deploy-dev
 	git submodule update --init --recursive && \
 	hugo --buildDrafts --buildFuture && \
 	rm -f /var/http/grellyddotcom && \
-	cp -rf ./public /var/http && \
+	rm -rf /var/http/public && \
+	rm -rf /var/http/templates && \
+	cp -r ./public /var/http && \
 	go build grellyddotcom.go && \
 	cp grellyddotcom /var/http/ && \
 	cp -r ./pages/templates /var/http/ && \
