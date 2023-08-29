@@ -40,13 +40,13 @@ func QRGen(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	w.Header().Add("Content-Type", "application/x-www-form-urlencoded")
-
 	err = t.Execute(w, nil)
 	if err != nil {
 		http.Error(w, fmt.Sprintf("failed to execute '%s' %s\n", string(b), err.Error()), http.StatusInternalServerError)
 		return
 	}
+
+	w.Header().Add("Content-Type", "application/x-www-form-urlencoded")
 
 }
 
