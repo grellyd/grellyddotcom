@@ -48,20 +48,6 @@ func QRGen(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func generateQRCode(link string, scaleFactor int) (*image.Gray, error) {
-	qr, err := qrlib.Generate(link, qrlib.ECLH)
-	if err != nil {
-		return nil, fmt.Errorf("unable to generate: %s", err.Error())
-	}
-
-	i, err := qrlib.BuildImage(qr, scaleFactor)
-	if err != nil {
-		return nil, fmt.Errorf("unable to build an output image: %s", err.Error())
-	}
-
-	return i, nil
-}
-
 func QRCode(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, fmt.Sprintln("Wrong method: Got %s; expected %s", r.Method, http.MethodPost), http.StatusBadRequest)
@@ -82,12 +68,16 @@ func QRCode(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	for k, v := range r.Header {
+		globallogger.Info(fmt.Sprintf("Header %s: %s\n", k, v))
+	}
+
 	for k, v := range r.Form {
-		globallogger.Info(fmt.Sprintf("%s: %s\n", k, v))
+		globallogger.Info(fmt.Sprintf("Form %s: %s\n", k, v))
 	}
 
 	for k, v := range r.PostForm {
-		globallogger.Info(fmt.Sprintf("%s: %s\n", k, v))
+		globallogger.Info(fmt.Sprintf("PostForm %s: %s\n", k, v))
 	}
 
 	link := r.PostFormValue("link")
@@ -194,4 +184,18 @@ func decomposeURL(url string) (sections []string, title string, pending pages.Pa
 	}
 	// is a page browser
 	return components[1:], "index", pages.HTML, err
+}
+
+func generateQRCode(link string, scaleFactor int) (*image.Gray, error) {
+	qr, err := qrlib.Generate(link, qrlib.ECLH)
+	if err != nil {
+		return nil, fmt.Errorf("unable to generate: %s", err.Error())
+	}
+
+	i, err := qrlib.BuildImage(qr, scaleFactor)
+	if err != nil {
+		return nil, fmt.Errorf("unable to build an output image: %s", err.Error())
+	}
+
+	return i, nil
 }
