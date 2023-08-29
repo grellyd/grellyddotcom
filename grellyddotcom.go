@@ -123,6 +123,10 @@ func registerRoutes() (*router.Router, error) {
 	if err != nil {
 		return nil, fmt.Errorf("unable to register qrgen: %w", err)
 	}
+	err = r.Register("/qrcode", "^/qrcode$", handlers.QRCode)
+	if err != nil {
+		return nil, fmt.Errorf("unable to register qrcode: %w", err)
+	}
 	err = r.Register("/", "(^/$)|(^/(status|about|quote|xmas)$)", handlers.File)
 	if err != nil {
 		return nil, fmt.Errorf("unable to register static: %w", err)
