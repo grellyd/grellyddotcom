@@ -11,12 +11,16 @@ Sound interesting? Read on.
 
 # Structure
 
-No good system is complete without a little structure. It’s even in the name. 1+3. A **4 week** development cycle composed of **1 planning week** and **3 work weeks**. Retros, admin work,  
+No good system is complete without a little structure. In this case, its in the name. 1+3. A **4 week** development cycle composed of **1 planning week** and **3 work weeks**. Retros, admin work, and take place during the planning week, alongside figuring out what is most important for the next work cycle. By the end of the three work weeks, all committed work (and perhaps more!) should be complete.
+
+The consistency in planning, commitment, and delivery allows us to have a measured and predictable cadence enabling our managers, product partners, and design partners to effectively plan into the future.
 
 
 ## Planning
 
-The planning week exists to determine what is important, and therefore what we as a team commit to doing, and what stretch goals exist if we finish early. The presence of stretch goals is essential as it allows the team to estimate conservatively without enabling the work to fill the time allotted. 
+The planning week exists to determine what is important, what we as a team commit to doing, and what stretch goals exist if we finish early. The presence of stretch goals is essential as it allows the team to estimate conservatively without enabling the work to fill the time allotted. 
+
+Explicitly making space for planning in our development cycles denotes its importance: there is tangible value in well thought out clear commitments. It creates predictability and consistency for our development team and our partners across the organisation. 
 
 At the end of the planning week we should know:
  1. The most important topics to work on.
