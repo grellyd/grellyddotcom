@@ -25,6 +25,8 @@ const (
 )
 
 func main() {
+	globallogger.NewGlobalLogger("grellyddotcom", state.DEBUGGING)
+
 	info, ok := debug.ReadBuildInfo()
 	if !ok {
 		globallogger.Fatal("failed to ReadBuildInfo")
@@ -70,7 +72,7 @@ func run() error {
 		server.Addr = AddrHTTPS
 
 		go func() {
-			globallogger.Info("Serving Challenges")
+			globallogger.Info(fmt.Sprintf("Serving Challenges on %s", AddrHTTP))
 			err = http.ListenAndServe(AddrHTTP, certManager.HTTPHandler(nil))
 			if err != nil {
 				globallogger.Error(fmt.Errorf("failed to listen and serve %s: %w", AddrHTTP, err).Error())
