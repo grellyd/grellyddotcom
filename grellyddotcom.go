@@ -25,16 +25,20 @@ const (
 )
 
 func main() {
-	globallogger.NewGlobalLogger("grellyddotcom", state.DEBUGGING)
+	err := globallogger.NewGlobalLogger("grellyd.com Server", state.NORMAL)
+	if err != nil {
+		fmt.Println(fmt.Errorf("failed to globallogger.NewGlobalLogger: %w", err).Error())
+		os.Exit(1)
+	}
 
 	info, ok := debug.ReadBuildInfo()
 	if !ok {
 		globallogger.Fatal("failed to ReadBuildInfo")
 		os.Exit(1)
 	}
-	globallogger.Info(info.Main.Version)
+	globallogger.Info(fmt.Sprintf("Version: %s", info.Main.Version))
 
-	err := run()
+	err = run()
 	if err != nil {
 		globallogger.Fatal(err.Error())
 		os.Exit(1)
@@ -113,10 +117,6 @@ func buildCertManager() (*autocert.Manager, error) {
 }
 
 func buildRouter() (*router.Router, error) {
-	err := globallogger.NewGlobalLogger("grellyd.com Server", state.NORMAL)
-	if err != nil {
-		return nil, fmt.Errorf("failed to globallogger.NewGlobalLogger: %w", err)
-	}
 	r, err := registerRoutes()
 	if err != nil {
 		return nil, fmt.Errorf("failed to registerRoutes: %w", err)
