@@ -4,7 +4,7 @@ After=multi-user.target
 
 [Service]
 WorkingDirectory=/var/http
-ExecStart=/var/http/grellyddotcom --tls
+ExecStart=/var/http/grellyddotcom 
 Type=simple
 
 Restart=always
