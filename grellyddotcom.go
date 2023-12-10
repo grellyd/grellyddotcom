@@ -9,6 +9,7 @@ import (
 	"time"
 
 	"github.com/pkg/errors"
+	"golang.org/x/crypto/acme"
 	"golang.org/x/crypto/acme/autocert"
 
 	"github.com/grellyd/filelogging/globallogger"
@@ -94,11 +95,16 @@ func run() error {
 }
 
 func buildCertManager() (*autocert.Manager, error) {
+	client := acme.Client{
+		DirectoryURL: "https://acme-staging-v02.api.letsencrypt.org/directory",
+	}
+
 	certManager := autocert.Manager{
+		Client:      &client,
 		Prompt:      autocert.AcceptTOS,
 		HostPolicy:  autocert.HostWhitelist("grellyd.com", "www.grellyd.com", "dev.grellyd.com"),
 		Cache:       autocert.DirCache("certs"),
-		RenewBefore: 24 * time.Hour,
+		RenewBefore: 2 * 24 * time.Hour,
 	}
 
 	return &certManager, nil
