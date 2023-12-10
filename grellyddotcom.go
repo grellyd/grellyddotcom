@@ -76,7 +76,7 @@ func run() error {
 		server.Addr = AddrHTTPS
 
 		go func() {
-			globallogger.Info(fmt.Sprintf("Serving Challenges on %s", AddrHTTP))
+			globallogger.Info(fmt.Sprintf("Serving Challenges on %s with %s", AddrHTTP, &certManager.Client.DirectoryURL))
 			err = http.ListenAndServe(AddrHTTP, certManager.HTTPHandler(nil))
 			if err != nil {
 				globallogger.Error(fmt.Errorf("failed to listen and serve %s: %w", AddrHTTP, err).Error())

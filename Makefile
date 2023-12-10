@@ -65,7 +65,7 @@ define deploy-prd
 endef
 
 deploy/prd:
-	$(deploy-dev)
+	$(deploy-prd)
 
 remote/prd:
 	ssh root@grellyd.com
