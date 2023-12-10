@@ -9,6 +9,7 @@ import (
 	"time"
 
 	"github.com/pkg/errors"
+	"golang.org/x/crypto/acme"
 	"golang.org/x/crypto/acme/autocert"
 
 	"github.com/grellyd/filelogging/globallogger"
@@ -19,19 +20,25 @@ import (
 )
 
 const (
-	AddrHTTP  = ":3080"
+	AddrHTTP  = ":80"
 	AddrHTTPS = ":443"
 )
 
 func main() {
+	err := globallogger.NewGlobalLogger("grellyd.com Server", state.NORMAL)
+	if err != nil {
+		fmt.Println(fmt.Errorf("failed to globallogger.NewGlobalLogger: %w", err).Error())
+		os.Exit(1)
+	}
+
 	info, ok := debug.ReadBuildInfo()
 	if !ok {
 		globallogger.Fatal("failed to ReadBuildInfo")
 		os.Exit(1)
 	}
-	globallogger.Info(info.Main.Version)
+	globallogger.Info(fmt.Sprintf("Version: %s", info.Main.Version))
 
-	err := run()
+	err = run()
 	if err != nil {
 		globallogger.Fatal(err.Error())
 		os.Exit(1)
@@ -69,7 +76,7 @@ func run() error {
 		server.Addr = AddrHTTPS
 
 		go func() {
-			globallogger.Info("Serving Challenges")
+			globallogger.Info(fmt.Sprintf("Serving Challenges on %s", AddrHTTP))
 			err = http.ListenAndServe(AddrHTTP, certManager.HTTPHandler(nil))
 			if err != nil {
 				globallogger.Error(fmt.Errorf("failed to listen and serve %s: %w", AddrHTTP, err).Error())
@@ -94,21 +101,22 @@ func run() error {
 }
 
 func buildCertManager() (*autocert.Manager, error) {
+	client := acme.Client{
+		DirectoryURL: "https://acme-staging-v02.api.letsencrypt.org/directory",
+	}
+
 	certManager := autocert.Manager{
+		Client:      &client,
 		Prompt:      autocert.AcceptTOS,
 		HostPolicy:  autocert.HostWhitelist("grellyd.com", "www.grellyd.com", "dev.grellyd.com"),
 		Cache:       autocert.DirCache("certs"),
-		RenewBefore: 24 * time.Hour,
+		RenewBefore: 2 * 24 * time.Hour,
 	}
 
 	return &certManager, nil
 }
 
 func buildRouter() (*router.Router, error) {
-	err := globallogger.NewGlobalLogger("grellyd.com Server", state.NORMAL)
-	if err != nil {
-		return nil, fmt.Errorf("failed to globallogger.NewGlobalLogger: %w", err)
-	}
 	r, err := registerRoutes()
 	if err != nil {
 		return nil, fmt.Errorf("failed to registerRoutes: %w", err)
