@@ -41,6 +41,9 @@ endef
 deploy/dev:
 	$(deploy-dev)
 
+remote/dev:
+	ssh root@dev.grellyd.com
+
 remote/deploy/dev:
 	ssh root@dev.grellyd.com "cd grellyddotcom && $(deploy-dev)"
 
@@ -63,6 +66,9 @@ endef
 
 deploy/prd:
 	$(deploy-dev)
+
+remote/prd:
+	ssh root@grellyd.com
 
 remote/deploy/prd:
 	ssh root@grellyd.com "cd grellyddotcom && $(deploy-prd)"
