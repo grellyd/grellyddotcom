@@ -20,7 +20,7 @@ import (
 )
 
 const (
-	AddrHTTP  = ":3080"
+	AddrHTTP  = ":80"
 	AddrHTTPS = ":443"
 )
 
