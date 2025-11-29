@@ -5,7 +5,7 @@
 
 You can find me as **@grellyd** most places online.
 
-I've worked for [1Password](https://1password.com/) since March 2019, holding a few different roles and titles. Throughtout, I've been a backend focused developer specalizing in provisioning, identity, and access management.
+I've worked for [1Password](https://1password.com/) since March 2019, holding a few different roles and titles. Throughout, I've been a backend focused developer specializing in provisioning, identity, and access management.
 
 This site is a perpetual work in progress. For now, take a look at my [resume](/resume), peek at my [writing](/writing) or read more [about me](/about).
 
