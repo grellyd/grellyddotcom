@@ -1,0 +1,85 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  default:
+    cmds: 
+    - task --list-all
+
+  build:prd:
+    desc: Build for prod.
+    cmds: 
+      - go build
+      - hugo
+
+  build:dev:
+    desc: Build for dev.
+    cmds:
+      - CGO_ENABLED=1 go build
+      - hugo --buildDrafts --buildFuture
+
+  run:prd:
+    desc: Run for prod.
+    cmds: 
+      - CGO_ENABLED=1 go build
+      - hugo
+      - ./grellyddotcom
+
+  run:dev:
+    desc: Run for dev.
+    aliases: [gr]
+    cmds:
+      - go build
+      - hugo --buildDrafts --buildFuture
+      - ./grellyddotcom
+
+  edits:
+    desc: Add some edits.
+    cmds:
+     - git add -u
+     - git commit -m "Edits"
+
+  deploy:dev:
+    cmds:
+     - ./scripts/deploy.sh dev
+
+  ssh:dev:
+    desc: ssh into the dev site instance.
+    cmd: ssh root@dev.grellyd.com
+
+  ssh:deploy:dev:
+    desc: ssh into the dev site instance and deploy the site.
+    cmd: ssh root@dev.grellyd.com "cd grellyddotcom && ./scripts/deploy.sh dev"
+
+  deploy:prd:
+    cmds:
+      - git pull origin prd -f && \
+      - git submodule update --init --recursive && \
+      - hugo && \
+      - rm -f /var/http/grellyddotcom && \
+      - rm -rf /var/http/public && \
+      - rm -rf /var/http/templates && \
+      - cp -r ./public /var/http && \
+      - CGO_ENABLED=1 go build grellyddotcom.go && \
+      - cp grellyddotcom /var/http/ && \
+      - cp -r ./templates /var/http/ && \
+      - ls /var/http/ && \
+      - go version && \
+      - systemctl restart grellyddotcom.service && \
+      - systemctl status grellyddotcom.service
+
+  ssh:prd:
+    desc: ssh into the prod site instance.
+    cmd: ssh root@grellyd.com
+
+  ssh:deploy:prd:
+    desc: ssh into the prod site instance and deploy the site.
+    cmd: ssh root@grellyd.com "cd grellyddotcom && ./scripts/deploy.sh prd"
+
+  git:submodule:update:
+    desc: Update git submodules
+    cmd: git submodule update --remote --checkout
