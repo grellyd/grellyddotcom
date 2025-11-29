@@ -31,7 +31,7 @@ My goals in this role are to:
 
 I started working for 1Password in March 2019.
 
-Outside of work my partner and I are avid outdoor people. Hiking and skiing were our bread and butter while in the lower mainland, then scuba diving, hiking, and sea kayaking on Vancouver Island, and canoeing and cross country skiing in Saskatoon, and now trail running and pickleballing around Illinois. Our gear room is one of my favourite places to be.
+Outside of work my partner and I are avid outdoor people. Hiking and skiing were our bread and butter while in the lower mainland, then scuba diving, hiking, and sea kayaking on Vancouver Island, and canoeing and cross country skiing in Saskatoon, and now trail running, orienteering, and pickleballing around Illinois. Our gear room is one of my favourite places to be.
 
 We also have a phenomenal adventure cat that accompanies us on most outings. Peek at [his instagram](https://instagram.com/nicholascbrownie) for a taste of his outdoor preferences!
 
