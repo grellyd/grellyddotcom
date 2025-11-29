@@ -28,6 +28,6 @@ jobs:
           SSH_PRIVATE_KEY: ${{secrets.SA_ID_ED25519}}
           SSH_KNOWN_HOSTS: ${{secrets.SSH_DEV_KNOWN_HOSTS}}
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Redeploy
         run: make remote/deploy/dev
