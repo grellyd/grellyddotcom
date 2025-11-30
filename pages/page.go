@@ -23,13 +23,13 @@ type Page struct {
 }
 
 // Load a page
-func Load(section string, title string, pending PageEnding) (*Page, error) {
+func Load(section string, title string, ending PageEnding) (*Page, error) {
 	root, err := os.OpenRoot(rootPath)
 	if err != nil {
 		return nil, fmt.Errorf("cannot OpenRoot: %s", rootPath)
 	}
 
-	filename := fmt.Sprintf("%s/%s.%s", section, title, pending)
+	filename := fmt.Sprintf("%s/%s.%s", section, title, ending)
 	globallogger.Debug(fmt.Sprintf("loading '%s'\n", filename))
 	f, err := root.OpenFile(filename, os.O_RDONLY, 0444)
 	if err != nil {
