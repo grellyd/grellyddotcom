@@ -29,7 +29,7 @@ define deploy-dev
 	rm -rf /var/http/public && \
 	rm -rf /var/http/templates && \
 	cp -r ./public /var/http && \
-	go build grellyddotcom.go && \
+	CGO_ENABLED=1 go build grellyddotcom.go && \
 	cp grellyddotcom /var/http/ && \
 	cp -r ./templates /var/http/ && \
 	ls /var/http/ && \
@@ -40,6 +40,9 @@ endef
 
 deploy/dev:
 	$(deploy-dev)
+
+remote/dev:
+	ssh root@dev.grellyd.com
 
 remote/deploy/dev:
 	ssh root@dev.grellyd.com "cd grellyddotcom && $(deploy-dev)"
@@ -52,7 +55,7 @@ define deploy-prd
 	rm -rf /var/http/public && \
 	rm -rf /var/http/templates && \
 	cp -r ./public /var/http && \
-	go build grellyddotcom.go && \
+	CGO_ENABLED=1 go build grellyddotcom.go && \
 	cp grellyddotcom /var/http/ && \
 	cp -r ./templates /var/http/ && \
 	ls /var/http/ && \
@@ -62,7 +65,10 @@ define deploy-prd
 endef
 
 deploy/prd:
-	$(deploy-dev)
+	$(deploy-prd)
+
+remote/prd:
+	ssh root@grellyd.com
 
 remote/deploy/prd:
 	ssh root@grellyd.com "cd grellyddotcom && $(deploy-prd)"
@@ -83,3 +89,14 @@ remote/logs/prd:
 new/writing:
 	NAME ?= $(shell bash -c 'read -s -p "Name: " name; echo $$name'')
 	hugo new content writing/$(NAME)
+
+init-server:
+	git clone https://github.com/grellyd/grellyddotcom
+	apt install make
+	apt install build-essential
+	snap install go --channel=1.21/stable --classic
+	snap install hugo
+	cp ~/grellyddotcom/systemd-ufw/grellyddotcom.service /etc/systemd/system
+	systemctl daemon-reload
+	systemctl enable grellyddotcom.service
+	

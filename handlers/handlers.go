@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"path/filepath"
 	"strings"
 
 	"github.com/google/uuid"
@@ -121,7 +122,7 @@ func File(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, fmt.Sprintln("Wrong method"), http.StatusBadRequest)
 		return
 	}
-	globallogger.Debug(fmt.Sprintf("Handling File\n"))
+	globallogger.Debug("Handling File")
 	sections, title, pending, err := decomposeURL(r.URL.Path)
 	if err != nil {
 		http.Error(w, fmt.Sprintf("unable to handle file: %s", err.Error()), http.StatusInternalServerError)
@@ -133,14 +134,13 @@ func File(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	filepath := "public"
-	for _, section := range sections {
-		filepath = fmt.Sprintf("%s/%s", filepath, section)
+	elems := append(sections, fmt.Sprintf("%s.%s", title, pending))
+	fp := fmt.Sprintf("./public/%s", strings.Join(elems, "/"))
+	if !filepath.IsLocal(fp) {
+		http.Error(w, fmt.Sprintf("bad request: invalid path of %s", fp), http.StatusBadRequest)
 	}
-
-	filepath = fmt.Sprintf("%s/%s.%s", filepath, title, pending)
-	globallogger.Debug(fmt.Sprintf("Serving '%s'", filepath))
-	http.ServeFile(w, r, filepath)
+	globallogger.Debug(fmt.Sprintf("Serving '%s'", fp))
+	http.ServeFile(w, r, fp)
 }
 
 // decomponseURL breaks a URL down into its sections and title for hugo's routing.
